@@ -1,0 +1,45 @@
+// =============================
+// 変数（色・ブレークポイント・フォント）
+// 値は模写対象に合わせて随時更新する
+// =============================
+
+// ブレークポイント
+$breakpoints: (
+  sp: 767px,
+  pc: 768px,
+);
+
+// -----------------------------
+// フォント（どちらも weight 400 固定）
+// -----------------------------
+$font-base: "Noto Serif JP", serif;   // 全体の標準フォント
+$font-en: "Cantata One", serif;       // 電話番号・料金など
+$font-weight-normal: 400;
+
+// -----------------------------
+// 色
+// -----------------------------
+// 無彩色
+$color-black: #171716;     // 黒文字 / 黒背景
+$color-white: #ffffff;     // 白文字 / 白背景
+$color-gray-text: #797979; // © 2018 華結び など
+
+// 背景
+$color-bg-gray: #f7f8fa;
+$color-bg-tab: #f6f3e9;    // 右端固定タブ背景
+$color-bg-rental: #f1f4f7; // レンタル衣装背景
+$color-bg-contact: #e6e8e9; // ご予約・お問い合わせ背景
+$color-bg-beige: #e3e0ce;
+
+// 赤系
+$color-red: #a50a24;       // 右端固定タブ背景
+$color-red-dark: #a83427;
+$color-pink: #fa666d;      // 幸せリポート 赤文字
+
+// 金系（用途未確定 / 明るさ順の暫定連番。用途確定後にリネーム）
+$color-gold-1: #856b1d;
+$color-gold-2: #ab7300;
+$color-gold-3: #ab8309;
+$color-gold-4: #9e8846;
+$color-gold-5: #bd9829;
+$color-gold-6: #c39e2f;

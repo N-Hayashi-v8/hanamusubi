@@ -1,0 +1,18 @@
+// =============================
+// FLOCSS エントリーポイント
+// 読み込み順: Foundation → Layout → Object
+// =============================
+
+// Foundation（土台。リセット後の base スタイル）
+@use "foundation";
+
+// Layout（ページ骨格: header / footer / main など）
+@use "layout";
+
+// Object（実装時に追加）
+//   object/component … 再利用する最小パーツ（.c-button など）
+//   object/project   … プロジェクト固有のまとまり（.p-hero など）
+//   object/utility   … 汎用調整（.u-mt-16 など）
+// @use "object/component";
+// @use "object/project";
+// @use "object/utility";

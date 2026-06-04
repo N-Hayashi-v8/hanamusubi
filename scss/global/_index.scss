@@ -1,0 +1,4 @@
+// global レイヤーの集約
+// 各パーシャルから `@use "../global" as *;` で参照する
+@forward "variables";
+@forward "mixin";

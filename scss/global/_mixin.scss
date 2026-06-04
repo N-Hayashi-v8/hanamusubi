@@ -1,0 +1,10 @@
+@use "sass:map";
+@use "variables" as *;
+
+// メディアクエリ（モバイルファースト想定）
+// 使い方: @include mq(pc) { ... }
+@mixin mq($breakpoint: pc) {
+  @media (min-width: map.get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
