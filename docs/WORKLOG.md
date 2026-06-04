@@ -7,6 +7,15 @@
   - `scss/`: FLOCSS 構成（global / foundation / layout）、`@use`/`@forward` で連結
   - 出力先 `css/style.css`、入力 `scss/style.scss`
   - `docs/TODO.md` / `docs/WORKLOG.md` を新規作成
+- 変数を定義（`scss/global/_variables.scss`）
+  - フォント: `$font-base`（Noto Serif JP）/ `$font-en`（Cantata One）、weight 400 固定
+  - 色: 無彩色・背景・赤系・金系を用途コメント付きで整理。金系6色は用途未確定のため明るさ順の暫定連番
+  - `_base.scss` の参照名を新変数（`$color-black` / `$color-white`）に追従
+- Git / GitHub 整備
+  - `gh` CLI を winget で導入し認証（account: N-Hayashi-v8）
+  - `.gitignore` 追加（OS / `*.css.map` / `node_modules`）、`css/style.css.map` を追跡から除外
+  - イニシャルコミット（48ファイル）→ Private リモート作成・push 済み
+  - リポジトリ: <https://github.com/N-Hayashi-v8/hanamusubi>
 
 ---
 
