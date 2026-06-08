@@ -1,0 +1,25 @@
+@use "../../global" as *;
+
+.p-mv {
+  position: relative;
+  height: 100vh;           // 縦横フルのメインビジュアル
+
+  &__slider {
+    position: absolute;
+    inset: 0;
+  }
+
+  &__slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;     // 全画面を覆う
+    opacity: 0;
+    transition: opacity 1s ease;
+
+    &.is-active {
+      opacity: 1;
+    }
+  }
+}

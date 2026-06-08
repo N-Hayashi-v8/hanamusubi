@@ -14,5 +14,5 @@
 //   object/project   … プロジェクト固有のまとまり（.p-hero など）
 //   object/utility   … 汎用調整（.u-mt-16 など）
 // @use "object/component";
-// @use "object/project";
+@use "object/project";
 // @use "object/utility";

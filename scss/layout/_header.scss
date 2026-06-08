@@ -1,4 +1,85 @@
 @use "../global" as *;
 
-// .l-header { ... }
-// ヘッダーを組む段でここに書く
+// 左ロゴ幅。右スペーサーと一致させてナビを中央に保つ
+$header-side-w: 14rem;
+
+.l-header {
+  position: absolute;   // FV 下部に重ねる。Step 7 で fixed へ切り替え予定
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 8rem;         // 価格欄の bottom:8rem と揃えて被りを解消
+  z-index: 30;          // FV 内で最前面（重なり順: 画像→価格→サイドバー→ヘッダー）
+  background-color: rgba($color-black, 0.8);   // 帯だけ80%（文字・ロゴは不透明）
+  color: $color-white;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;           // 帯の高さいっぱい＋縦中央
+    padding: 0 4rem;        // 左右のみ。上下は align-items で中央
+
+    // 左ロゴと同じ幅の右スペーサー。ナビを帯の中央に保つ
+    &::after {
+      content: "";
+      width: $header-side-w;
+    }
+  }
+
+  &__logo {
+    width: $header-side-w;  // 右スペーサーと共通
+    line-height: 0;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  // 初期状態でナビ帯に被る大ロゴ
+  &__logo-lg {
+    position: absolute;
+    left: 21.6rem;          // Figma left 218px → 216px に丸め
+    bottom: 6rem;           // 仮: ナビ上端に少し重なる位置（コンプで微調整）
+    width: 21rem;           // Figma width 210px
+    line-height: 0;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  // 初期（非固定）: ナビ内の小ロゴは隠す（幅は保持して項目位置を一定に）
+  &:not(.is-fixed) &__logo {
+    visibility: hidden;
+  }
+
+  // 固定状態: 上端へ fixed し、大ロゴを隠す
+  &.is-fixed {
+    position: fixed;
+    top: 0;
+    bottom: auto;
+  }
+
+  &.is-fixed &__logo-lg {
+    display: none;
+  }
+
+  &__nav {
+    flex: 1;                          // 残り幅いっぱいに広げる
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;   // 項目を均等配置
+  }
+
+  &__item {
+    font-size: 1.4rem;
+
+    a {
+      color: $color-white;
+    }
+  }
+}
