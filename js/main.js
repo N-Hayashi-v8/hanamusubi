@@ -12,6 +12,56 @@ if (slides.length > 1) {
   }, 5000);
 }
 
+// 幸せレポートのカルーセル（3枚表示・5枚を無限ループ）
+// DOMを回転させる方式: クローンを作らず、端の1枚を反対側へ移動する
+const reportTrack = document.querySelector(".p-report__track");
+const reportPrev = document.querySelector(".p-report__arrow--prev");
+const reportNext = document.querySelector(".p-report__arrow--next");
+
+if (reportTrack && reportPrev && reportNext) {
+  const duration = 400; // ms。SCSS側のtransitionと揃える
+  let animating = false;
+
+  // 1枚ぶんの移動量（カード幅＋gap）を実測
+  const stepX = () => {
+    const first = reportTrack.firstElementChild;
+    const gap = parseFloat(getComputedStyle(reportTrack).columnGap) || 0;
+    return first.getBoundingClientRect().width + gap;
+  };
+
+  const goNext = () => {
+    if (animating) return;
+    animating = true;
+    reportTrack.style.transition = `transform ${duration}ms ease`;
+    reportTrack.style.transform = `translateX(-${stepX()}px)`;
+    reportTrack.addEventListener("transitionend", () => {
+      reportTrack.style.transition = "none";
+      reportTrack.style.transform = "translateX(0)";
+      reportTrack.appendChild(reportTrack.firstElementChild); // 先頭を末尾へ
+      animating = false;
+    }, { once: true });
+  };
+
+  const goPrev = () => {
+    if (animating) return;
+    animating = true;
+    // 先に末尾を先頭へ移し、その分ずらした位置から0へ戻す
+    reportTrack.insertBefore(reportTrack.lastElementChild, reportTrack.firstElementChild);
+    reportTrack.style.transition = "none";
+    reportTrack.style.transform = `translateX(-${stepX()}px)`;
+    requestAnimationFrame(() => {
+      reportTrack.style.transition = `transform ${duration}ms ease`;
+      reportTrack.style.transform = "translateX(0)";
+    });
+    reportTrack.addEventListener("transitionend", () => {
+      animating = false;
+    }, { once: true });
+  };
+
+  reportNext.addEventListener("click", goNext);
+  reportPrev.addEventListener("click", goPrev);
+}
+
 // ヘッダーのスクロール固定（上端到達で .is-fixed を付与）
 const header = document.querySelector(".l-header");
 const mv = document.querySelector(".p-mv");

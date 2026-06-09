@@ -28,11 +28,12 @@ $header-side-w: 14rem;
   }
 
   &__logo {
-    width: $header-side-w;  // 右スペーサーと共通
+    width: $header-side-w;  // 右スペーサーと共通（枠幅は維持しナビ中央を保つ）
     line-height: 0;
 
     img {
-      width: 100%;
+      height: 4.4rem;       // 帯高さ8remに余裕をもって収める（幅は比率で自動）
+      width: auto;
     }
   }
 

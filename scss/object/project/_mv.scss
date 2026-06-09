@@ -3,6 +3,7 @@
 .p-mv {
   position: relative;
   height: 100vh;           // 縦横フルのメインビジュアル
+  overflow: hidden;        // 右外へ退避した p-side パネルのはみ出しを隠す
 
   &__slider {
     position: absolute;
