@@ -3,13 +3,47 @@
 // フッター（黒地・上段ナビ＋下段ロゴ/住所/SNS）
 // 寸法・色は Figma 未共有のため仮置き（// 要確認）。後で実値に置換する
 .l-footer {
+  position: relative;                              // pagetop の docked 位置基準
   background-color: $color-black;
   color: $color-white;
+
+  // -----------------------------
+  // ページトップへ戻るボタン
+  // 通常はフッター内（nav の上・右寄せ）に収まり、
+  // スクロール中だけ .is-fixed で右下に固定表示する
+  // -----------------------------
+  &__pagetop {
+    position: absolute;                            // nav 帯の中で縦中央に重ねる
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 1;                                     // nav の前面（右端の余白に収まる）
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 7rem;
+    height: 7rem;
+    background-color: $color-black;                 // 黒の四角
+    color: $color-white;                            // シェブロン（currentColor）
+
+    &.is-fixed {
+      position: fixed;
+      top: auto;                                    // ベースの top/transform を打ち消す
+      right: 0;
+      bottom: 2.3rem;                               // 底から 23px 浮かせる
+      transform: none;
+      z-index: 90;                                  // 前面（ヘッダーと干渉しない範囲）
+    }
+  }
 
   // -----------------------------
   // 上段ナビ（中央寄せ＋下罫線）
   // -----------------------------
   &__nav {
+    position: relative;                            // pagetop の基準
+    display: flex;
+    align-items: center;                           // 中身を縦中央
+    min-height: 8rem;                              // ボタン7rem＋上下クリアランス 要確認
     border-bottom: 1px solid $color-gold-2;        // 区切り線 #AB7300
   }
 
@@ -17,7 +51,8 @@
     display: flex;
     justify-content: center;
     gap: 6rem;                                     // 項目間 60px
-    padding: 2.4rem 2rem;                          // 上下 要確認
+    width: 100%;                                   // nav 内で全幅（中央寄せ維持）
+    padding: 2rem;                                 // 左右 要確認（上下は nav 高で確保）
     font-size: 1.4rem;                             // 要確認
   }
 

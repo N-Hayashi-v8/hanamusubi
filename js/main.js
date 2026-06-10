@@ -93,3 +93,29 @@ if (header && mv) {
     onScroll();
   });
 }
+
+// ページトップへ戻るボタン
+// 下へスクロールすると右下に固定表示。フッターに達したらフッター内の定位置へ収める
+const pageTop = document.querySelector(".l-footer__pagetop");
+const footer = document.querySelector(".l-footer");
+
+if (pageTop && footer) {
+  const gap = 23;                  // SCSS の margin-bottom と揃える（px）
+  const showFrom = 300;            // この量スクロールしたら表示 要確認
+
+  const onPageTopScroll = () => {
+    // 固定時の着地点（ビューポート下からボタン高さ＋gap）
+    const dockPoint = window.innerHeight - (pageTop.offsetHeight + gap);
+    const footerTop = footer.getBoundingClientRect().top;
+    // 一定量スクロール済み かつ フッターがまだ着地点より下にある間だけ固定
+    if (window.scrollY > showFrom && footerTop > dockPoint) {
+      pageTop.classList.add("is-fixed");
+    } else {
+      pageTop.classList.remove("is-fixed");
+    }
+  };
+
+  window.addEventListener("load", onPageTopScroll);
+  window.addEventListener("scroll", onPageTopScroll);
+  window.addEventListener("resize", onPageTopScroll);
+}
