@@ -1,0 +1,105 @@
+@use "../../global" as *;
+
+// ブログ＋Facebook（全幅帯に2カラム）
+// 寸法・色は Figma 未共有のため仮置き（// 要確認）。後で実値に置換する
+.p-blog {
+  padding: 8rem 0;                                // 要確認
+  background-image: url("../img/top/bg_blog_wrap02.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &__inner {
+    display: flex;
+    justify-content: center;
+    gap: 6rem;                                     // 左右カラム間 要確認
+    width: 104rem;                                 // 中央コンテナ 要確認
+    margin: 0 auto;
+  }
+
+  &__col {
+    &--blog {
+      width: 46rem;                                // 左カラム幅 要確認
+    }
+
+    &--fb {
+      width: 36rem;                                // 右カラム幅 要確認
+    }
+  }
+
+  // -----------------------------
+  // 見出し（◆＋テキスト＋金罫線）
+  // -----------------------------
+  &__head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-bottom: 1.2rem;                        // 要確認
+    border-bottom: 1px solid $color-gold-2;        // 金の罫線 要確認
+  }
+
+  &__title {
+    font-size: 2rem;                               // 要確認
+    line-height: 1;
+
+    // 先頭の金の菱形
+    &::before {
+      content: "◆";
+      margin-right: 1rem;                          // 要確認
+      color: $color-gold-2;
+      font-size: 1.6rem;                           // 要確認
+    }
+  }
+
+  // 「一覧を見る ›」
+  &__index {
+    color: $color-black;
+    font-size: 1.2rem;                             // 要確認
+
+    &::after {
+      content: "›";
+      margin-left: 0.6rem;                         // 要確認
+    }
+  }
+
+  // -----------------------------
+  // 記事リスト
+  // -----------------------------
+  &__item {
+    border-bottom: 1px solid $color-gold-2;        // 記事間の金罫線 要確認
+  }
+
+  &__link {
+    display: block;
+    padding: 2rem 0;                               // 記事の上下余白 要確認
+  }
+
+  &__meta {
+    color: $color-gray-text;                       // 日付・カテゴリ
+    font-size: 1.2rem;                             // 要確認
+    line-height: 1;
+  }
+
+  &__post-title {
+    margin-top: 1rem;                              // meta→タイトル 要確認
+    font-size: 1.6rem;                             // 要確認
+    line-height: 1.4;
+  }
+
+  // -----------------------------
+  // Facebook プレースホルダー枠
+  // -----------------------------
+  &__fb {
+    display: flex;
+    align-items: center;
+    margin-top: 2.4rem;                            // 見出し→枠 要確認
+    padding: 0 3.2rem;                             // 要確認
+    height: 16rem;                                 // 要確認
+    background-color: $color-white;
+  }
+
+  &__fb-text {
+    font-size: 1.6rem;                             // 要確認
+    line-height: 1.8;
+  }
+}

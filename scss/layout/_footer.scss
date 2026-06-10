@@ -1,0 +1,73 @@
+@use "../global" as *;
+
+// フッター（黒地・上段ナビ＋下段ロゴ/住所/SNS）
+// 寸法・色は Figma 未共有のため仮置き（// 要確認）。後で実値に置換する
+.l-footer {
+  background-color: $color-black;
+  color: $color-white;
+
+  // -----------------------------
+  // 上段ナビ（中央寄せ＋下罫線）
+  // -----------------------------
+  &__nav {
+    border-bottom: 1px solid $color-gold-2;        // 区切り線 #AB7300
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    gap: 6rem;                                     // 項目間 60px
+    padding: 2.4rem 2rem;                          // 上下 要確認
+    font-size: 1.4rem;                             // 要確認
+  }
+
+  // -----------------------------
+  // 下段（左:ロゴ・住所 / 右:SNS・コピーライト）
+  // -----------------------------
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    width: 104rem;                                 // 中央コンテナ 要確認
+    margin: 0 auto;
+    padding: 4rem 0;                               // 要確認
+  }
+
+  &__logo img {
+    width: 33rem;                                  // 330px（660px@2x）要確認
+  }
+
+  &__address {
+    margin-top: 2.4rem;                            // ロゴ→住所 要確認
+    font-size: 1.4rem;                             // 要確認
+    line-height: 2;
+  }
+
+  // 右カラム（縦に分散して上=SNS / 下=コピーライト）
+  &__side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  &__sns {
+    display: flex;
+    gap: 1.2rem;                                   // アイコン間 要確認
+  }
+
+  &__sns-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;                                   // 円の直径 要確認
+    height: 4rem;
+    border: 1px solid rgba($color-white, 0.6);     // 枠線 要確認
+    border-radius: 50%;
+    color: $color-white;                           // SVG は currentColor
+  }
+
+  &__copy {
+    color: $color-gray-text;                       // © 2018 華結び
+    font-size: 1.2rem;                             // 要確認
+  }
+}

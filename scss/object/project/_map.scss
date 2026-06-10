@@ -1,0 +1,11 @@
+@use "../../global" as *;
+
+// Googleマップ（全幅 × 390px の埋め込み）
+.p-map {
+  &__frame {
+    display: block;
+    width: 100%;
+    height: 39rem;                                 // 390px
+    border: 0;
+  }
+}
