@@ -8,7 +8,7 @@ $header-side-w: 14rem;
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 8rem;         // 価格欄の bottom:8rem と揃えて被りを解消
+  height: $header-h;    // 価格欄の bottom:8rem と揃えて被りを解消
   z-index: 30;          // FV 内で最前面（重なり順: 画像→価格→サイドバー→ヘッダー）
   background-color: rgba($color-black, 0.8);   // 帯だけ80%（文字・ロゴは不透明）
   color: $color-white;
@@ -51,12 +51,21 @@ $header-side-w: 14rem;
   }
 
   // 初期（非固定）: ナビ内の小ロゴは隠す（幅は保持して項目位置を一定に）
-  &:not(.is-fixed) &__logo {
+  // 子ページ（--page）は最初から小ロゴを見せるので除外
+  &:not(.is-fixed):not(.l-header--page) &__logo {
     visibility: hidden;
   }
 
   // 固定状態: 上端へ fixed し、大ロゴを隠す
   &.is-fixed {
+    position: fixed;
+    top: 0;
+    bottom: auto;
+  }
+
+  // 子ページ用: FV が無いので最初から上端固定・小ロゴ表示
+  // （大ロゴ __logo-lg は子ページの markup に置かない）
+  &--page {
     position: fixed;
     top: 0;
     bottom: auto;

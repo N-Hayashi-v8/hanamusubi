@@ -1,0 +1,22 @@
+@use "../../global" as *;
+
+// section1: イントロ（テクスチャ背景＋中央キャッチ＋本文）
+.p-about-intro {
+  padding: 10rem 12rem 12rem;  // 上10 / 左右120 / 下120（px）要確認
+  background-image: url("../img/about/bg_intro01_pc.png");
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+
+  &__catch {
+    font-size: 2.8rem;          // 要確認
+    line-height: 1;
+    letter-spacing: 0.08em;
+  }
+
+  &__text {
+    margin-top: 4rem;           // 要確認: キャッチ→本文
+    font-size: 1.6rem;
+    line-height: 2.4;           // 要確認: 行間
+  }
+}

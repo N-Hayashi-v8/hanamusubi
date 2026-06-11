@@ -1,0 +1,27 @@
+@use "../../global" as *;
+
+// section3型: 左テキスト / 右画像の2カラム（合計1680px、画像は右端まで）
+// 中身（左）は .p-about-card
+.p-about-cols {
+  display: flex;
+  align-items: center;        // テキストを画像の縦中央に
+
+  &__text {
+    width: 79rem;             // 左790px
+    padding-inline: 12rem;    // 中の文章を左右120pxインセット 要確認
+  }
+
+  &__img {
+    width: 89rem;             // 右890px
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  // 画像を左に置く場合（交互配置用）
+  &--reverse {
+    flex-direction: row-reverse;
+  }
+}

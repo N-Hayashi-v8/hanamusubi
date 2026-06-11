@@ -1,0 +1,7 @@
+@use "../global" as *;
+
+// 子ページの本文ラッパー
+// ヘッダーが position:fixed で浮くぶん、本文を帯の高さだけ下げる
+.l-main {
+  padding-top: $header-h;
+}

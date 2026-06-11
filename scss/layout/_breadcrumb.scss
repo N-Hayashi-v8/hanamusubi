@@ -1,0 +1,39 @@
+@use "../global" as *;
+
+// 各ページ共通のパンくず
+.l-breadcrumb {
+  max-width: 168rem;            // 1680px フレームに合わせて中央寄せ
+  margin-inline: auto;
+  margin-block: 6rem;           // 上下に60px（上=固有エリアとの境界 / 下=次の共通sectionとの間）
+  padding: 6rem 0 1.2rem 41rem; // 上60 / 右0 / 下12 / 左410（テキスト左余白）
+  color: $color-gold-4;         // #9E8846
+  font-size: 1.2rem;            // 要確認
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  // item 自体も flex にして、擬似要素を文字とボックス基準で縦中央に揃える
+  &__item {
+    display: flex;
+    align-items: center;
+  }
+
+  // 2つ目以降の前に区切りの ＞ を擬似要素で入れる（左右に1rem）
+  // 4px角の箱の上・右ボーダーを45度回転させてシェブロンに
+  &__item:not(:first-child)::before {
+    content: "";
+    width: 0.4rem;
+    height: 0.4rem;
+    margin: 0 1rem;
+    border-top: 1px solid currentColor;
+    border-right: 1px solid currentColor;
+    transform: rotate(45deg);
+  }
+
+  &__item a {
+    color: $color-black;   // リンク（HOME）は黒。区切り・現在ページは金のまま
+  }
+}

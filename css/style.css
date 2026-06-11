@@ -56,10 +56,15 @@ img {
 .l-header__logo-lg img {
   width: 100%;
 }
-.l-header:not(.is-fixed) .l-header__logo {
+.l-header:not(.is-fixed):not(.l-header--page) .l-header__logo {
   visibility: hidden;
 }
 .l-header.is-fixed {
+  position: fixed;
+  top: 0;
+  bottom: auto;
+}
+.l-header--page {
   position: fixed;
   top: 0;
   bottom: auto;
@@ -94,6 +99,40 @@ img {
   font-size: 1.4rem;
   line-height: 1;
   letter-spacing: 0;
+}
+
+.l-main {
+  padding-top: 8rem;
+}
+
+.l-breadcrumb {
+  max-width: 168rem;
+  margin-inline: auto;
+  margin-block: 6rem;
+  padding: 6rem 0 1.2rem 41rem;
+  color: #9e8846;
+  font-size: 1.2rem;
+}
+.l-breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.l-breadcrumb__item {
+  display: flex;
+  align-items: center;
+}
+.l-breadcrumb__item:not(:first-child)::before {
+  content: "";
+  width: 0.4rem;
+  height: 0.4rem;
+  margin: 0 1rem;
+  border-top: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+  transform: rotate(45deg);
+}
+.l-breadcrumb__item a {
+  color: #171716;
 }
 
 .l-footer {
@@ -181,7 +220,6 @@ img {
 .p-mv {
   position: relative;
   height: 100vh;
-  overflow: hidden;
 }
 .p-mv__slider {
   position: absolute;
@@ -202,10 +240,11 @@ img {
 }
 
 .p-side {
-  position: absolute;
-  top: 12rem;
+  position: fixed;
+  top: 15rem;
   right: 0;
-  z-index: 20;
+  z-index: 40;
+  overflow: hidden;
 }
 .p-side__item {
   display: flex;
@@ -264,6 +303,135 @@ img {
   background-position: center;
   color: #ffffff;
   font-size: 1.4rem;
+}
+
+.p-page-title {
+  padding-top: 10rem;
+  padding-bottom: 9rem;
+  text-align: center;
+}
+.p-page-title__text {
+  font-size: 3rem;
+  line-height: 1;
+  letter-spacing: 0.1em;
+}
+.p-page-title__line {
+  display: block;
+  width: 7rem;
+  height: 1px;
+  margin: 2.5rem auto 0;
+  background-color: #ab7300;
+}
+
+.p-about-section {
+  max-width: 168rem;
+  margin-inline: auto;
+}
+
+.p-about-section + .p-about-section {
+  margin-top: 6rem;
+}
+
+.p-about-intro {
+  padding: 10rem 12rem 12rem;
+  background-image: url("../img/about/bg_intro01_pc.png");
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+}
+.p-about-intro__catch {
+  font-size: 2.8rem;
+  line-height: 1;
+  letter-spacing: 0.08em;
+}
+.p-about-intro__text {
+  margin-top: 4rem;
+  font-size: 1.6rem;
+  line-height: 2.4;
+}
+
+.p-about-card {
+  text-align: center;
+}
+.p-about-card__num {
+  font-family: "Cantata One", serif;
+  font-size: 2rem;
+}
+.p-about-card__title {
+  margin-top: 1.2rem;
+  font-size: 2.4rem;
+}
+.p-about-card__text {
+  margin-top: 2.4rem;
+  font-size: 1.4rem;
+  line-height: 2;
+  text-align: left;
+}
+.p-about-card__btn {
+  position: relative;
+  display: inline-block;
+  margin-top: 3rem;
+  padding: 1.4rem 6rem;
+  border: 1px solid #171716;
+  font-size: 1.4rem;
+}
+.p-about-card__btn::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border-style: solid;
+  border-width: 0 0 0.9rem 0.9rem;
+  border-color: transparent transparent #ab7300 transparent;
+}
+
+.p-about-block {
+  position: relative;
+  min-height: 68rem;
+  background-size: cover;
+  background-position: center;
+}
+.p-about-block__card {
+  position: absolute;
+  top: 7rem;
+  width: 54rem;
+  min-height: 54rem;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #ffffff;
+}
+.p-about-block--01 {
+  background-image: url("../img/about/bg_about01.png");
+}
+.p-about-block--01 .p-about-block__card {
+  left: 87rem;
+}
+.p-about-block--06 {
+  background-image: url("../img/about/bg_about06.png");
+}
+.p-about-block--06 .p-about-block__card {
+  left: 30rem;
+}
+
+.p-about-cols {
+  display: flex;
+  align-items: center;
+}
+.p-about-cols__text {
+  width: 79rem;
+  padding-inline: 12rem;
+}
+.p-about-cols__img {
+  width: 89rem;
+}
+.p-about-cols__img img {
+  display: block;
+  width: 100%;
+}
+.p-about-cols--reverse {
+  flex-direction: row-reverse;
 }
 
 .p-price {

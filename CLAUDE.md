@@ -77,3 +77,5 @@
 - OS: Windows
 - Editor: VSCode
 - Shell: PowerShell（またはGit Bash）
+- SCSSのコンパイルはVSCodeのLive Sass Compiler（Watch Sass）で行う。`scss/style.scss` → `css/style.css` は保存時に自動生成される
+- そのため `sass`/`npx` などCLIコンパイル環境の有無を毎回確認しなくてよい。SCSS編集後は「保存で再コンパイルされる」前提で進める
