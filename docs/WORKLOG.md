@@ -1,5 +1,25 @@
 # WORKLOG
 
+## 2026-06-11
+
+- 子ページ共通の基盤を整備
+  - `l-header--page` 修飾子を追加: 子ページは FV が無いため最初から `fixed` で上端固定・小ロゴ表示（大ロゴは markup に置かない）。ヘッダー高さを変数 `$header-h: 8rem` に切り出し（`_variables.scss`）
+  - `layout/_main.scss` を新設: `.l-main` に `padding-top: $header-h` を持たせ、固定ヘッダーぶん本文を下げる
+  - サイドバー（`p-side`）を全ページ共通化: `p-mv` 内の `absolute` をやめ、body 直下＋`position: fixed`（top 15rem / z-index 40）に変更。スクロール中も右端に追従。パネルのはみ出しクリップは `p-mv` の `overflow: hidden` から `p-side` 自身の `overflow: hidden` に移管
+  - `index.html`・`l-footer` のナビから `pages/about.html` へリンク
+- 「華結びについて」ページ（`pages/about.html`）を実装
+  - `p-page-title`: 子ページ共通のタイトルセクション（中央見出し＋金の短い下線。余白 100/25/90px）
+  - `p-about-section`: ページ共通ラッパー（max-width 168rem・セクション間 60px）
+  - `p-about-intro`: テクスチャ背景 `bg_intro01_pc` ＋中央キャッチ・本文
+  - `p-about-card`: 番号（Cantata）→見出し→本文→枠ボタン（右下金三角）の共通文章クラスター
+  - `p-about-block`（section2/7）: 全幅写真背景に 540×540 の白カードを座標指定で重ねる型。`--01`（カード右寄り）/`--06`（カード左寄り）
+  - `p-about-cols`（section3〜6）: 左テキスト 790px / 右画像 890px の2カラム。`--reverse` で左右反転し交互配置
+  - 画像 `img/about/` を追加（背景2・イントロ背景1・写真4）。フォント・余白の多くは Figma 実値未確定のため仮置き（`// 要確認`）
+- パンくず（`layout/_breadcrumb.scss`）を実装
+  - 子ページ下部の共通パンくず。`ol` を flex 横並び、2つ目以降の前に 4px 角ボックスの上・右ボーダーを 45 度回転させたシェブロンを擬似要素で挿入
+  - シェブロンの縦位置ずれを修正: `vertical-align: middle`（ベースライン基準で数pxずれる）をやめ、`__item` を `display: flex; align-items: center` にしてボックス基準の縦中央揃えに変更
+- CLAUDE.md に環境メモを追記（SCSS は Live Sass Compiler の Watch Sass で自動コンパイルされる前提）
+
 ## 2026-06-10
 
 - ブログ（`p-blog`）を実装

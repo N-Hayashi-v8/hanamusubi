@@ -4,6 +4,8 @@
 
 - [ ] ブレークポイントの確定（暫定: sp 767 / pc 768）
 - [ ] 各セクションの仮置き（`// 要確認`）を Figma 実値で確定（特に `p-blog` の幅・フッターの余白）
+- [ ] about ページの仮置き（`// 要確認`）を確定（`p-page-title`・`p-about-*`・`l-breadcrumb` のフォント/余白）
+- [ ] 共通フッターセクションの作成（パンくず以降、子ページ下部の共通エリア）
 
 ## Next
 
@@ -11,9 +13,13 @@
 - [ ] Googleマップ（`p-map`）の住所を実店舗に差し替え
 - [ ] object/component・utility の追加
 - [ ] 金系カラーの用途確定後に変数名をリネーム
+- [ ] 残りの子ページ（レンタル衣装・衣装制作 など）の作成
 
 ## Done
 
+- [x] パンくず（`l-breadcrumb`）実装（シェブロンは `__item` の flex で縦中央揃え）
+- [x] 「華結びについて」ページ（`pages/about.html`）実装（`p-page-title`／`p-about-intro`／`p-about-block`／`p-about-cols`）
+- [x] 子ページ共通基盤（`l-header--page`・`l-main`・`p-side` のビューポート固定化）
 - [x] ページトップへ戻るボタン（`l-footer__pagetop`）実装（スクロールで右下固定／フッターで帯内に縦中央収納）
 - [x] フッター（`l-footer`）実装（中央ナビ＋金罫線＋ロゴ/住所＋SNS円/コピーライト）
 - [x] Googleマップ（`p-map`）実装（全幅×390px の埋め込み iframe）
