@@ -1,5 +1,14 @@
 # WORKLOG
 
+## 2026-06-12
+
+- 子ページ共通フッターセクション（パンくず以降の下部エリア）を実装
+  - `p-btn-field--page` 修飾子を追加: 子ページは4ボタン（先頭に「華結びについて」）。ボタン 266×80、帯の上余白 80px（下は対称と仮定）。Figma の `left: 410` は 1920px カンバスのセンタリング＋gap 12px で自動成立するため CSS には書かない
+  - お問い合わせ `p-contact` を新規実装（`_contact.scss`）: 灰帯 `$color-bg-contact`（#E6E8E9・定義済み変数）＋中央白カード 940px。内側 1px 罫線は `::before` + `inset: 1rem`（左右インセット・色は仮）。タイトル 26/34、「TEL.」26＋番号 40（Cantata）、営業時間 16/20（lh 21→20 に丸め）。ボタン 230×60 は高さ固定せず `padding: 2rem 0`＋行高 20px で成立させ、`bg_btn01.png`（p-side と共通）を再利用
+  - Googleマップ `p-map` を index.html と同一マークアップで移植（iframe の src は絶対URLのためパス調整不要）
+  - 背景 `bg_pattern03.png` のパスは変更不要と判断: CSS の `url()` は style.css 基準で解決されるため子ページでもそのまま届く
+- CLAUDE.md の CSS/SCSS Policy に追記: Figma の `top`/`left` は絶対座標ではなく margin・padding・flex 配置で発生する相対位置として解釈する（センタリング等で成立する値は CSS に書かない）
+
 ## 2026-06-11
 
 - 子ページ共通の基盤を整備

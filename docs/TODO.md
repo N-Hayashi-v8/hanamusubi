@@ -5,7 +5,7 @@
 - [ ] ブレークポイントの確定（暫定: sp 767 / pc 768）
 - [ ] 各セクションの仮置き（`// 要確認`）を Figma 実値で確定（特に `p-blog` の幅・フッターの余白）
 - [ ] about ページの仮置き（`// 要確認`）を確定（`p-page-title`・`p-about-*`・`l-breadcrumb` のフォント/余白）
-- [ ] 共通フッターセクションの作成（パンくず以降、子ページ下部の共通エリア）
+- [ ] `p-contact` の残り仮置きを確定（カード上下padding・row余白・内側罫線の色/左右インセット・帯下余白）
 
 ## Next
 
@@ -17,6 +17,7 @@
 
 ## Done
 
+- [x] 子ページ共通フッターセクション実装（`p-btn-field--page` 4ボタン帯／お問い合わせ `p-contact`／Googleマップ移植）
 - [x] パンくず（`l-breadcrumb`）実装（シェブロンは `__item` の flex で縦中央揃え）
 - [x] 「華結びについて」ページ（`pages/about.html`）実装（`p-page-title`／`p-about-intro`／`p-about-block`／`p-about-cols`）
 - [x] 子ページ共通基盤（`l-header--page`・`l-main`・`p-side` のビューポート固定化）
