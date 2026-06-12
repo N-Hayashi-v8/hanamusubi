@@ -807,6 +807,76 @@ img {
   font-size: 1.4rem;
   line-height: 1.4rem;
 }
+.p-btn-field--page {
+  padding: 8rem 0;
+}
+.p-btn-field--page .p-btn-field__btn {
+  width: 26.6rem;
+  height: 8rem;
+}
+
+.p-contact {
+  padding: 6rem 0;
+  background-color: #e6e8e9;
+}
+.p-contact__box {
+  position: relative;
+  width: 94rem;
+  margin-inline: auto;
+  padding: 4rem 0;
+  background-color: #ffffff;
+}
+.p-contact__box::before {
+  content: "";
+  position: absolute;
+  inset: 1rem;
+  border: 1px solid #c39e2f;
+  pointer-events: none;
+}
+.p-contact__title {
+  font-size: 2.6rem;
+  line-height: 3.4rem;
+  text-align: center;
+}
+.p-contact__row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  margin-top: 2.4rem;
+}
+.p-contact__tel {
+  font-size: 2.6rem;
+  line-height: 3.4rem;
+  text-align: center;
+}
+.p-contact__tel-num {
+  font-family: "Cantata One", serif;
+  font-size: 4rem;
+  line-height: 4rem;
+}
+.p-contact__hours {
+  font-size: 1.6rem;
+  line-height: 2rem;
+  text-align: center;
+}
+.p-contact__btns {
+  display: flex;
+  gap: 1.6rem;
+}
+.p-contact__btn {
+  display: inline-block;
+  width: 23rem;
+  padding: 2rem 0;
+  background-color: #ab7300;
+  background-image: url("../img/top/bg_btn01.png");
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  font-size: 1.6rem;
+  line-height: 2rem;
+  text-align: center;
+}
 
 .p-report {
   position: relative;

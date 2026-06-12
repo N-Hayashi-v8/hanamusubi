@@ -49,4 +49,14 @@
     font-size: 1.4rem;                             // 14px
     line-height: 1.4rem;                           // 14px
   }
+
+  // 子ページ下部の共通帯（4ボタン・小さめ）
+  &--page {
+    padding: 8rem 0;            // Figma top 80px。下側は対称と仮定 要確認
+
+    .p-btn-field__btn {
+      width: 26.6rem;           // Figma 266px
+      height: 8rem;             // Figma 80px
+    }
+  }
 }
