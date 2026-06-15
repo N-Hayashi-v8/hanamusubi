@@ -1,5 +1,16 @@
 # WORKLOG
 
+## 2026-06-15
+
+- レンタル衣装ページ（`pages/rental.html`）を作成・完成
+  - まず共通雛形を先行作成: about.html の共通部分（head/`l-header--page`/`p-side`/`p-page-title`/パンくず/`p-btn-field--page`/`p-contact`/`p-map`/`l-footer`）をそのまま流用。差し替えは `<title>`・`p-page-title__text`・パンくず末尾の3点のみ。ユニーク部分は TODO コメント付きプレースホルダーで開始
+  - 導線を接続: ナビ「レンタル衣装」の `href="#"` を rental.html へ（index.html ヘッダー/フッター → `pages/rental.html`、about.html → `rental.html`）。belief の「レンタル衣装一覧」(index 187行)は一覧ページ向けの可能性があり別物として保留
+  - section1〜3（色打掛/白無垢/引振袖）を新コンポーネント `p-costume`（`_costume.scss`）で実装: 1680幅写真をセンタリング（left120 は自動成立で未記述）し、570×530の白箱を写真内に `absolute`（top75/left1000＝右寄り）で重ねる型。`--reverse` で箱を左寄り（left11rem＝右インセット110pxと対称）。内側線は `::before` の inset:1rem＋1px金枠。section間 `& + &` で5rem。タイトル 42/56（55→丸め）、本文 18/36・width410、「一覧を見る ›」は金シェブロン＋金下線
+  - section4〜6（留袖/訪問着/振袖）を新コンポーネント `p-costume-cols`（`_costume-cols.scss`）で実装: 1100幅を 1:1 に分割した2カラム（各550）。既定=画像左/白箱右、`--reverse`（訪問着）=画像右/白箱左。`align-items: stretch` で白箱を画像高さに追従（高さ固定なし）。行間・カラム間は余白なし。`.p-costume + &` で 3→4 間18rem、`.p-costume-cols + .l-breadcrumb` で 6→パンくず間2rem（about のパンくずには非干渉）
+  - 「一覧を見る」に #AB7300 の下線を追加（`text-decoration-color: $color-gold-2` ＋ `text-underline-offset`）。`::after` の金シェブロンは `inline-block` のため下線が乗らない
+  - ページ地色を #F1F4F7 に: `<body class="rental-page">` ＋ `.rental-page { background-color: $color-bg-rental }`（既存変数を流用）。body直付けで l-main の隙間に出す。他ページ非干渉
+  - `object/project/_index.scss` に `@forward "costume";` `@forward "costume-cols";` を追加
+
 ## 2026-06-12
 
 - 子ページ共通フッターセクション（パンくず以降の下部エリア）を実装
