@@ -1138,6 +1138,107 @@ img {
   line-height: 3.2rem;
 }
 
+.p-first-main__img {
+  display: block;
+  width: 100%;
+}
+
+.p-first-iroha {
+  width: 168rem;
+  max-width: 100%;
+  margin-inline: auto;
+  margin-top: 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 46.4rem;
+  padding-inline: 2rem;
+  background: url("../img/first/bg_iroha01.jpg") center/cover no-repeat;
+  text-align: center;
+}
+.p-first-iroha__title {
+  font-size: 3.2rem;
+  line-height: 4.2rem;
+}
+.p-first-iroha__text {
+  margin-top: 4rem;
+  font-size: 1.6rem;
+  line-height: 4.2rem;
+}
+
+.p-first-type {
+  width: 110rem;
+  max-width: 100%;
+  margin-inline: auto;
+  margin-top: 10rem;
+}
+.p-first-type__heading {
+  font-size: 3.2rem;
+  line-height: 1.4;
+  text-align: center;
+}
+.p-first-type__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  -webkit-column-gap: 5rem;
+     -moz-column-gap: 5rem;
+          column-gap: 5rem;
+  margin-top: 6rem;
+}
+.p-first-type__img {
+  display: block;
+  width: 100%;
+}
+.p-first-type__title {
+  margin-top: 3rem;
+  font-size: 2.4rem;
+  line-height: 1.4;
+  text-align: center;
+}
+.p-first-type__text {
+  margin-top: 2.4rem;
+  font-size: 1.6rem;
+  line-height: 3.2rem;
+}
+.p-first-type__btn {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 4rem;
+  padding-block: 1.6rem;
+  background-color: #171716;
+  color: #ffffff;
+  font-size: 1.6rem;
+  line-height: 1.8rem;
+}
+.p-first-type__btn::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 1.4rem;
+  height: 1.4rem;
+  background-color: #ab7300;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
 .p-belief {
   padding: 10rem 0;
   text-align: center;

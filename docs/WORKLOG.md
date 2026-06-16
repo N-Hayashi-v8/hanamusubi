@@ -15,6 +15,14 @@
   - 全ページ（index/about/rental/production）のヘッダー・フッター・about本文の「衣装制作」`href="#"` を `production.html` へ
   - 取りこぼし修正: `about.html` フッターの「レンタル衣装」`href="#"` を `rental.html` へ（他ページは接続済みでここだけ残っていた）。「レンタル衣装一覧」は別物（一覧ページ向け）として保留のまま
 - レンタルページの「一覧を見る」下線をホバーアニメ化（`p-costume__more` / `p-costume-cols__more`）: `text-decoration` をやめ `::before` の1px金バーに変更。ホバーで `transform: scaleX(0)`（中央基点）で中央へ縮んで消える
+- 「初めての方へ」ページ（`pages/first.html`）に着手
+  - 共通骨格を先行作成: production.html の共通部（head/`l-header--page`/`p-side`/`p-page-title`/パンくず/`p-btn-field--page`/`p-contact`/`p-map`/`l-footer`）を流用。固有部は TODO プレースホルダーで開始。ファイル名は意味スラッグ統一で `first.html`
+  - 全ページ（index/about/rental/production/first）の「初めての方へ」`href="#"` を接続: ヘッダーナビ・フッターナビ・`p-btn-field` の該当ボタン。index はルート基準 `pages/first.html`、`pages/` 配下は `first.html`
+  - section1 メインビジュアル `p-first-main`（`_first-main.scss`）: `mainimg01_pc.jpg` を `width:100%` で全幅設置（高さは base の `height:auto` で維持）
+  - section2 花嫁衣装レンタルのいろは `p-first-iroha`（`_first-iroha.scss`）: テクスチャ背景 `bg_iroha01.jpg` の1680px帯。`min-height:46.4rem`（463→464丸め・固定せず）＋flex縦横中央。タイトル32/42、本文16（17丸め）/42。上余白40px
+  - section3 花嫁衣装の種類 `p-first-type`（`_first-type.scss`）: 1100px幅に中央見出し＋3カラムGrid（column-gap 5rem）。各カラム=画像→中央タイトル→本文→黒「一覧を見る」ボタン。ボタンは高さpadding成立＋右下に金三角（`::after`・clip-path）。タイトルはスクショ通り「色打掛」×3（本文は白無垢/引振袖の説明・要確認）
+  - `object/project/_index.scss` に `first-main`/`first-iroha`/`first-type` を `@forward`
+  - フォント・余白の多くは Figma 実値未確定のため仮置き（`// 要確認`）
 
 ## 2026-06-15
 
