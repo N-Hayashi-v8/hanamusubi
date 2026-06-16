@@ -1,5 +1,21 @@
 # WORKLOG
 
+## 2026-06-16
+
+- 衣装制作ページ（`pages/production.html`）を作成・完成
+  - 共通雛形（head/`l-header--page`/`p-side`/`p-page-title`/パンくず/`p-btn-field--page`/`p-contact`/`p-map`/`l-footer`）を流用し、固有部のみ実装
+  - section1 ページ内ナビ `p-production-nav`（`_production-nav.scss`）: 300×60 の枠ボタン2つを中央に横並び（gap 4rem）。高さは `padding-block` で成立させ固定しない。右端に下向きシェブロン（`::after` を45度回転）
+  - 大セクション見出しを共有部品 `p-production-lead`（`_production-lead.scss`）に一般化: 上罫線（1px #000・inner=1100px幅）＋中央タイトル36px＋リード文。「衣装ができるまで」「技法・素材」の2セクションで共用。当初の `_production-flow.scss` はこの一般化に伴いリネーム（flow＝制作の流れの意で技法側に合わないため）
+  - 工程ブロック `p-production-step`（`_production-step.scss`）: 「番号＋中央タイトルのグレー帯 → 本文 → 工程写真1枚」を縦積み。番号は帯内 `absolute` 左寄せ・縦中央。図案〜刺繍の計7ブロックを実装。ブロック間余白は 5rem に統一（flow→1ブロック目も共用）
+  - 技法・素材 `p-production-technic`（`_production-technic.scss`）: inner=1100px を CSS Grid で2カラム均等（column-gap 4rem / row-gap 6rem）。各セル＝画像→中央タイトル→本文。相良刺繍〜スパンコールの全12件を実装（01のみ .jpg、02〜12は .png）
+  - 技法・素材セクションは前セクション（工程ブロック末尾）との間を 12rem 空ける。`.p-production-step + .p-production-lead` の隣接セレクタで section3 側だけに `margin-top` を当て、section2（ナビ→衣装ができるまで）には非干渉
+  - ページ内ナビのスムーズスクロールを CSS のみで実装: `html { scroll-behavior: smooth }`（`_base.scss`）＋ナビボタン href を `#flow`/`#technic`、各見出しセクションに id 付与。固定ヘッダーぶんの着地ずれは `p-production-lead` の `scroll-margin-top: calc($header-h + 2rem)` で吸収
+  - `object/project/_index.scss` に `production-nav`/`production-lead`/`production-step`/`production-technic` を `@forward`
+- 導線を接続
+  - 全ページ（index/about/rental/production）のヘッダー・フッター・about本文の「衣装制作」`href="#"` を `production.html` へ
+  - 取りこぼし修正: `about.html` フッターの「レンタル衣装」`href="#"` を `rental.html` へ（他ページは接続済みでここだけ残っていた）。「レンタル衣装一覧」は別物（一覧ページ向け）として保留のまま
+- レンタルページの「一覧を見る」下線をホバーアニメ化（`p-costume__more` / `p-costume-cols__more`）: `text-decoration` をやめ `::before` の1px金バーに変更。ホバーで `transform: scaleX(0)`（中央基点）で中央へ縮んで消える
+
 ## 2026-06-15
 
 - レンタル衣装ページ（`pages/rental.html`）を作成・完成

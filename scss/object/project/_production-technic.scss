@@ -1,0 +1,35 @@
+@use "../../global" as *;
+
+// 衣装制作ページ「技法・素材」の中身。2カラム×複数行のグリッド
+// 各セル: 画像 → 中央タイトル → 本文。inner=1100px に揃える
+.p-production-technic {
+  width: 110rem;                 // inner=1100px（センタリング: left410 は自動成立のため書かない）
+  max-width: 100%;
+  margin-inline: auto;
+  margin-top: 6rem;              // 見出し→コンテンツ 要確認
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);   // 2カラム均等
+    column-gap: 4rem;            // カラム間 要確認
+    row-gap: 6rem;               // 行間 要確認
+  }
+
+  &__img {
+    display: block;
+    width: 100%;                 // カラム幅いっぱい
+  }
+
+  &__title {
+    margin-top: 2.4rem;          // 画像→タイトル 要確認
+    font-size: 2.4rem;           // 要確認
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  &__text {
+    margin-top: 2rem;            // タイトル→本文 要確認
+    font-size: 1.6rem;           // 要確認
+    line-height: 3.2rem;         // 要確認
+  }
+}

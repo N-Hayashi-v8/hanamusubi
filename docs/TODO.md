@@ -13,10 +13,12 @@
 - [ ] Googleマップ（`p-map`）の住所を実店舗に差し替え
 - [ ] object/component・utility の追加
 - [ ] 金系カラーの用途確定後に変数名をリネーム
-- [ ] 残りの子ページ（衣装制作・初めての方へ など）の作成
+- [ ] 残りの子ページ（初めての方へ・ご利用の流れ・幸せレポート・よくある質問・ブログ・アクセス など）の作成
+- [ ] 各子ページのナビ/フッターで未作成ページ向け `href="#"` を、ページ作成後に順次接続
 
 ## Done
 
+- [x] 衣装制作ページ（`pages/production.html`）作成・完成（`p-production-nav` ページ内ナビ／共有見出し `p-production-lead`／工程ブロック `p-production-step` 7個／技法・素材 `p-production-technic` 2カラム×6行＝12件／ナビのスムーズスクロール／全ページの衣装制作リンク接続／about フッターのレンタル衣装リンク補修）
 - [x] レンタル衣装ページ（`pages/rental.html`）作成・完成（`p-costume` 帯3＋`p-costume-cols` 2カラム3／金下線「一覧を見る」／地色 #F1F4F7／ナビ導線接続）
 - [x] 子ページ共通フッターセクション実装（`p-btn-field--page` 4ボタン帯／お問い合わせ `p-contact`／Googleマップ移植）
 - [x] パンくず（`l-breadcrumb`）実装（シェブロンは `__item` の flex で縦中央揃え）

@@ -1,0 +1,33 @@
+@use "../../global" as *;
+
+// 衣装制作ページ 大セクションの見出し（上罫線＋中央タイトル＋リード文）
+// 「衣装ができるまで」「技法・素材」の2セクションで共有する
+.p-production-lead {
+  // ナビ押下のアンカー着地位置を固定ヘッダーぶん下げる（見出しが潜らないように）
+  scroll-margin-top: calc(#{$header-h} + 2rem);
+
+  // 工程ブロックの直後に来る見出し(=技法・素材)だけ、前セクションとの間を空ける
+  .p-production-step + & {
+    margin-top: 12rem;
+  }
+
+  &__inner {
+    width: 110rem;                      // Figma 1100px（センタリング: left410 は自動成立のため書かない）
+    max-width: 100%;                    // 画面が狭い時のはみ出し防止
+    margin-inline: auto;
+    border-top: 1px solid $color-black; // セクション上の罫線 1px #000（幅は inner=1100px）
+    padding-top: 6rem;                  // 罫線→タイトル 要確認
+    text-align: center;
+  }
+
+  &__title {
+    font-size: 3.6rem;                  // Figma 36px
+    line-height: 3.6rem;                // Figma 36px
+  }
+
+  &__lead {
+    margin-top: 4rem;                   // タイトル→本文 要確認
+    font-size: 1.6rem;                  // 17→16 に丸め
+    line-height: 4rem;                  // 41→40 に丸め
+  }
+}

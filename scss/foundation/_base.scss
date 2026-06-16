@@ -4,6 +4,7 @@
 // rem 運用: html を 62.5% にして 1rem = 10px に揃える
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;   // ページ内アンカーをゆっくりスクロール
 }
 
 body {

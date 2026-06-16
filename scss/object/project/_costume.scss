@@ -73,12 +73,28 @@
 
   // 「一覧を見る ›」（トップpage p-rental__more と同仕様）
   &__more {
+    position: relative;          // 下線バー(::before)の基準
+    display: inline-block;       // 幅を中身に合わせ、中央基点で縮められるように
     margin-top: 2.4rem;          // 本文→ボタン 要確認
     font-size: 1.4rem;           // Figma 14px
     line-height: 1.8rem;         // 18px
-    text-decoration: underline;
-    text-decoration-color: $color-gold-2;   // #AB7300
-    text-underline-offset: 0.4rem;          // 文字と線の間隔 要確認
+  }
+
+  // 下線（ホバーで中央に縮んで消える）
+  &__more::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.4rem;             // 文字との間隔 4px
+    width: 100%;
+    height: 1px;
+    background-color: $color-gold-2;   // #AB7300
+    transform-origin: center;          // 縮む基点＝中央
+    transition: transform 0.3s ease;
+  }
+
+  &__more:hover::before {
+    transform: scaleX(0);              // 中央へ縮んで消える
   }
 
   &__more::after {
