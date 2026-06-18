@@ -1,0 +1,62 @@
+@use "../../global" as *;
+
+// 初めての方へ section4: 花嫁衣装の選び方
+// 上border（#E3E0CE）＋中央見出し → 3行の2カラム（丸画像＋テキスト、行ごとに左右反転）
+.p-first-choice {
+  width: 110rem;                          // 1100px インナー
+  max-width: 100%;
+  margin-inline: auto;
+  margin-top: 10rem;                      // 前(種類)との余白 要確認
+  padding-top: 6rem;                      // border→見出し 要確認
+  border-top: 1px solid $color-bg-beige;  // 上罫線 #E3E0CE
+
+  &__heading {
+    font-size: 3.2rem;                    // 要確認
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  &__list {
+    margin-top: 6rem;                     // 見出し→1行目 要確認
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;                  // 画像とテキストを縦中央で揃える
+    column-gap: 5rem;                     // 画像↔テキスト 要確認
+
+    & + & {
+      margin-top: 6rem;                   // 行間 要確認
+    }
+  }
+
+  // 偶数行は画像を右に
+  &__item--reverse {
+    flex-direction: row-reverse;
+  }
+
+  &__img {
+    flex-shrink: 0;                       // 円がつぶれないよう固定
+    width: 21rem;                         // 丸画像の直径 要確認
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  &__body {
+    flex: 1;                              // 残り幅をテキストに
+  }
+
+  &__title {
+    font-size: 2.4rem;                    // 要確認
+    line-height: 1.4;
+  }
+
+  &__text {
+    margin-top: 2.4rem;                   // タイトル→本文 要確認
+    font-size: 1.6rem;                    // 要確認
+    line-height: 3.2rem;                  // 要確認
+  }
+}

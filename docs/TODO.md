@@ -6,8 +6,8 @@
 - [ ] 各セクションの仮置き（`// 要確認`）を Figma 実値で確定（特に `p-blog` の幅・フッターの余白）
 - [ ] about ページの仮置き（`// 要確認`）を確定（`p-page-title`・`p-about-*`・`l-breadcrumb` のフォント/余白）
 - [ ] `p-contact` の残り仮置きを確定（カード上下padding・row余白・内側罫線の色/左右インセット・帯下余白）
-- [ ] 「初めての方へ」ページ（`first.html`）の続きの固有セクションを実装（現状 section1〜3＝メイン画像/いろは/花嫁衣装の種類 まで）
-- [ ] first ページの仮置き（`// 要確認`）を確定（`p-first-iroha`・`p-first-type` のフォント/余白、ボタンサイズ、金三角の形状・色、`p-first-type` のタイトル表記＝色打掛×3か白無垢/引振袖か）
+- [ ] first ページの仮置き（`// 要確認`）を確定（`p-first-iroha`・`p-first-type`・`p-first-choice`・`p-first-option`・`p-first-rental` のフォント/余白、ボタンサイズ、金三角の形状・色、`p-first-type` のタイトル表記＝色打掛×3か白無垢/引振袖か、`p-first-option` の◆色＝金6色のどれか・2ブロック目の見出し「飾り小物」表記ゆれ）
+- [ ] first パンくず連結の余白を実値で確定（`p-first-rental` の上下padding・パンくず下余白 6rem・全幅化に伴う文字左位置）
 
 ## Next
 
@@ -20,6 +20,7 @@
 
 ## Done
 
+- [x] 「初めての方へ」ページ（`first.html`）固有セクション完成（section4 選び方 `p-first-choice`：上border #E3E0CE＋丸画像3行の左右反転2カラム／section5 着付け用品一式 `p-first-option`：上border＋◆見出し2ブロック＋中border #171716＋全幅画像／section6 簡単レンタル `p-first-rental`：全幅 #F1F4F7＋流れ図1枚画像＋黒ボタン／後続パンくずを全幅化・地色連結し灰色下余白6rem）
 - [x] 衣装制作ページ（`pages/production.html`）作成・完成（`p-production-nav` ページ内ナビ／共有見出し `p-production-lead`／工程ブロック `p-production-step` 7個／技法・素材 `p-production-technic` 2カラム×6行＝12件／ナビのスムーズスクロール／全ページの衣装制作リンク接続／about フッターのレンタル衣装リンク補修）
 - [x] レンタル衣装ページ（`pages/rental.html`）作成・完成（`p-costume` 帯3＋`p-costume-cols` 2カラム3／金下線「一覧を見る」／地色 #F1F4F7／ナビ導線接続）
 - [x] 子ページ共通フッターセクション実装（`p-btn-field--page` 4ボタン帯／お問い合わせ `p-contact`／Googleマップ移植）

@@ -1,5 +1,15 @@
 # WORKLOG
 
+## 2026-06-18
+
+- 「初めての方へ」ページ（`pages/first.html`）の固有セクション section4〜6 を実装し、ページを一通り完成
+  - section4 花嫁衣装の選び方 `p-first-choice`（`_first-choice.scss`）: 1100px インナーに上border（1px `#E3E0CE`＝`$color-bg-beige` 再利用）＋中央見出し → 丸画像＋テキストの2カラムを3行。`flex`＋`align-items:center`＋`--reverse` で行ごとに画像左右反転（1左/2右/3左）。番号は画像（`img_choice01〜03.jpg`）に焼き込み済みのためHTML側では出さない。丸画像は元画像が円のため `border-radius` 不要、`flex-shrink:0` で真円保護・本文は `flex:1`
+  - section5 着付け用品一式 `p-first-option`（`_first-option.scss`）: 上border＋中央見出し/リード → 小物ブロック2つ（`&__block + &__block` の上に中border 1px `#171716`＝`$color-black`）→ 全幅画像（`img_option01_pc.jpg`）。◆見出しは回転正方形の擬似要素（金 `$color-gold-2` 仮）。2ブロックとも見出し「飾り小物」はスクショ通り再現（原本の表記ゆれの可能性＝要確認）
+  - section6 全国どこでも簡単レンタル `p-first-rental`（`_first-rental.scss`）: 流れ図は5ステップ＋矢印＋番号/ラベル＋赤ボタン＋「ご試着なしでご予約」帯が1枚に焼き込まれた `img_rental01_pc.jpg`。HTMLは見出し＋リード＋画像＋黒ボタンのみ。地色 `#F1F4F7`（`$color-bg-rental` 再利用）を**全幅**で敷き、中身は `&__inner` で1100px中央寄せ
+  - パンくずとの「入り込む（地色連結）」を実装: `.p-first-rental + .l-breadcrumb` の隣接セレクタで、このページのこの位置のパンくずだけに地色を適用（他ページ非干渉）。当初は地色だけ付けたが (1) 上に `margin-block:6rem` の白隙間 (2) `max-width:168rem` 中央寄せによる左右の白ノッチ (3) 下マージンの白 が出たため、`max-width:none`（全幅化）＋`margin-block:0`（上下白マージン打ち消し）で連結。黒帯との間の灰色下余白は `padding-bottom:6rem`（背景内＝灰色のまま）で確保
+  - `object/project/_index.scss` に `first-choice`/`first-option`/`first-rental` を `@forward`
+  - フォント・余白の多くは Figma 実値未確定のため仮置き（`// 要確認`）
+
 ## 2026-06-16
 
 - 衣装制作ページ（`pages/production.html`）を作成・完成
