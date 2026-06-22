@@ -1,5 +1,24 @@
 # WORKLOG
 
+## 2026-06-22
+
+- ご利用の流れページ（`pages/flow.html`）を作成・完成（STEP1〜5＋末尾の注意事項）
+  - 共通雛形を流用（head/`l-header--page`/`p-side`/`p-page-title`/パンくず/`p-btn-field--page`/`p-contact`/`p-map`/`l-footer`）。差し替えは `<title>`・`p-page-title__text`・パンくず末尾の3点
+  - 地色 #F1F4F7（`$color-bg-rental` 再利用）を `<body class="flow-page">` ＋ `.flow-page` で body直付け。下部共通エリアが上塗りするため、グレーが見えるのはタイトル〜パンくずの範囲（rental ページと同方式）
+  - 新コンポーネント `p-flow`（`_flow.scss`）: `__inner` 1100px の上に白カード `__panel` を積む反復テンプレート。全ステップ共通モチーフ＝番号＋タイトル＋金下線の `__head`（`$color-gold-2`）、本文 `__lead` を共有。`__panel` に `scroll-margin-top: calc($header-h + 2rem)`（アンカー着地が固定ヘッダーに隠れない）
+  - STEP1 衣装を選ぶ: 画像＋本文の2カラム `__select`（`img_flow01.png`）。本文カラム内に金枠注記ボックス `__note`（※試着されない方）→「4.お申込み〜衣装発送へ」は `href="#apply"` で STEP4 へアンカー接続。カード中央に黒ボタン「レンタル衣装一覧」→ `rental.html`
+  - 分岐ラベル `__branch`: 「来店試着できる／できない」のピル画像2つ（`ico_flow01_pc.png`/`ico_flow02_pc.png`）を各カラム中央に
+  - STEP2 `__cols`: 同型カードを2枚横並び（`--half` で1:1等幅・`align-items:stretch` で高さ追従）。左=来店予約（TEL画像 `btn_tel01_pc.png`＋金ボタン `__btn-gold`／メールはインラインSVG）、右=宅配試着（黒ボタン2つ `__btn-row`）
+  - STEP3 ご試着・お衣装選び: `__trial` で番号付き写真3枚（`img_trial_list01〜03_pc.jpg`）を均等3カラムGrid＋各下に `__trial-cap` キャプション
+  - STEP4 申し込み〜衣装発送（`id="apply"`）: 本文＋中央寄せの `__contact`。TEL画像＋画像ボタン `__btn-inquiry`（`btn_inquery02_pc.png`）を `__contact--fixed` で各幅300（30rem）固定（STEP2 の `__contact` には非干渉）
+  - STEP5 お衣装ご利用当日: STEP1 の `__select` を再利用（画像左＋本文右・`img_flow04.jpg`）。最後のステップなので末尾矢印なし
+  - ステップ間の下矢印 `__arrow`（`ico_arrow01_pc.png`）: 余白は `margin-block: 1rem` 固定。STEP2→3 のみ `--left`（`width: calc(50% - 1rem)`）で左カラム下に寄せる。分岐 `__branch`／`__cols` の上下も 1rem に統一
+  - 末尾 注意事項 `__notice`: 上のSTEP群と `margin-top: 8rem`。ひし形見出しアイコンは画像 `bg_ico01.png`（`__notice-title::before`）、各項目行頭の赤丸はCSS描画 `#a83627`（`__notice-item::before`・`flex` でぶら下げ整列）。見出し下に区切り線。**背景白・外枠は不要との指示で削除**（地色の上に直接）
+  - `object/project/_index.scss` に `@forward "flow";`
+  - 導線接続: 全5ページ（index/about/first/production/rental）の「ご利用の流れ」`href="#"` → `flow.html`（ヘッダーナビ・フッターナビ・`p-btn-field`）。index はルート基準 `pages/flow.html`、`pages/` 配下は `flow.html`
+  - フォント・余白の多くは Figma 実値未確定のため仮置き（`// 要確認`）
+- CLAUDE.md を教官モードから実装担当モードへ書き換え（Role／Operating Mode／Code Diff Policy／Never Do）。完成コードを直接ファイルへ反映し、実装後に変更点を簡潔報告する運用に
+
 ## 2026-06-18
 
 - 「初めての方へ」ページ（`pages/first.html`）の固有セクション section4〜6 を実装し、ページを一通り完成

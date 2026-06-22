@@ -8,6 +8,7 @@
 - [ ] `p-contact` の残り仮置きを確定（カード上下padding・row余白・内側罫線の色/左右インセット・帯下余白）
 - [ ] first ページの仮置き（`// 要確認`）を確定（`p-first-iroha`・`p-first-type`・`p-first-choice`・`p-first-option`・`p-first-rental` のフォント/余白、ボタンサイズ、金三角の形状・色、`p-first-type` のタイトル表記＝色打掛×3か白無垢/引振袖か、`p-first-option` の◆色＝金6色のどれか・2ブロック目の見出し「飾り小物」表記ゆれ）
 - [ ] first パンくず連結の余白を実値で確定（`p-first-rental` の上下padding・パンくず下余白 6rem・全幅化に伴う文字左位置）
+- [ ] flow ページの仮置き（`// 要確認`）を確定（`p-flow` の `__panel` 余白・`__head` フォント/下線間隔・`__select`/`__trial` 画像幅・`__note`・各ボタン `__btn-black`/`__btn-gold`/`__btn-dark` のサイズ・色＝`__btn-gold` の金は `$color-gold-6` 仮、`__notice` の各余白・ひし形/赤丸サイズ）
 
 ## Next
 
@@ -15,11 +16,13 @@
 - [ ] Googleマップ（`p-map`）の住所を実店舗に差し替え
 - [ ] object/component・utility の追加
 - [ ] 金系カラーの用途確定後に変数名をリネーム
-- [ ] 残りの子ページ（初めての方へ・ご利用の流れ・幸せレポート・よくある質問・ブログ・アクセス など）の作成
+- [ ] 残りの子ページ（幸せレポート・よくある質問・ブログ・アクセス など）の作成（初めての方へ・ご利用の流れ＝完了）
 - [ ] 各子ページのナビ/フッターで未作成ページ向け `href="#"` を、ページ作成後に順次接続
 
 ## Done
 
+- [x] ご利用の流れページ（`flow.html`）作成・完成（`p-flow` 反復テンプレ＝番号＋金下線見出し／STEP1 衣装を選ぶ＋金枠注記→STEP4アンカー／分岐ピル／STEP2 来店予約・宅配の2カード／STEP3 試着写真3枚Grid／STEP4 申し込み〜発送＝TEL＋画像ボタン幅300／STEP5 当日＝画像左本文右／末尾 注意事項＝ひし形画像見出し＋赤丸#a83627・背景枠なし／矢印余白1rem・STEP2→3のみ左寄せ／全5ページのリンク接続）
+- [x] CLAUDE.md を実装担当モードへ更新（完成コードを直接反映・実装後に変更点報告）
 - [x] 「初めての方へ」ページ（`first.html`）固有セクション完成（section4 選び方 `p-first-choice`：上border #E3E0CE＋丸画像3行の左右反転2カラム／section5 着付け用品一式 `p-first-option`：上border＋◆見出し2ブロック＋中border #171716＋全幅画像／section6 簡単レンタル `p-first-rental`：全幅 #F1F4F7＋流れ図1枚画像＋黒ボタン／後続パンくずを全幅化・地色連結し灰色下余白6rem）
 - [x] 衣装制作ページ（`pages/production.html`）作成・完成（`p-production-nav` ページ内ナビ／共有見出し `p-production-lead`／工程ブロック `p-production-step` 7個／技法・素材 `p-production-technic` 2カラム×6行＝12件／ナビのスムーズスクロール／全ページの衣装制作リンク接続／about フッターのレンタル衣装リンク補修）
 - [x] レンタル衣装ページ（`pages/rental.html`）作成・完成（`p-costume` 帯3＋`p-costume-cols` 2カラム3／金下線「一覧を見る」／地色 #F1F4F7／ナビ導線接続）
