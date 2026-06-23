@@ -1,5 +1,22 @@
 # WORKLOG
 
+## 2026-06-23
+
+- 幸せレポート（お客様の声）ページ（`pages/report.html`）を作成・着手〜一通り完成
+  - ファイル名は `report.html`。共通雛形（head/`l-header--page`/`p-side`/パンくず/`p-btn-field--page`/`p-contact`/`p-map`/`l-footer`）を flow.html から複製。`<body class="report-page">`
+  - 導線接続: 全6ページ（index/about/first/flow/production/rental）のヘッダー・フッターの「幸せレポート」`href="#"` → report へ。index はルート基準 `pages/report.html`＋カルーセル下「最新の幸せレポートを見る」ボタンも接続。`pages/` 配下は `report.html`
+  - タイトルセクションは他ページの `p-page-title` と別仕様 → 新規 `p-report-mv`（`_report-mv.scss`）: 全幅MV画像（`bg_intro01.jpg` 1920×500）に、タイトル画像（`img_intro01_pc.jpg` 460×310）を `absolute` で重ね、MV下端から下へはみ出させる。位置・サイズはMV(1920×500)基準の比率（top 68%＝340/500・left 54.69%＝1050/1920・width 23.96%＝460/1920）でレスポンシブ追従。「重ね＋下方向はみ出し」は通常フローで作れないため absolute を採用（座標再現を既定にしない方針の正当な例外）
+  - 画像 `img_intro01_pc 1.jpg`（スペース＋重複サフィックス）を `img_intro01_pc.jpg` にリネーム
+  - リード文 `p-report-intro`（`_report-intro.scss`）: テクスチャ地（`bg_pattern02.png`）に2行の中央文。文字上20rem/下12rem。フォント Noto Serif JP **SemiBold(600)** 2.4rem（Figma 23px→24丸め）/行高4.2rem。600を出すため report.html のフォントリンクに `wght@400;600` を追加
+  - お客様の声一覧 `p-report-list`（`_report-list.scss`）: ベージュ地（`bg_pattern01.png`・`repeat`）に**白カード×3**。各カード幅110rem（1100px）中央寄せ・上辺に赤線（カード幅追従）。カード間4rem。カード内余白 上下6rem/左右6.2rem（コンテンツ幅976px）
+    - メタ: 地域・様＋プランピル2つ（黒「ご利用プラン」＋ベージュのプラン名）を中央に `gap:0` で密着、名前のみ右1.6rem空け
+    - 写真: メイン1枚（976幅）＋サムネ4枚（`__thumbs` 幅760中央寄せ＝両サイド170px・各181×260 `object-fit:cover`・gap1.2rem）。メイン/サムネとも上余白4rem
+    - コメント: `__comments`（flex・カラム間56px）＋`__comment`（460＝メイン半幅）。1カラム＝スタッフから（カード1・2）／2カラム＝お客様から＋スタッフから（カード3）。460×2＋56＝976 でちょうど整合。「◆見出し＋金下線」は blog 見出しを流用
+    - 「ブログで見る」ボタンは about-card の枠＋右下金三角を流用
+  - パンくず地続き: `.p-report-list + .l-breadcrumb` に同じテクスチャ地＋全幅化＋マージン打ち消し（first-rental 方式）。レポートのベージュ地がパンくずまで連続
+  - `object/project/_index.scss` に `report-mv`/`report-intro`/`report-list` を `@forward`
+  - 色hex（タイトル赤 `#a83427`／赤線 `$color-pink`／プランのベージュ `$color-bg-beige`）・各余白・背景タイルの可否は Figma 実値未確定の仮置き（`// 要確認`）
+
 ## 2026-06-22
 
 - ご利用の流れページ（`pages/flow.html`）を作成・完成（STEP1〜5＋末尾の注意事項）

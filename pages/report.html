@@ -4,16 +4,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>初めての方へ | 華結び-模写</title>
+  <title>幸せレポート | 華結び-模写</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cantata+One&family=Noto+Serif+JP:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cantata+One&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../css/destyle.css">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body>
+<body class="report-page">
   <!-- 共通ヘッダー（子ページ用 --page: 最初から上端固定・小ロゴ表示） -->
   <!-- 子ページではロゴは見出しにせず、ページ見出し(h1)は本文側に置く -->
   <header class="l-header l-header--page">
@@ -60,132 +60,155 @@
   </div>
 
   <main class="l-main">
-    <!-- 共通タイトルセクション（ページ見出し＋下線） -->
-    <section class="p-page-title">
-      <h1 class="p-page-title__text">初めての方へ</h1>
-      <span class="p-page-title__line"></span>
+    <!-- ===== タイトルセクション（MV） ===== -->
+    <!-- 他ページの p-page-title とは別仕様: 全幅MV画像に、タイトル画像を重ねてMV下端からはみ出させる。 -->
+    <section class="p-report-mv">
+      <p class="p-report-mv__bg">
+        <img src="../img/report/bg_intro01.jpg" alt="">
+      </p>
+      <h1 class="p-report-mv__title">
+        <img src="../img/report/img_intro01_pc.jpg" alt="最新の幸せレポート">
+      </h1>
     </section>
 
-    <!-- ===== ここから初めての方へページ固有コンテンツ ===== -->
-    <!-- section1: メインビジュアル（全幅1枚画像） -->
-    <section class="p-first-main">
-      <img class="p-first-main__img" src="../img/first/mainimg01_pc.jpg" alt="初めての方へ">
-    </section>
-
-    <!-- section2: 花嫁衣装レンタルのいろは（テクスチャ背景＋中央テキスト） -->
-    <section class="p-first-iroha">
-      <h2 class="p-first-iroha__title">花嫁衣装レンタルのいろは</h2>
-      <p class="p-first-iroha__text">
-        和装には憧れるけれど、選び方がわからず戸惑っている花嫁様は多いです。<br>
-        ポイントを抑えて、理想の和装花嫁になりましょう。
+    <!-- ===== ここから幸せレポートページ固有コンテンツ ===== -->
+    <!-- リード文（ベージュ地）。MVのタイトル画像がこの帯の上部へはみ出してくる -->
+    <section class="p-report-intro">
+      <p class="p-report-intro__text">
+        華結びをご利用いただいた、<br>
+        幸せなカップルさんをご紹介させていただきます。
       </p>
     </section>
 
-    <!-- section3: 花嫁衣装の種類（1100px・3カラム） -->
-    <section class="p-first-type">
-      <h2 class="p-first-type__heading">花嫁衣装の種類</h2>
-      <ul class="p-first-type__list">
-        <li class="p-first-type__item">
-          <img class="p-first-type__img" src="../img/first/pic_type01.jpg" alt="色打掛">
-          <h3 class="p-first-type__title">色打掛</h3>
-          <p class="p-first-type__text">披露宴を華やかに彩る色打掛。和式のお食事会場はもちろん、ホテルでの披露宴でもその存在感を発揮します。織物から刺繍、染物など種類があり、色も定番の赤系だけでなく寒色系など多彩。</p>
-          <a class="p-first-type__btn" href="#">一覧を見る</a>
-        </li>
-        <li class="p-first-type__item">
-          <img class="p-first-type__img" src="../img/first/pic_type02.jpg" alt="白無垢">
-          <h3 class="p-first-type__title">色打掛</h3>
-          <p class="p-first-type__text">昔から伝わる「和」の婚礼衣装。小物から草履まで全て白で統一する事により「真っ白な気持ちで参ります」と言う思いを込めたお衣装ですが、近年は裏紅の白無垢も人気です。</p>
-          <a class="p-first-type__btn" href="#">一覧を見る</a>
-        </li>
-        <li class="p-first-type__item">
-          <img class="p-first-type__img" src="../img/first/pic_type03.jpg" alt="引振袖">
-          <h3 class="p-first-type__title">色打掛</h3>
-          <p class="p-first-type__text">打掛とは違い着物の裾を引きずったまま着用する婚礼衣装なので、料亭で披露宴をされる方におすすめ。着物と帯、小物の色を自分らしくコーディネイト出来るのも魅力のひとつ。</p>
-          <a class="p-first-type__btn" href="#">一覧を見る</a>
-        </li>
-      </ul>
-    </section>
+    <!-- お客様の声一覧（ベージュ地。後続パンくずまで地続き） -->
+    <section class="p-report-list">
+      <!-- レポート1件目 -->
+      <article class="p-report-list__item">
+        <div class="p-report-list__inner">
+          <h2 class="p-report-list__title">【京都神社結婚式】下鴨神社</h2>
 
-    <!-- section4: 花嫁衣装の選び方（上border＋3行の2カラム：丸画像＋テキスト、行ごとに左右反転） -->
-    <section class="p-first-choice">
-      <h2 class="p-first-choice__heading">花嫁衣装の選び方</h2>
-      <ul class="p-first-choice__list">
-        <li class="p-first-choice__item">
-          <div class="p-first-choice__img">
-            <img src="../img/first/img_choice01.jpg" alt="">
+          <div class="p-report-list__meta">
+            <span class="p-report-list__place">東京都　S様</span>
+            <span class="p-report-list__plan p-report-list__plan--use">ご利用プラン</span>
+            <span class="p-report-list__plan p-report-list__plan--type">和婚プラン</span>
           </div>
-          <div class="p-first-choice__body">
-            <h3 class="p-first-choice__title">顔写りを考えメインカラーを決める</h3>
-            <p class="p-first-choice__text">「着物の事はよく分からない…」と衣装選びに不安を感じていらっしゃる方も多いのですが、自分に合う色は洋服も着物も同じ。まずはご自分に合った系統の色を見つけて、その後で微妙な色の違いや柄を決めていきましょう。</p>
-          </div>
-        </li>
-        <li class="p-first-choice__item p-first-choice__item--reverse">
-          <div class="p-first-choice__img">
-            <img src="../img/first/img_choice02.jpg" alt="">
-          </div>
-          <div class="p-first-choice__body">
-            <h3 class="p-first-choice__title">なりたいイメージの柄を選ぼう</h3>
-            <p class="p-first-choice__text">例えば同じ赤系でも他の色との分量や柄によっても雰囲気が大きく変わります。古典的なイメージ、可愛らしいイメージ、カッコいいイメージ等々、こういう感じで着こなしたいという全体のイメージを膨らませてみましょう。</p>
-          </div>
-        </li>
-        <li class="p-first-choice__item">
-          <div class="p-first-choice__img">
-            <img src="../img/first/img_choice03.jpg" alt="">
-          </div>
-          <div class="p-first-choice__body">
-            <h3 class="p-first-choice__title">身長に合わせてさらに魅力的に</h3>
-            <p class="p-first-choice__text">洋服と違い打掛のサイズはどれもほぼ同じなため、ご身長によって柄を決めるのもポイントのひとつです。例えばご身長が高い方は柄が大きく入っているもの、小柄な方は細かく小さな柄が入っているものにされると素敵です。</p>
-          </div>
-        </li>
-      </ul>
-    </section>
 
-    <!-- section5: 着付け用品一式（上border＋中央見出し/リード → 小物ブロック2つ＋中border → 全幅画像） -->
-    <section class="p-first-option">
-      <h2 class="p-first-option__heading">着付け用品一式</h2>
-      <p class="p-first-option__lead">お着付けに必要な小物類は全てセットになっているので、お届け後もご安心頂けます。</p>
+          <figure class="p-report-list__main">
+            <img src="../img/report/rep1-1.jpg" alt="下鴨神社での結婚式 メイン写真">
+          </figure>
 
-      <div class="p-first-option__group">
-        <div class="p-first-option__block">
-          <h3 class="p-first-option__subtitle">飾り小物</h3>
-          <p class="p-first-option__text">はこせこ、懐剣、末広、帯締め、帯揚げ、かかえ帯、草履<br>
-            ※綿帽子、角隠しはオプションです。</p>
+          <ul class="p-report-list__thumbs">
+            <li class="p-report-list__thumb"><img src="../img/report/rep1-2.jpg" alt=""></li>
+            <li class="p-report-list__thumb"><img src="../img/report/rep1-3.jpg" alt=""></li>
+            <li class="p-report-list__thumb"><img src="../img/report/rep1-4.jpg" alt=""></li>
+            <li class="p-report-list__thumb"><img src="../img/report/rep1-5.jpg" alt=""></li>
+          </ul>
+
+          <div class="p-report-list__comments">
+            <div class="p-report-list__comment">
+              <div class="p-report-list__comment-head">
+                <h3 class="p-report-list__comment-title">スタッフから</h3>
+              </div>
+              <p class="p-report-list__comment-text">とっても美しい新婦様でどのお写真を拝見してもうっとりします。また新郎新婦のお二人の笑顔が見ているこちらまで幸せな気持ちにさせてくれます。沢山のお写真、誠にありがとうございました。末永くお幸せにお過ごしください♡</p>
+            </div>
+          </div>
+
+          <div class="p-report-list__btn-wrap">
+            <a class="p-report-list__btn" href="#">ブログで見る</a>
+          </div>
         </div>
-        <div class="p-first-option__block">
-          <h3 class="p-first-option__subtitle">飾り小物</h3>
-          <p class="p-first-option__text">掛下、掛下帯、長襦袢、腰紐（5本）、伊達締め（2本）、衿芯（3本）、帯板（大小2枚）、帯枕、着付けベルト（2本）<br>
-            ※肌襦袢（新婦様）と足袋（新郎新婦様）はプレゼント！</p>
-        </div>
-      </div>
+      </article>
 
-      <div class="p-first-option__img">
-        <img src="../img/first/img_option01_pc.jpg" alt="着付け用品一式">
-      </div>
+      <!-- レポート2件目 -->
+      <article class="p-report-list__item">
+        <div class="p-report-list__inner">
+          <h2 class="p-report-list__title">梅宮大社で前撮り</h2>
+
+          <div class="p-report-list__meta">
+            <span class="p-report-list__place">京都府　S様</span>
+            <span class="p-report-list__plan p-report-list__plan--use">ご利用プラン</span>
+            <span class="p-report-list__plan p-report-list__plan--type">京都前撮りプラン</span>
+          </div>
+
+          <figure class="p-report-list__main">
+            <img src="../img/report/rep2-1.jpg" alt="梅宮大社での前撮り メイン写真">
+          </figure>
+
+          <ul class="p-report-list__thumbs">
+            <li class="p-report-list__thumb"><img src="../img/report/rep2-2.jpg" alt=""></li>
+            <li class="p-report-list__thumb"><img src="../img/report/rep2-3.jpg" alt=""></li>
+            <li class="p-report-list__thumb"><img src="../img/report/rep2-4.jpg" alt=""></li>
+            <li class="p-report-list__thumb"><img src="../img/report/rep2-5.jpg" alt=""></li>
+          </ul>
+
+          <div class="p-report-list__comments">
+            <div class="p-report-list__comment">
+              <div class="p-report-list__comment-head">
+                <h3 class="p-report-list__comment-title">スタッフから</h3>
+              </div>
+              <p class="p-report-list__comment-text">白無垢と引振袖をご使用くださいました。どちらのお衣装もよくお似合いで素敵なお写真ばかりです。ヘアスタイルは新日本髪にされました。</p>
+            </div>
+          </div>
+
+          <div class="p-report-list__btn-wrap">
+            <a class="p-report-list__btn" href="#">ブログで見る</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- レポート3件目（コメント2カラム＝お客様から＋スタッフから） -->
+      <article class="p-report-list__item">
+        <div class="p-report-list__inner">
+          <h2 class="p-report-list__title">一目惚れの色打掛</h2>
+
+          <div class="p-report-list__meta">
+            <span class="p-report-list__place">香川県　K様</span>
+            <span class="p-report-list__plan p-report-list__plan--use">ご利用プラン</span>
+            <span class="p-report-list__plan p-report-list__plan--type">京都前撮り「結」プラン</span>
+          </div>
+
+          <figure class="p-report-list__main">
+            <img src="../img/report/rep3-1.png" alt="一目惚れの色打掛 メイン写真">
+          </figure>
+
+          <ul class="p-report-list__thumbs">
+            <li class="p-report-list__thumb"><img src="../img/report/rep3-2.png" alt=""></li>
+            <li class="p-report-list__thumb"><img src="../img/report/rep3-3.png" alt=""></li>
+            <li class="p-report-list__thumb"><img src="../img/report/rep3-4.png" alt=""></li>
+            <li class="p-report-list__thumb"><img src="../img/report/rep3-5.png" alt=""></li>
+          </ul>
+
+          <div class="p-report-list__comments">
+            <div class="p-report-list__comment">
+              <div class="p-report-list__comment-head">
+                <h3 class="p-report-list__comment-title">お客様から</h3>
+              </div>
+              <p class="p-report-list__comment-text">とても楽しい時間でした。<br>念願だった色打掛を着ることができ、白無垢もとてもすてきなお着物で嬉しかったです。<br>ヘアメイクの先生もとても楽に着付けていただきまして、撮影も苦しくなく、とてもありがたかったです。<br><br>いい思い出になり、京都へ出かけて、さらに華結びさんにお願いしてよかったねと主人とも話しております。<br>お世話になりました。</p>
+            </div>
+            <div class="p-report-list__comment">
+              <div class="p-report-list__comment-head">
+                <h3 class="p-report-list__comment-title">スタッフから</h3>
+              </div>
+              <p class="p-report-list__comment-text">新郎新婦様共に（特に新郎様？）ピンクの色打掛が気に入っていただけたらしく、この着物を着たいから華結びを選んでくださったとのこと。<br>当日も「これが着られて嬉しい！」と仰っていただきました。<br>撮影終了後お着替えになった後も着物のお写真を撮影され、喜んでいただけたのが感じられました。</p>
+            </div>
+          </div>
+
+          <div class="p-report-list__btn-wrap">
+            <a class="p-report-list__btn" href="#">ブログで見る</a>
+          </div>
+        </div>
+      </article>
     </section>
-
-    <!-- section6: 全国どこでも簡単レンタル（全幅 #F1F4F7・後続パンくずと地色を連続させる） -->
-    <section class="p-first-rental">
-      <div class="p-first-rental__inner">
-        <h2 class="p-first-rental__heading">全国どこでも簡単レンタル</h2>
-        <p class="p-first-rental__lead">華結びのレンタル衣装は「店舗にご来店」または「宅配試着サービス」でご決定いただき、<br>
-          会場までの発送と返送はスタッフにお任せください！</p>
-        <div class="p-first-rental__flow">
-          <img src="../img/first/img_rental01_pc.jpg" alt="レンタルの流れ 01 衣装を選ぶ → 02 ご試着（京都店舗 or ご自宅）→ 03 会場にお届け（前日 or 前々日）→ 04 結婚式当日 → 05 ご返却（ご試着なしでご予約も可）">
-        </div>
-        <div class="p-first-rental__btn-wrap">
-          <a class="p-first-rental__btn" href="#">レンタルの詳しい流れ</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== 初めての方へページ固有コンテンツここまで ===== -->
+    <!-- ===== 幸せレポートページ固有コンテンツここまで ===== -->
 
     <!-- ===== ここから各子ページ共通の下部エリア ===== -->
     <!-- 共通パンくず（下部エリアの先頭） -->
+    <!-- 仕様: 直前セクション（固有コンテンツ末尾）の背景色を引き継ぐ（rental/first と同方式）。 -->
+    <!--      固有セクションの地色が確定したら、隣接セレクタで連結（実CSSは固有実装時に確定）。 -->
     <nav class="l-breadcrumb" aria-label="パンくずリスト">
       <ol class="l-breadcrumb__list">
         <li class="l-breadcrumb__item"><a href="../index.html">打掛レンタルの華結びHOME</a></li>
-        <li class="l-breadcrumb__item">初めての方へ | 和装レンタルのいろは＜京都・華結び＞</li>
+        <li class="l-breadcrumb__item">幸せレポート＜京都・華結び＞</li>
       </ol>
     </nav>
 

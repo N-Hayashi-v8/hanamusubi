@@ -1,0 +1,17 @@
+@use "../../global" as *;
+
+// 幸せレポート: MV下のリード文（ベージュ地）
+// 上の p-report-mv のタイトル画像がこの帯の上部へはみ出してくるため、
+// 文章はそのはみ出しを避ける位置（やや下）に置く。上下paddingは実値未確定の仮置き。
+.p-report-intro {
+  padding-top: 20rem;     // 文字上の余白（MVタイトルのはみ出しもこの余白内に収まる）
+  padding-bottom: 12rem;  // 文字下の余白
+  background: url("../img/report/bg_pattern02.png") center / cover no-repeat;
+  text-align: center;
+
+  &__text {
+    font-weight: 600;       // SemiBold（フォント読み込みに Noto Serif JP 600 を追加済み）
+    font-size: 2.4rem;      // Figma 23px → 24 に丸め（要ユーザー確認: 22 の選択肢あり）
+    line-height: 4.2rem;    // Figma 42px
+  }
+}
