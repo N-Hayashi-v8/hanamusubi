@@ -62,6 +62,19 @@ if (reportTrack && reportPrev && reportNext) {
   reportPrev.addEventListener("click", goPrev);
 }
 
+// よくある質問のアコーディオン
+// 質問ボタン押下で親 .p-faq__item に .is-open をトグル。
+// 回答枠のスライド(grid-rows)と +/− の回転はCSS側で行う
+const faqButtons = document.querySelectorAll(".p-faq__q");
+
+faqButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const item = btn.closest(".p-faq__item");
+    const opened = item.classList.toggle("is-open");
+    btn.setAttribute("aria-expanded", String(opened));
+  });
+});
+
 // ヘッダーのスクロール固定（上端到達で .is-fixed を付与）
 const header = document.querySelector(".l-header");
 const mv = document.querySelector(".p-mv");

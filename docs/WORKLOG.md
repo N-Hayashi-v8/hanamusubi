@@ -1,5 +1,20 @@
 # WORKLOG
 
+## 2026-06-24
+
+- よくある質問ページ（`pages/faq.html`）を作成・完成（カテゴリーナビ＋アコーディオンQ&A 全6カテゴリー22問）
+  - 共通雛形を flow.html から複製（head/`l-header--page`/`p-side`/`p-page-title`/パンくず/`p-btn-field--page`/`p-contact`/`p-map`/`l-footer`）。差し替えは `<title>`・`p-page-title__text`・パンくず末尾・`<body class="faq-page">`
+  - 地色 #F1F4F7（`$color-bg-rental` 再利用）を body直付け（`.faq-page`・新規 `_faq.scss`）。下部共通エリアが上塗りするためグレーが見えるのはタイトル〜パンくずの範囲（rental/flow と同方式）
+  - section1 カテゴリーナビ `p-faq-nav`（`_faq.scss`）: 300×60 の枠ボタン6個を `grid-template-columns: repeat(3, 30rem)` ＋ `justify-content:center` で3列×2行。箱同士の縦横余白 `gap: 4rem`（40px）。右端に下向きシェブロン（`::after` 45度回転・production-nav 流用）。各ボタンは Q&Aセクションへのアンカー（`#q-costume`〜`#q-rental`）。スムーススクロールは既存 `html{scroll-behavior:smooth}`、着地ずれは `p-faq` の `scroll-margin-top: calc($header-h + 2rem)` で吸収
+  - section2 Q&A本体 `p-faq`（`_faq.scss`）: カテゴリーごとに `&__inner` 1100px＋上border 1px #171716＋中央タイトル（Noto Serif JP 36px/36px・`margin-block:8rem`）。各カテゴリー section は `margin-top:8rem`。白カード（`&__item`）を地色グレーの上に積み、カード間は `0.2rem` の隙間
+  - アコーディオン: `details/summary` ではなく **button＋パネル方式**（ネイティブは瞬時開閉でスライド不可のため）。`&__a` を `display:grid; grid-template-rows:0fr` → `.is-open` で `1fr`＋`&__a-inner{overflow:hidden}` で下スライド展開。JS（`js/main.js`）は `.p-faq__q` クリックで親 `.p-faq__item` に `.is-open` をトグル＋`aria-expanded` 更新するだけ。アニメーションは全てCSS
+  - ＋アイコン: 疑似要素で描画（指定）。`::before`＝横棒固定／`::after`＝同じ横棒を `rotate(90deg)` した縦棒で「＋」。開くと `rotate(180deg)` まで**時計回り**に倒して横棒へ重ね「−」に（太さ2px・#000・`transition:transform .3s`）
+  - Q＝Cantata One 25px（`&__q-mark`）、質問テキスト20px、回答 `&__a-text` 16px/行高30px。複数行回答（キャンセル料4区分・来店注意点）は `<br>`。figma の数字前後の空白（「7 日目」等）は詰めて統一
+  - 質問文の調整: 予約・試着の4問目はスクショ表記「来店用意」だったが、figma回答側の質問「来店予約はどうすればいいですか？」＋回答内容（電話・メール予約）と一致するため「来店予約」に修正。試着1問目はスクショの重複表記を誤植と判断し「どのくらいかかりますか？」
+  - 「衣装選びから契約までの流れ」回答内の「ご利用の流れ」を flow.html へリンク化（`&__a-link`＝金 #AB7300＋下線・ホバーで下線オフ）
+  - `object/project/_index.scss` に `@forward "faq";`
+  - 導線接続: 全7ページ（index/about/first/flow/production/rental/report）＋自ページのヘッダーナビ・フッターナビ・`p-btn-field` の「よくある質問」`href="#"` → faq へ（index はルート基準 `pages/faq.html`、`pages/` 配下は `faq.html`）
+
 ## 2026-06-23
 
 - 幸せレポート（お客様の声）ページ（`pages/report.html`）を作成・着手〜一通り完成
