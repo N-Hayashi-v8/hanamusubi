@@ -1,5 +1,20 @@
 # WORKLOG
 
+## 2026-06-25
+
+- ブログページ（`pages/blog.html`）を作成・左2カラム＋右カテゴリ＋ページ送りまで実装
+  - 共通雛形を faq.html から複製（head/`l-header--page`/`p-side`/`p-page-title`/パンくず/`p-btn-field--page`/`p-contact`/`p-map`/`l-footer`）。差し替えは `<title>`＝華結びブログ・`p-page-title__text`＝華結びブログ・パンくず末尾・`<body class="blog-page">`
+  - 地色 #F1F4F7（`$color-bg-rental` 再利用）を body直付け。ルールは既存 `_blog.scss`（index の `p-blog` と同居）に `.blog-page` で追加。下部共通エリアが上塗りするためグレーが見えるのはタイトル〜パンくず。パンくずは「mainと同じ地色が透ける」方式（faq/flow/rental と同方式）
+  - 導線接続: 全8ページ（index/about/rental/production/first/flow/report/faq）＋自ページのヘッダー・フッターの「ブログ」`href="#"` → blog へ。index はルート基準 `pages/blog.html`、`pages/` 配下は `blog.html`。report の「ブログで見る」(`p-report-list__btn`)は個別記事向けの可能性があり保留
+  - 構成: 3カラム＝左2列ブログカード／右1列カテゴリ。最初のラフ確認で「左2列を上から順に」方針 → デザイン共有後に実値化
+  - `p-blog-list`（`_blog-list.scss`）: `__inner` を flex `justify-content:space-between`（中央幅110rem 仮）。左 `__main` に2列カードグリッド `__cards`＝`grid-template-columns: repeat(2, 38.5rem)`（385px×2・列間3rem/行間4rem 仮）。`__main` は `flex-shrink:0` でカード幅維持
+  - `p-blog-card`: 実寸 385×388。写真 `__thumb` 385×250（`height:25rem` 固定・`object-fit:cover`・画像未挿入時はグレー地）、白部分 `__body` は `height:13.8rem`(138)固定＋`padding:3rem 3rem 0`（上30/左右30/下なし＝下余白は付けない指示）。メタ `__meta` 14px/18px、タイトル `__title` 17px/22px＋`margin-top:1.4rem`（間14）。メタ＋タイトルを `__body` で包む（一括置換で投入）
+  - `p-blog-cat`（`_blog-cat.scss`）: 右サイドバー幅255px。背景 #ffffff だが当初 flex の `align-items:stretch` で左カード列の高さに引き伸ばされ列全体が白くなった → `align-self:flex-start` で中身の高さに留めて解消。ヘッダー `__head`＝◆カテゴリ左寄せ（`justify-content:flex-start`・左右`padding-inline:2rem`）、◆は `#AB7300` の文字（`__mark`）、見出し20px/26px、`border-bottom`1px `#ab7300`。花絵 `bg_category01.png` を `__deco`(absolute right/top・幅13rem 仮)でヘッダー右上に重ね。各行 `__item`＝区切り線#e3e3e3、`__link` min-height 53px・13px/17px・テキスト左＋右端シェブロン5×5px(border回転・色`$color-gray-text`)。カテゴリ9項目
+  - 不具合修正: カードの白部分を `__body` で包む際の一括置換 `</h2>`→`</h2>+</div>` が、カテゴリ見出し `p-blog-cat__title` の `</h2>` にも当たり `__head` に余分な `</div>` が混入 → aside の入れ子が壊れ本文下に回り込み。余分な閉じタグを1つ削除して復旧
+  - `p-blog-pager`（`_blog-pager.scss`）: ブログセクション↔パンくず間のページ送り。`1`(現在=白文字赤背景・常時)/`2`/`3`/`>`/`≫`。他ボタンはホバーで白文字赤背景。赤＝`$color-red`#a50a24、枠＝`$color-black`#000。`≫` は CSS描画でなくテキスト（U+226B・他と同サイズ）、`--last` は枠なし。配置は全体中央でなく**左2カラムの中央**＝`.p-blog-pager`を`width:110rem;margin:0 auto`、`__list`を`width:80rem`(385×2＋列間)＋`justify-content:center`。2・3ページ未作成のためリンクは `#` 仮置き
+  - `object/project/_index.scss` に `blog-list`/`blog-cat`/`blog-pager` を `@forward`
+  - 記事カードの日付・カテゴリ・タイトルはラフ画像からの暫定読み取り、サムネ画像は `img/blog/blog01〜10.jpg`（未配置＝グレー枠）、各寸法・色は仮置き（要確認）
+
 ## 2026-06-24
 
 - よくある質問ページ（`pages/faq.html`）を作成・完成（カテゴリーナビ＋アコーディオンQ&A 全6カテゴリー22問）

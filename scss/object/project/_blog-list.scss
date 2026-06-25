@@ -1,0 +1,68 @@
+@use "../../global" as *;
+
+// ブログ一覧（pages/blog.html）
+// 3カラム構成: 左2列＝ブログカード（2列グリッド）/ 右1列＝カテゴリサイドバー（p-blog-cat）
+// 中央幅・カラム間は実値未確定のため仮置き（// 要確認）
+.p-blog-list {
+  padding-block: 8rem; // セクション上下余白 要確認
+
+  &__inner {
+    display: flex;
+    justify-content: space-between; // 左cards / 右sidebar を両端へ
+    width: 110rem; // 中央コンテナ 要確認
+    margin: 0 auto;
+  }
+
+  // 左: 2列カードグリッド
+  &__main {
+    flex-shrink: 0; // カード幅(385×2)を維持
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(2, 38.5rem); // 385px × 2列
+    column-gap: 3rem; // 列間 要確認
+    row-gap: 4rem; // 行間 要確認
+  }
+}
+
+// ブログカード（385×388：写真250＋白部分138）
+.p-blog-card {
+  width: 38.5rem; // 385px
+
+  &__link {
+    display: block;
+  }
+
+  // 写真（385×250）。画像未挿入時はプレースホルダーのグレー地が出る
+  &__thumb {
+    overflow: hidden;
+    height: 25rem; // 250px
+    background-color: $color-bg-rental;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  // 白部分（385×138）。高さを固定し、下余白は付けない
+  &__body {
+    height: 13.8rem; // 138px 固定
+    padding: 3rem 3rem 0; // 上30 / 左右30 / 下なし
+    background-color: $color-white;
+  }
+
+  &__meta {
+    font-size: 1.4rem; // 14px
+    line-height: 1.8rem; // 18px
+    // 色は仮（地の黒を継承）要確認
+  }
+
+  &__title {
+    margin-top: 1.4rem; // メタ→タイトル 14px
+    font-size: 1.7rem; // 17px
+    line-height: 2.2rem; // 22px
+  }
+}

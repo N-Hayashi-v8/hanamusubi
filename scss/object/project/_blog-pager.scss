@@ -1,0 +1,53 @@
+@use "../../global" as *;
+
+// ブログ一覧のページ送り（ブログセクション↔パンくずの間）
+// 現在ページ=白文字赤背景（常時） / 他ボタン=ホバーで白文字赤背景
+.p-blog-pager {
+  width: 110rem; // p-blog-list__inner と同じ中央コンテナ幅 要確認
+  margin: 0 auto;
+  padding-bottom: 8rem; // パンくずとの間 要確認
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem; // ボタン間 要確認
+    width: 80rem; // 左2カラム幅（385×2＋列間30）に合わせ、その中央に配置
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4.6rem; // 要確認
+    height: 4.6rem; // 要確認
+    border: 1px solid $color-black; // 枠線 #000000
+    font-size: 1.6rem; // 要確認
+    line-height: 1;
+    transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+
+    // 数字・> ボタン: ホバーで白文字赤背景
+    &:hover {
+      color: $color-white;
+      background-color: $color-red; // #a50a24 要確認
+      border-color: $color-red;
+    }
+
+    // 現在ページ: 常に白文字赤背景
+    &.is-current {
+      color: $color-white;
+      background-color: $color-red;
+      border-color: $color-red;
+    }
+
+    // 「»」最後へ: 枠なしのプレーン
+    &--last {
+      border: none;
+
+      &:hover {
+        color: $color-red; // 枠なしは文字色のみ変化 要確認
+        background-color: transparent;
+      }
+    }
+  }
+}

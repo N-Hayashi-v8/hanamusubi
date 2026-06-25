@@ -1,0 +1,65 @@
+@use "../../global" as *;
+
+// ブログ一覧 右サイドバー: カテゴリ（幅255px）
+// ヘッダー（◆カテゴリ＋右上の花絵＋金下線）＋カテゴリ行（各53px）
+.p-blog-cat {
+  flex-shrink: 0; // 2列カード側に潰されない
+  align-self: flex-start; // 左カード列の高さに引き伸ばされない（白地を中身の高さに留める）
+  width: 25.5rem; // 255px
+  background-color: $color-white; // カテゴリ全体の背景 #ffffff
+
+  // ヘッダー: ◆カテゴリ ＋ 右上の花絵 ＋ 下線
+  &__head {
+    position: relative; // 花絵(absolute)の基準
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; // 左揃え
+    min-height: 5.4rem; // 花絵が収まる高さ（固定せず最小値）要確認
+    padding-inline: 2rem; // 左右インセット 要確認
+    border-bottom: 1px solid $color-gold-2; // #ab7300
+  }
+
+  &__title {
+    font-size: 2rem; // 20px
+    line-height: 2.6rem; // 26px
+  }
+
+  // 先頭の ◆（文字で描画・金）
+  &__mark {
+    color: $color-gold-2; // #AB7300
+  }
+
+  // 右上の花絵（ヘッダー右上に重ねる）
+  &__deco {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 13rem; // 要確認（画像の自然幅に合わせて調整）
+  }
+
+  // カテゴリ行
+  &__item {
+    border-bottom: 1px solid #e3e3e3; // 区切り線 色 要確認
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; // テキスト左・シェブロン右
+    min-height: 5.3rem; // 53px（固定せず最小値）
+    padding-inline: 2rem; // 左右インセット（ヘッダーと揃える）要確認
+    font-size: 1.3rem; // 13px
+    line-height: 1.7rem; // 17px
+
+    // 右端のシェブロン（5×5px・右向き）
+    &::after {
+      content: "";
+      flex-shrink: 0;
+      width: 0.5rem;
+      height: 0.5rem;
+      border-top: 1px solid $color-gray-text;
+      border-right: 1px solid $color-gray-text;
+      transform: rotate(45deg);
+    }
+  }
+}
