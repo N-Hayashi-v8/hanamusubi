@@ -1,0 +1,9 @@
+@use "../../global" as *;
+
+// アクセス 店舗外観（全幅の1枚画像 1920×530）
+.p-access-shop {
+  &__img {
+    display: block;
+    width: 100%;        // ビューポート全幅（縦横比は base の height:auto で維持）
+  }
+}

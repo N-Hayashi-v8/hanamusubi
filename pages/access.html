@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>レンタル衣装 | 華結び-模写</title>
+  <title>アクセス・店舗案内 | 華結び-模写</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cantata+One&family=Noto+Serif+JP:wght@400&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body class="rental-page">
+<body class="access-page">
   <!-- 共通ヘッダー（子ページ用 --page: 最初から上端固定・小ロゴ表示） -->
   <!-- 子ページではロゴは見出しにせず、ページ見出し(h1)は本文側に置く -->
   <header class="l-header l-header--page">
@@ -62,90 +62,113 @@
   <main class="l-main">
     <!-- 共通タイトルセクション（ページ見出し＋下線） -->
     <section class="p-page-title">
-      <h1 class="p-page-title__text">レンタル衣装</h1>
+      <h1 class="p-page-title__text">アクセス・店舗案内</h1>
       <span class="p-page-title__line"></span>
     </section>
 
-    <!-- ===== ここからレンタル衣装ページ固有コンテンツ（全4セクション） ===== -->
-    <!-- section1: 色打掛（帯写真＋右寄り白箱） -->
-    <section class="p-costume">
-      <div class="p-costume__inner">
-        <img class="p-costume__img" src="../img/rental/bg_cosutume01_pc.png" alt="色打掛を着た花嫁">
-        <div class="p-costume__box">
-          <h2 class="p-costume__title">色打掛</h2>
-          <p class="p-costume__text">色鮮やかで華やかな色打掛は、洋装では表現できない重厚感と品格があります。その豪華さから披露宴で着用される事が多い衣装で、刺繍や金彩加工など多彩な技法を取り入れた色打掛は芸術品と言えます。</p>
-          <a class="p-costume__more" href="#">一覧を見る</a>
+    <!-- ===== ここからアクセスページ固有コンテンツ ===== -->
+    <!-- section1: 店舗案内リード（白背景・中央寄せ・上下8rem） -->
+    <section class="p-access-intro">
+      <h2 class="p-access-intro__title">店舗案内</h2>
+      <p class="p-access-intro__lead">華結びは明治から続く、京都でも有数の歴史ある老舗衣装店が運営しております。<br>京都の雰囲気が漂う京町家（店舗）にて、ゆっくりご試着して頂けます。</p>
+    </section>
+
+    <!-- section2: 店舗外観（全幅 1枚画像 1920×530） -->
+    <section class="p-access-shop">
+      <img class="p-access-shop__img" src="../img/access/img_shop01_pc.jpg" alt="華結び 店舗外観">
+    </section>
+
+    <!-- section3: 店舗情報（1100px：見出し → 左:表+注記 / 右:地図画像 → 下:GoogleMap枠） -->
+    <section class="p-access-info">
+      <div class="p-access-info__body">
+        <div class="p-access-info__left">
+          <h2 class="p-access-info__title">京 和装WEDDING 華結び</h2>
+
+          <table class="p-access-info__table">
+            <tbody>
+              <tr>
+                <th>住所</th>
+                <td>〒603-8217　京都府京都市北区紫野上門前町23</td>
+              </tr>
+              <tr>
+                <th>TEL</th>
+                <td>075-491-2010</td>
+              </tr>
+              <tr>
+                <th>営業時間</th>
+                <td>10:00〜18:00</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <ul class="p-access-info__notes">
+            <li>※ご来店は予約制となっております。来店予約フォームかお電話にてご予約をお願い申し上げます。</li>
+            <li>※当日のご予約はお断りさせて頂く場合がございます。できるだけ事前のご予約をお奨め致します。</li>
+            <li>※土日祝のメールでのお問い合わせは来店状況により、ご連絡が翌営業日となる場合がございます。</li>
+          </ul>
+        </div>
+
+        <div class="p-access-info__right">
+          <img class="p-access-info__map-img" src="../img/access/img_map01.jpg" alt="華結び 周辺地図">
         </div>
       </div>
+
+      <!-- GoogleMap 埋め込み（1100×450）。セクション内の住所で検索 -->
+      <iframe
+        class="p-access-info__gmap"
+        src="https://maps.google.com/maps?q=%E4%BA%AC%E9%83%BD%E5%BA%9C%E4%BA%AC%E9%83%BD%E5%B8%82%E5%8C%97%E5%8C%BA%E7%B4%AB%E9%87%8E%E4%B8%8A%E9%96%80%E5%89%8D%E7%94%BA23&output=embed"
+        title="華結び 店舗地図"
+        loading="lazy"
+        allowfullscreen></iframe>
     </section>
 
-    <!-- section2: 白無垢（帯写真＋左寄り白箱 --reverse） -->
-    <section class="p-costume p-costume--reverse">
-      <div class="p-costume__inner">
-        <img class="p-costume__img" src="../img/rental/bg_costume02_pc.png" alt="白無垢を着た花嫁">
-        <div class="p-costume__box">
-          <h2 class="p-costume__title">白無垢</h2>
-          <p class="p-costume__text">全てを白一色で統一した最も代表的な「和」の婚礼衣裳。近年では金彩や銀彩加工の施されたものや、襟や褄が赤い「裏紅」も人気。どれも同じように見える白無垢も、実は柄ゆきや質感がそれぞれに違い個性的です。</p>
-          <a class="p-costume__more" href="#">一覧を見る</a>
-        </div>
-      </div>
-    </section>
+    <!-- section4: 電車・バスでお越しの方（1100px：アイコン見出し → 駅別ブロック×2） -->
+    <section class="p-access-route">
+      <h2 class="p-access-route__title">
+        <img class="p-access-route__icon" src="../img/access/ico_train01.png" alt="">
+        電車・バスでお越しの方
+      </h2>
 
-    <!-- section3: 引振袖（帯写真＋右寄り白箱・section1型） -->
-    <section class="p-costume">
-      <div class="p-costume__inner">
-        <img class="p-costume__img" src="../img/rental/bg_costume03_pc.png" alt="引振袖を着た花嫁">
-        <div class="p-costume__box">
-          <h2 class="p-costume__title">引振袖</h2>
-          <p class="p-costume__text">一般的な振袖とは異なり、裾を引いた「引き着」のため、料亭などで披露宴をされる方に人気。打掛とは違い小物や帯が目立つため、帯の結び方や色使いなどでイメージが変わりコーディネートが楽しい着物です。</p>
-          <a class="p-costume__more" href="#">一覧を見る</a>
-        </div>
+      <div class="p-access-route__block">
+        <h3 class="p-access-route__station">JR京都駅より</h3>
+        <p class="p-access-route__label">【電車】</p>
+        <p class="p-access-route__text">地下鉄烏丸線（国際会館行）に乗り換え、「京都駅」〜「北大路駅」乗車（所要時間・約13分）。「北大路駅」下車後、タクシーにて5分。</p>
+        <p class="p-access-route__label">【バス】</p>
+        <p class="p-access-route__text">市バス206系統「千本通北大路バスターミナル行き」に乗車（所要時間・約35分）、バス停「大徳寺前」で下車、徒歩5分。</p>
       </div>
-    </section>
 
-    <!-- section4: 留袖（2カラム・画像左／白箱右） -->
-    <section class="p-costume-cols">
-      <div class="p-costume-cols__img">
-        <img src="../img/rental/img_costume04.png" alt="留袖を着た女性">
-      </div>
-      <div class="p-costume-cols__box">
-        <h2 class="p-costume-cols__title">留袖</h2>
-        <p class="p-costume-cols__text">留袖は既婚女性にとっての第一礼装。新郎新婦様のお母様やご親族の皆様にお召しいただけます。</p>
-        <a class="p-costume-cols__more" href="#">一覧を見る</a>
+      <div class="p-access-route__block">
+        <h3 class="p-access-route__station">阪急烏丸駅より</h3>
+        <p class="p-access-route__label">【電車】</p>
+        <p class="p-access-route__text">地下鉄烏丸線（国際会館行）に乗り換え、「四条駅」〜「北大路駅」乗車（所要時間・約9分）。「北大路駅」下車後、タクシーにて5分。</p>
+        <p class="p-access-route__label">【バス】</p>
+        <p class="p-access-route__text">26番出口、きらっ都プラザ前のバス停「四条烏丸駅」から、市バス12系統「金閣寺立命館大学前行き」に乗車（所要時間・約30分）。バス停「大徳寺前」で下車、徒歩5分。</p>
       </div>
     </section>
 
-    <!-- section5: 訪問着（2カラム・白箱左／画像右 --reverse） -->
-    <section class="p-costume-cols p-costume-cols--reverse">
-      <div class="p-costume-cols__img">
-        <img src="../img/rental/img_costume05.png" alt="訪問着を着た女性">
-      </div>
-      <div class="p-costume-cols__box">
-        <h2 class="p-costume-cols__title">訪問着</h2>
-        <p class="p-costume-cols__text">幅広い年齢層の方がお召しいただける、留袖に次ぐ準礼装。ご親族の方以外のご結婚式や披露宴ご出席のお衣装に。</p>
-        <a class="p-costume-cols__more" href="#">一覧を見る</a>
-      </div>
-    </section>
+    <!-- section5: お車でお越しの方（1100px：アイコン見出し → リード → ストリートビュー） -->
+    <section class="p-access-car">
+      <h2 class="p-access-car__title">
+        <img class="p-access-car__icon" src="../img/access/ico_car01.png" alt="">
+        お車でお越しの方
+      </h2>
+      <p class="p-access-car__lead">駐車場のご用意がございます。ご来店の際は事前のご予約の上、ご来店くださいませ。</p>
 
-    <!-- section6: 振袖（2カラム・画像左／白箱右） -->
-    <section class="p-costume-cols">
-      <div class="p-costume-cols__img">
-        <img src="../img/rental/img_costume06.png" alt="振袖を着た女性">
-      </div>
-      <div class="p-costume-cols__box">
-        <h2 class="p-costume-cols__title">振袖</h2>
-        <p class="p-costume-cols__text">華やかな彩りを添える、未婚女性の第一礼装。姉妹様や親族様、友人様まで幅広くお召し頂けるお衣装です。</p>
-        <a class="p-costume-cols__more" href="#">一覧を見る</a>
-      </div>
+      <!-- GoogleMap ストリートビュー（1100×600）。店舗住所と同じ地点 -->
+      <iframe
+        class="p-access-car__sv"
+        src="https://maps.google.com/maps?q=%E4%BA%AC%E9%83%BD%E5%BA%9C%E4%BA%AC%E9%83%BD%E5%B8%82%E5%8C%97%E5%8C%BA%E7%B4%AB%E9%87%8E%E4%B8%8A%E9%96%80%E5%89%8D%E7%94%BA23&layer=c&output=svembed"
+        title="華結び 店舗ストリートビュー"
+        loading="lazy"
+        allowfullscreen></iframe>
     </section>
-    <!-- ===== レンタル衣装ページ固有コンテンツここまで ===== -->
 
     <!-- ===== ここから各子ページ共通の下部エリア ===== -->
     <!-- 共通パンくず（下部エリアの先頭） -->
     <nav class="l-breadcrumb" aria-label="パンくずリスト">
       <ol class="l-breadcrumb__list">
         <li class="l-breadcrumb__item"><a href="../index.html">打掛レンタルの華結びHOME</a></li>
-        <li class="l-breadcrumb__item">レンタル衣装 | 色打掛・白無垢のレンタル＜京都・華結び＞</li>
+        <li class="l-breadcrumb__item">アクセス・店舗案内＜京都・華結び＞</li>
       </ol>
     </nav>
 

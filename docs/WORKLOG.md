@@ -1,5 +1,19 @@
 # WORKLOG
 
+## 2026-06-26
+
+- アクセス・店舗案内ページ（`pages/access.html`）を作成・一通り完成
+  - 共通雛形を faq.html から複製（head/`l-header--page`/`p-side`/`p-page-title`/パンくず/`p-btn-field--page`/`p-contact`/`p-map`/`l-footer`）。差し替えは `<title>`＝アクセス・店舗案内 | 華結び-模写・`p-page-title__text`＝アクセス・店舗案内・パンくず末尾＝アクセス・店舗案内＜京都・華結び＞・`<body class="access-page">`
+  - 背景方針: このページは**タイトルセクションだけ**地色 #F1F4F7。他ページのような body 直付けはせず、`.access-page .p-page-title` にのみ `background-color: $color-bg-rental` を適用（`_access-intro.scss`）。以降は base の `body{background:#fff}` の白がそのまま出る
+  - 導線接続: 全9ページ（index/about/rental/production/first/flow/report/faq/blog）＋自ページのヘッダー・フッターの「アクセス」`href="#"` → access へ。index はルート基準 `pages/access.html`、`pages/` 配下は `access.html`。一部ファイルが未読で Edit 不可だったため PowerShell の `[System.IO.File]` で BOM 無し UTF-8 のまま一括置換
+  - section1 `p-access-intro`（`_access-intro.scss`）: 白背景・中央寄せ・`padding-block:8rem`。タイトル「店舗案内」30px/42px、リード2行 17px/32px。フォントは Noto Serif JP 400＝base 既定のため未指定
+  - section2 `p-access-shop`（`_access-shop.scss`）: `img_shop01_pc.jpg`（1920×530）を `width:100%` で全幅配置。Figma `top:648` は通常フロー位置として解釈し座標は書かない
+  - section3 `p-access-info`（`_access-info.scss`）: 1100px。当初は見出しを上に独立配置していたが、指示で**見出しを左カラム内へ移動**し `align-items:flex-start` で見出し＋表（左610）と地図（右440）の上端を揃える型に変更。見出し下のborderは不要との指示で削除。◆は回転正方形の `::before`（`$color-gold-2`／`_first-option` と同パターン）。表＝ラベル `th` 幅12rem・地色 #F7F8FA（`$color-bg-gray`）、上罫線＋行区切り `#171716`（`$color-black`）、上下左右 `padding:2rem`。※注記は `list-style:disc` の黒点リスト（白背景）。地図画像 `img_map01.jpg` 440×380。下部に GoogleMap を `iframe`（1100×450）で埋め込み＝店舗住所「京都府京都市北区紫野上門前町23」を URL エンコードして `q=…&output=embed`
+  - section4 `p-access-route`（`_access-route.scss`）: 「電車・バスでお越しの方」。`ico_train01.png`＋中央見出し・下に `1px solid #000000`。駅別ブロック2つ（JR京都駅／阪急烏丸駅）、`block + block` の上に区切り罫線 #000000。各ブロック＝◆駅名（金ひし形）＋【電車】【バス】ラベル＋本文
+  - section5 `p-access-car`（`_access-car.scss`）: 「お車でお越しの方」。`ico_car01.png`＋中央見出し・下罫線 #000000・左寄せリード。GoogleMap **ストリートビュー**を `iframe`（1100×600）で埋め込み＝同住所に `&layer=c&output=svembed`。※キー無し svembed は住所だけだとパノラマに確実にスナップしない可能性あり（要・実機確認）
+  - `object/project/_index.scss` に `access-intro`/`access-shop`/`access-info`/`access-route`/`access-car` を `@forward`
+  - 罫線色が `p-access-info`（表＝`$color-black`#171716）と `p-access-route`/`p-access-car`（#000000）で混在。寸法・余白・◆色・GoogleMap枠サイズ等は Figma 実値未確定の仮置き（`// 要確認`）
+
 ## 2026-06-25
 
 - ブログページ（`pages/blog.html`）を作成・左2カラム＋右カテゴリ＋ページ送りまで実装

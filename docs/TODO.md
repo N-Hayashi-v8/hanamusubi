@@ -13,6 +13,10 @@
 - [ ] blog ページの仮置き（`// 要確認`）を確定（`p-blog-list` の中央幅110rem・カラム間／カード列間3rem・行間4rem、`p-blog-card` のメタ文字色、`p-blog-cat` の花絵`__deco`幅13rem・区切り線色#e3e3e3・ヘッダー余白、`p-blog-pager` のボタン4.6rem角・枠色＝#000・ボタン間1rem・文字16px・左2カラム幅80rem・パンくず間8rem）
 - [ ] blog の記事カード内容（日付・カテゴリ・タイトル）を詳細スクショで確定し、サムネ画像を `img/blog/blog01〜10.jpg` に配置（現状プレースホルダー）。「2×10＝20枚」想定なら残り10枚を追記
 - [ ] report の「ブログで見る」ボタン（`p-report-list__btn`）の遷移先を確定（個別記事 or blog 一覧）
+- [ ] access ページの仮置き（`// 要確認`）を確定（`p-access-intro` の見出し→本文余白、`p-access-info` の見出し2.4rem・表の行高(左カラム380)・注記1.3rem・GoogleMap枠余白、`p-access-route`/`p-access-car` の見出し・アイコン高さ・本文/ラベル余白、◆色＝`$color-gold-2` 仮）
+- [ ] access の罫線色の統一を確定（`p-access-info` の表＝`$color-black`#171716／`p-access-route`・`p-access-car`＝`#000000`。純黒へ統一するか）
+- [ ] access ストリートビュー（`p-access-car__sv`）の表示確認。キー無し `svembed` は住所だけだとパノラマに確実にスナップしないため、灰色/地図表示なら `cbll=lat,lng` 指定 or 正規の埋め込みコードに差し替え
+- [ ] access の「※注記」背景＝白で実装（指示の `#F7F8FA` の対象が曖昧だったため）。注記エリアもグレーにする場合は `p-access-info__notes` に `background-color` 追加
 
 ## Next
 
@@ -20,12 +24,13 @@
 - [ ] Googleマップ（`p-map`）の住所を実店舗に差し替え
 - [ ] object/component・utility の追加
 - [ ] 金系カラーの用途確定後に変数名をリネーム
-- [ ] 残りの子ページ（アクセス・個人情報保護方針 など）の作成（初めての方へ・ご利用の流れ・幸せレポート・よくある質問・ブログ＝完了）
+- [ ] 残りの子ページ（個人情報保護方針 など）の作成（初めての方へ・ご利用の流れ・幸せレポート・よくある質問・ブログ・アクセス＝完了）。「個人情報保護方針」はフッターのみ `href="#"` 未接続のまま
 - [ ] ブログの右カテゴリの各リンク先・ページ送り（2・3ページ）を作成後に接続（現状 `href="#"` 仮置き）
 - [ ] 各子ページのナビ/フッターで未作成ページ向け `href="#"` を、ページ作成後に順次接続
 
 ## Done
 
+- [x] アクセス・店舗案内ページ（`access.html`）作成・完成（faq.html を雛形に共通雛形を複製／`<title>`＝アクセス・店舗案内・`p-page-title__text`＝アクセス・店舗案内・パンくず末尾・`<body class="access-page">`／全9ページ＋自ページのナビ・フッターの「アクセス」`href="#"`→access 接続〔index はルート基準 `pages/access.html`〕）。タイトルセクションのみ地色 #F1F4F7（`$color-bg-rental`）、以降は base の白。固有部＝`p-access-intro`（店舗案内リード・白・中央・上下8rem／30px・17px）／`p-access-shop`（全幅画像 `img_shop01_pc.jpg` 1920×530）／`p-access-info`（1100px・左カラム〔◆見出し＋表＋黒点注記〕＋右地図 `img_map01.jpg` 440×380・上端揃え／表ラベル #F7F8FA＝`$color-bg-gray`・表border #171716・上下pad2rem／GoogleMap iframe 1100×450＝店舗住所）／`p-access-route`（◆電車bus・JR京都/阪急烏丸の2ブロック・`ico_train01.png` 中央見出し・border #000000）／`p-access-car`（`ico_car01.png` 中央見出し・リード・ストリートビュー iframe 1100×600＝同住所 `svembed`）。各寸法・色は仮置き（要確認）
 - [x] ブログページ（`blog.html`）作成・左2カラム＋右カテゴリ＋ページ送りまで実装（faq.html を雛形に共通部複製／`<body class="blog-page">`＋地色#F1F4F7を`_blog.scss`に追加／全8ページ＋自ページのナビ・フッターの「ブログ」`href="#"`→blog接続〔index はルート基準 `pages/blog.html`〕）。`p-blog-list`＝3カラム（左2列カード／右255pxカテゴリ）を`__inner`flex `space-between`で配置／`p-blog-card`＝385×388（写真`__thumb`385×250固定＋白部分`__body`高さ138固定・上30/左右30/下なし・メタ14px/18px・タイトル17px/22px・間14）／`p-blog-cat`＝白地・`align-self:flex-start`で中身高さに留め・◆カテゴリ左寄せ〔◆は#AB7300の文字〕・花絵`bg_category01.png`をabsoluteで右上・`border-bottom`#ab7300・各行min-height53px＋右シェブロン5×5・9カテゴリ／`p-blog-pager`＝1〔現在=白文字赤背景#a50a24〕/2/3/>/≫〔テキスト〕・他はホバーで赤・枠#000・左2カラム(80rem)の中央。記事内容・サムネ画像・各寸法は仮置き（要確認）
 - [x] よくある質問ページ（`faq.html`）作成・完成（`p-faq-nav`＝300×60枠ボタン3列×2行・gap40px・各Q&Aセクションへのアンカー／`p-faq`＝1100px幅・上border #171716・タイトルNoto Serif JP 36px上下8rem・全6カテゴリー22問／アコーディオン＝button＋grid-rows(0fr→1fr)スライド・＋疑似要素2本を時計回り回転で−化（JSは.is-openトグルのみ）／回答16px・行高30px・複数行は`<br>`／地色#F1F4F7をbody直付け／「ご利用の流れ」回答をflow.htmlへリンク化／全7ページのナビ・フッター・btn-fieldの導線接続）（`p-report-mv`＝全幅MV＋タイトル画像をabsoluteで重ね下にはみ出し／`p-report-intro`＝テクスチャ地にSemiBoldリード文／`p-report-list`＝ベージュ地に白カード×3：赤線・メタ密着ピル・メイン976＋サムネ760(両側170)・コメント1/2カラム460＋gap56／パンくず地続き／全6ページの導線接続／画像リネーム・フォント600追加）
 - [x] ご利用の流れページ（`flow.html`）作成・完成（`p-flow` 反復テンプレ＝番号＋金下線見出し／STEP1 衣装を選ぶ＋金枠注記→STEP4アンカー／分岐ピル／STEP2 来店予約・宅配の2カード／STEP3 試着写真3枚Grid／STEP4 申し込み〜発送＝TEL＋画像ボタン幅300／STEP5 当日＝画像左本文右／末尾 注意事項＝ひし形画像見出し＋赤丸#a83627・背景枠なし／矢印余白1rem・STEP2→3のみ左寄せ／全5ページのリンク接続）
