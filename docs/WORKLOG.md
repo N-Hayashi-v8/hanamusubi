@@ -11,6 +11,10 @@
   - 4番は箇条書き `__bullets`/`__bullet`（行頭「・」を `::before`・`padding-left`＋`text-indent` のぶら下げで2行目以降を揃え）。5番は本文2段落。10番は見出しのみ
   - `object/project/_index.scss` に `@forward "privacy";`
   - `__title` 24px・各 `padding-block`/`margin` 等は Figma 実値未確定の仮置き（`// 要確認`）
+- 模写全工程の完了レビューを実施し、横断チェックで2点を修正
+  - 表記ゆれ「衣装製作」→「衣装制作」をヘッダーナビに合わせて統一（index＋全 pages のフッターナビ＋`about.html` 本文ボタン。計11ファイルを PowerShell の BOM 無し UTF-8 一括置換）
+  - privacy 箇条書き `__bullet` のぶら下げ量を `1.4rem`→`1.6rem`（行頭「・」全角1em ぶん）に調整し、折り返し2行目を1行目の文字頭に揃え（`_privacy.scss`）
+  - その他チェック結果は問題なし（画像パス欠落なし／ページ内アンカー全解決／`id` 重複なし／全 `<img>` に `alt`／`<title>` 全11ページ統一／見出し階層 h1→h2 整合）。faq の「よくある質問」(ナビ・フッター)／「よくあるご質問」(title・h1・パンくず・btn-field) の表記差は模写元どおりのため対応不要
 
 ## 2026-06-26
 

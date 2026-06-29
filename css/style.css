@@ -2504,8 +2504,8 @@ img {
   line-height: 3.2rem;
 }
 .p-privacy-list__bullet {
-  padding-left: 1.4rem;
-  text-indent: -1.4rem;
+  padding-left: 1.6rem;
+  text-indent: -1.6rem;
 }
 .p-privacy-list__bullet::before {
   content: "・";

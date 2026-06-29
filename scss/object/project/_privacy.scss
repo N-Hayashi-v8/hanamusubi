@@ -63,8 +63,8 @@
   }
 
   &__bullet {
-    padding-left: 1.4rem;    // ぶら下げぶんの左インデント
-    text-indent: -1.4rem;    // 行頭マーカーぶんを戻す（2行目以降を揃える）
+    padding-left: 1.6rem;    // 「・」1字ぶん（全角1em）の左インデント
+    text-indent: -1.6rem;    // 行頭マーカーぶんを戻す（2行目以降を揃える）
 
     &::before {
       content: "・";

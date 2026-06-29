@@ -17,7 +17,7 @@
 - [ ] access の罫線色の統一を確定（`p-access-info` の表＝`$color-black`#171716／`p-access-route`・`p-access-car`＝`#000000`。純黒へ統一するか）
 - [ ] access ストリートビュー（`p-access-car__sv`）の表示確認。キー無し `svembed` は住所だけだとパノラマに確実にスナップしないため、灰色/地図表示なら `cbll=lat,lng` 指定 or 正規の埋め込みコードに差し替え
 - [ ] access の「※注記」背景＝白で実装（指示の `#F7F8FA` の対象が曖昧だったため）。注記エリアもグレーにする場合は `p-access-info__notes` に `background-color` 追加
-- [ ] privacy ページの仮置き（`// 要確認`）を確定（`p-privacy-list` の `__title` 24px〔23px→丸め〕・項目の `padding-block` 4rem・タイトル→本文 2rem・白箱の上余白 8rem・箇条書きのぶら下げ量）。URL「kyo-hanamusubi.com/wp2019/」のリンク化要否も確認
+- [ ] privacy ページの仮置き（`// 要確認`）を確定（`p-privacy-list` の `__title` 24px〔23px→丸め〕・項目の `padding-block` 4rem・タイトル→本文 2rem・白箱の上余白 8rem）。URL「kyo-hanamusubi.com/wp2019/」のリンク化要否も確認
 
 ## Next
 
