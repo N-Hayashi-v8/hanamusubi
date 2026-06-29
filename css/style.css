@@ -2459,4 +2459,54 @@ img {
   height: 60rem;
   margin-top: 3rem;
   border: 0;
+}
+
+.privacy-page {
+  background-color: #f1f4f7;
+}
+
+.p-privacy {
+  margin-top: 10rem;
+}
+.p-privacy__inner {
+  width: 110rem;
+  margin-inline: auto;
+}
+.p-privacy__lead, .p-privacy__text {
+  font-size: 1.6rem;
+  line-height: 3.2rem;
+}
+
+.p-privacy-list {
+  width: 110rem;
+  margin-inline: auto;
+  margin-top: 8rem;
+  padding-inline: 4.5rem;
+  background-color: #ffffff;
+}
+.p-privacy-list__item {
+  padding-block: 4rem;
+}
+.p-privacy-list__item + .p-privacy-list__item {
+  border-top: 1px solid #e3e0ce;
+}
+.p-privacy-list__title {
+  margin-bottom: 2rem;
+  font-size: 2.4rem;
+  line-height: 3rem;
+}
+.p-privacy-list__text {
+  font-size: 1.6rem;
+  line-height: 3.2rem;
+}
+.p-privacy-list__bullets {
+  font-size: 1.6rem;
+  line-height: 3.2rem;
+}
+.p-privacy-list__bullet {
+  padding-left: 1.4rem;
+  text-indent: -1.4rem;
+}
+.p-privacy-list__bullet::before {
+  content: "・";
 }/*# sourceMappingURL=style.css.map */

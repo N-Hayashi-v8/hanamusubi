@@ -17,6 +17,7 @@
 - [ ] access の罫線色の統一を確定（`p-access-info` の表＝`$color-black`#171716／`p-access-route`・`p-access-car`＝`#000000`。純黒へ統一するか）
 - [ ] access ストリートビュー（`p-access-car__sv`）の表示確認。キー無し `svembed` は住所だけだとパノラマに確実にスナップしないため、灰色/地図表示なら `cbll=lat,lng` 指定 or 正規の埋め込みコードに差し替え
 - [ ] access の「※注記」背景＝白で実装（指示の `#F7F8FA` の対象が曖昧だったため）。注記エリアもグレーにする場合は `p-access-info__notes` に `background-color` 追加
+- [ ] privacy ページの仮置き（`// 要確認`）を確定（`p-privacy-list` の `__title` 24px〔23px→丸め〕・項目の `padding-block` 4rem・タイトル→本文 2rem・白箱の上余白 8rem・箇条書きのぶら下げ量）。URL「kyo-hanamusubi.com/wp2019/」のリンク化要否も確認
 
 ## Next
 
@@ -24,12 +25,13 @@
 - [ ] Googleマップ（`p-map`）の住所を実店舗に差し替え
 - [ ] object/component・utility の追加
 - [ ] 金系カラーの用途確定後に変数名をリネーム
-- [ ] 残りの子ページ（個人情報保護方針 など）の作成（初めての方へ・ご利用の流れ・幸せレポート・よくある質問・ブログ・アクセス＝完了）。「個人情報保護方針」はフッターのみ `href="#"` 未接続のまま
+- [ ] 残りの子ページの作成（初めての方へ・ご利用の流れ・幸せレポート・よくある質問・ブログ・アクセス・個人情報保護方針＝完了）
 - [ ] ブログの右カテゴリの各リンク先・ページ送り（2・3ページ）を作成後に接続（現状 `href="#"` 仮置き）
 - [ ] 各子ページのナビ/フッターで未作成ページ向け `href="#"` を、ページ作成後に順次接続
 
 ## Done
 
+- [x] 個人情報保護方針ページ（`privacy.html`）作成・全10項目まで実装（access.html を雛形に共通部複製／`<body class="privacy-page">`＋地色#F1F4F7を`_privacy.scss`に追加〔タイトル〜パンくず〕／全10ページ＋自ページのフッター「個人情報保護方針」`href="#"`→privacy接続〔index はルート基準 `pages/privacy.html`〕）。`p-privacy`＝リード文（1100px・タイトルから10rem・地の文 Noto Serif JP 400 16px/32px を `__lead`/`__text` 共通定義・URL はプレーンテキスト）／`p-privacy-list`＝白箱1100px・`padding-inline:4.5rem`で項目幅1010px・項目間 #E3E0CE 罫線〔上下4rem〕・`__title`23px→24丸め/行高30px・タイトル→本文2rem・段落間余白なし。4番は箇条書き`__bullets`〔行頭「・」ぶら下げ〕・5番2段落・10番見出しのみ。各寸法は仮置き（要確認）
 - [x] アクセス・店舗案内ページ（`access.html`）作成・完成（faq.html を雛形に共通雛形を複製／`<title>`＝アクセス・店舗案内・`p-page-title__text`＝アクセス・店舗案内・パンくず末尾・`<body class="access-page">`／全9ページ＋自ページのナビ・フッターの「アクセス」`href="#"`→access 接続〔index はルート基準 `pages/access.html`〕）。タイトルセクションのみ地色 #F1F4F7（`$color-bg-rental`）、以降は base の白。固有部＝`p-access-intro`（店舗案内リード・白・中央・上下8rem／30px・17px）／`p-access-shop`（全幅画像 `img_shop01_pc.jpg` 1920×530）／`p-access-info`（1100px・左カラム〔◆見出し＋表＋黒点注記〕＋右地図 `img_map01.jpg` 440×380・上端揃え／表ラベル #F7F8FA＝`$color-bg-gray`・表border #171716・上下pad2rem／GoogleMap iframe 1100×450＝店舗住所）／`p-access-route`（◆電車bus・JR京都/阪急烏丸の2ブロック・`ico_train01.png` 中央見出し・border #000000）／`p-access-car`（`ico_car01.png` 中央見出し・リード・ストリートビュー iframe 1100×600＝同住所 `svembed`）。各寸法・色は仮置き（要確認）
 - [x] ブログページ（`blog.html`）作成・左2カラム＋右カテゴリ＋ページ送りまで実装（faq.html を雛形に共通部複製／`<body class="blog-page">`＋地色#F1F4F7を`_blog.scss`に追加／全8ページ＋自ページのナビ・フッターの「ブログ」`href="#"`→blog接続〔index はルート基準 `pages/blog.html`〕）。`p-blog-list`＝3カラム（左2列カード／右255pxカテゴリ）を`__inner`flex `space-between`で配置／`p-blog-card`＝385×388（写真`__thumb`385×250固定＋白部分`__body`高さ138固定・上30/左右30/下なし・メタ14px/18px・タイトル17px/22px・間14）／`p-blog-cat`＝白地・`align-self:flex-start`で中身高さに留め・◆カテゴリ左寄せ〔◆は#AB7300の文字〕・花絵`bg_category01.png`をabsoluteで右上・`border-bottom`#ab7300・各行min-height53px＋右シェブロン5×5・9カテゴリ／`p-blog-pager`＝1〔現在=白文字赤背景#a50a24〕/2/3/>/≫〔テキスト〕・他はホバーで赤・枠#000・左2カラム(80rem)の中央。記事内容・サムネ画像・各寸法は仮置き（要確認）
 - [x] よくある質問ページ（`faq.html`）作成・完成（`p-faq-nav`＝300×60枠ボタン3列×2行・gap40px・各Q&Aセクションへのアンカー／`p-faq`＝1100px幅・上border #171716・タイトルNoto Serif JP 36px上下8rem・全6カテゴリー22問／アコーディオン＝button＋grid-rows(0fr→1fr)スライド・＋疑似要素2本を時計回り回転で−化（JSは.is-openトグルのみ）／回答16px・行高30px・複数行は`<br>`／地色#F1F4F7をbody直付け／「ご利用の流れ」回答をflow.htmlへリンク化／全7ページのナビ・フッター・btn-fieldの導線接続）（`p-report-mv`＝全幅MV＋タイトル画像をabsoluteで重ね下にはみ出し／`p-report-intro`＝テクスチャ地にSemiBoldリード文／`p-report-list`＝ベージュ地に白カード×3：赤線・メタ密着ピル・メイン976＋サムネ760(両側170)・コメント1/2カラム460＋gap56／パンくず地続き／全6ページの導線接続／画像リネーム・フォント600追加）

@@ -1,5 +1,17 @@
 # WORKLOG
 
+## 2026-06-29
+
+- 個人情報保護方針ページ（`pages/privacy.html`）を作成・全10項目まで実装
+  - 共通雛形を access.html から複製（head/`l-header--page`/`p-side`/`p-page-title`/パンくず/`p-btn-field--page`/`p-contact`/`p-map`/`l-footer`）。差し替えは `<title>`＝個人情報保護方針・`p-page-title__text`＝個人情報保護方針・パンくず末尾＝個人情報保護方針＜京都・華結び＞・`<body class="privacy-page">`
+  - 地色 #F1F4F7（`$color-bg-rental` 再利用）を body直付け（`.privacy-page`・新規 `_privacy.scss`）。下部共通エリアが上塗りするためグレーが見えるのはタイトル〜パンくず（faq/flow/blog と同方式）
+  - 導線接続: 全10ページ（index/about/rental/production/first/flow/report/faq/blog/access）＋自ページのフッター「個人情報保護方針」`href="#"` → privacy へ。index はルート基準 `pages/privacy.html`、`pages/` 配下は `privacy.html`。一部ファイルが未読で Edit 不可だったため PowerShell の `[System.IO.File]` で BOM 無し UTF-8 のまま一括置換
+  - section1 リード文 `p-privacy`（`_privacy.scss`）: 1100px インナー・タイトルセクションから `margin-top:10rem`。地の文の共通タイポgrafy＝Noto Serif JP 400 / 16px / 行高32px を `__lead`・`__text` に定義（このページの地の文は全てこれ）。URL「`https://kyo-hanamusubi.com/wp2019/`」は装飾なしの引用表記のためプレーンテキスト
+  - section2 各項目 `p-privacy-list`（`_privacy.scss`）: 白箱（`$color-white`）1100px・`padding-inline:4.5rem` で中身（項目）幅1010px。項目間に #E3E0CE（`$color-bg-beige` 再利用）の罫線を `&__item + &__item` の `border-top` で。罫線の上下余白は `padding-block:4rem`。`__title`＝23px→24丸め（2.4rem）/行高30px・タイトル→本文 `margin-bottom:2rem`。段落間の余白は不要のため `__text` を並べるだけ（margin 0）
+  - 4番は箇条書き `__bullets`/`__bullet`（行頭「・」を `::before`・`padding-left`＋`text-indent` のぶら下げで2行目以降を揃え）。5番は本文2段落。10番は見出しのみ
+  - `object/project/_index.scss` に `@forward "privacy";`
+  - `__title` 24px・各 `padding-block`/`margin` 等は Figma 実値未確定の仮置き（`// 要確認`）
+
 ## 2026-06-26
 
 - アクセス・店舗案内ページ（`pages/access.html`）を作成・一通り完成
