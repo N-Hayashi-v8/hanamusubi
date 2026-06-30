@@ -1,0 +1,61 @@
+@use "../../../global" as *;
+
+// btn-field（黒帯＋金粒背景に枠付きボタン3つ）
+.p-btn-field {
+  padding: 6rem 0;                                // top60＋ボタン120＋下60＝240（背景高さ）
+  background-color: $color-black;                 // 中央の黒＋フォールバック
+  background-image: url("../img/common/bg_pattern03.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;                                   // ボタン間 12px
+  }
+
+  &__btn {
+    position: relative;                            // 三角の基準
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 36rem;
+    height: 12rem;
+    border: 1px solid $color-white;                // 枠線 1px
+    color: $color-white;
+    text-align: center;
+  }
+
+  // ボタン右下の金の三角
+  &__btn::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border-style: solid;
+    border-width: 0 0 0.9rem 0.9rem;              // 三角 9×9px
+    border-color: transparent transparent $color-white transparent;
+  }
+
+  &__title {
+    font-size: 2.6rem;
+    line-height: 3.1rem;
+  }
+
+  &__sub {
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+  }
+
+  // 子ページ下部の共通帯（4ボタン・小さめ）
+  &--page {
+    padding: 8rem 0;            // Figma top 80px。下側は対称と仮定
+
+    .p-btn-field__btn {
+      width: 26.6rem;
+      height: 8rem;
+    }
+  }
+}

@@ -1,0 +1,66 @@
+@use "../../../global" as *;
+
+// アクセス 電車・バスでお越しの方（1100px：アイコン見出し → 駅別ブロック×2）
+.p-access-route {
+  width: 110rem;
+  max-width: 100%;
+  margin-inline: auto;
+  margin-block: 8rem;          // 前後セクションとの余白
+
+  // アイコン＋中央見出し（下に罫線）
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid #000000;
+    font-size: 2.4rem;
+    line-height: 1.4;
+  }
+
+  &__icon {
+    width: auto;
+    height: 3rem;
+    margin-right: 1.6rem;
+  }
+
+  // 駅別ブロック（2つ目以降の上に区切り罫線）
+  &__block {
+    margin-top: 5rem;           // 罫線→ブロック
+  }
+
+  &__block + &__block {
+    padding-top: 5rem;
+    border-top: 1px solid #000000;
+  }
+
+  // ◆ 金のひし形＋駅名見出し
+  &__station {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    line-height: 1.4;
+
+    &::before {
+      content: "";
+      width: 1.2rem;
+      height: 1.2rem;
+      margin-right: 1.2rem;
+      background-color: $color-gold-2;  // ◆ #AB7300
+      transform: rotate(45deg);
+    }
+  }
+
+  // 【電車】【バス】ラベル
+  &__label {
+    margin-top: 2rem;
+    font-size: 1.4rem;
+    line-height: 1.6;
+  }
+
+  &__text {
+    margin-top: 0.8rem;
+    font-size: 1.4rem;
+    line-height: 2.6rem;
+  }
+}

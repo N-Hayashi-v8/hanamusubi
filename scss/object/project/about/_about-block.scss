@@ -1,0 +1,43 @@
+@use "../../../global" as *;
+
+// 全幅の写真背景に、座標指定の正方形カード(540×540)を重ねるタイプ（section2 / section7）
+// カードの top は共通70px、left と背景画像は番号別modifierで指定。中身は .p-about-card
+.p-about-block {
+  position: relative;
+  min-height: 68rem;          // 背景写真(680px)に合わせた最低高さ
+  background-size: cover;
+  background-position: center;
+
+  &__card {
+    position: absolute;
+    top: 7rem;
+    width: 54rem;
+    min-height: 54rem;        // 540px（高さは固定せず最低値。中身が増えたら伸びる）
+    padding: 4rem;
+
+    // 正方形の中で中身を縦中央に
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background-color: $color-white;
+  }
+
+  // section2: 人物が左、カードは右寄り（left 870px）
+  &--01 {
+    background-image: url("../img/about/bg_about01.png");
+
+    .p-about-block__card {
+      left: 87rem;
+    }
+  }
+
+  // section7: 箱が右、カードは左寄り（left 300px）
+  &--06 {
+    background-image: url("../img/about/bg_about06.png");
+
+    .p-about-block__card {
+      left: 30rem;
+    }
+  }
+}

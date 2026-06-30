@@ -1,9 +1,0 @@
-@use "../../global" as *;
-
-// 初めての方へ メインビジュアル（全幅の1枚画像）
-.p-first-main {
-  &__img {
-    display: block;
-    width: 100%;        // ビューポート全幅（縦横比は base の height:auto で維持）
-  }
-}

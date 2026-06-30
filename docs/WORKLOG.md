@@ -1,5 +1,17 @@
 # WORKLOG
 
+## 2026-06-30
+
+- フォルダ階層の見直し（可読性向上のリファクタ。CSS 出力結果は不変）
+  - 共通画像を `img/common/` へ分離: `logo_nav01.png`/`logo02.png`/`bg_pattern03.png`/`bg_btn01.png`（全ページ・レイアウト共通）を `img/top/` から移動（git mv で履歴保持）。HTML 全11ページ・SCSS 4ファイル・コンパイル済み `css/style.css` の参照を一括更新
+  - 未参照のデッドファイル3つを削除: ルート直下 `img/logo02.png`・`img/logo_nav01 1.svg`（スペース付き名）・`img/top/img_rental01_pc.png`（旧素材）。リンク切れ0件を確認
+  - `scss/object/project/` を「共通＋ページ別」サブフォルダに再編: `common`(side/page-title/btn-field/contact/map)・`top`(mv/price/intro/rental/belief/cta/blog/report)・`about`・`access`・`first`・`production`・`report`・`blog`・`rental`・`flow`・`faq`・`privacy`。44ファイルを git mv、各ファイルの `@use "../../global"` を `../../../global` に補正。`_index.scss` は `@forward` の並び順（＝CSS 出力順）を1行も変えずパス付きに書き換え、上書き競合による表示崩れを回避。命名衝突気味だった top の `_blog`/`_report` と子ページの `blog-*`/`report-*` が物理的に分離
+  - img/top・scss/layout・global・foundation 等はフラットが適切と判断し、これ以上の分割はしない方針を確認
+- コメント整理（レビュー提出向け。コードの値・設計意図は保持し、仮版の痕跡と冗長メモを除去）
+  - 「要確認」マーカーを全除去（304行）・先頭の「Figma 未共有のため仮置き」宣言ブロックを除去。複文は句点単位で宣言文だけ削り設計意図文は残す処理（perl）。「下側は対称と仮定」「（未指定）」等の設計判断・事実メモは意図的に残置
+  - figma/px の純粋値メモ（`// Figma 42px`・`// 16px`・`// 20px に丸め` 等）・装飾区切り線 `// -----`（42本）・説明なしの hex メモ（`// #9E8846`）を除去（計199件）。計算根拠（`カラム間56px（976−460×2）`）・設計理由・セクション見出し・理由付き色メモは残置
+  - sass CLI 不在のため自動コンパイル検証は不可。`@forward` 先・`@use` 先の到達性は静的に全件確認。Watch Sass の再コンパイルで最終確認予定
+
 ## 2026-06-29
 
 - 個人情報保護方針ページ（`pages/privacy.html`）を作成・全10項目まで実装

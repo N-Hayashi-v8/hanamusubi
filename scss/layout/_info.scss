@@ -5,12 +5,12 @@
   top: 0.8rem;
   left: 4rem;
   z-index: 30;
-  max-width: 60rem;        // Figma width 600px
+  max-width: 60rem;
   color: $color-white;     // 暗い MV 上に白文字
 
   &__text {
-    font-size: 1.4rem;     // Figma 13px → 14px に丸め（要確認）
-    line-height: 1;        // 100%
+    font-size: 1.4rem;
+    line-height: 1;
     letter-spacing: 0;
   }
 }

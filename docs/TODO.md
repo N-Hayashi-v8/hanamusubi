@@ -3,21 +3,11 @@
 ## Now
 
 - [ ] ブレークポイントの確定（暫定: sp 767 / pc 768）
-- [ ] 各セクションの仮置き（`// 要確認`）を Figma 実値で確定（特に `p-blog` の幅・フッターの余白）
-- [ ] about ページの仮置き（`// 要確認`）を確定（`p-page-title`・`p-about-*`・`l-breadcrumb` のフォント/余白）
-- [ ] `p-contact` の残り仮置きを確定（カード上下padding・row余白・内側罫線の色/左右インセット・帯下余白）
-- [ ] first ページの仮置き（`// 要確認`）を確定（`p-first-iroha`・`p-first-type`・`p-first-choice`・`p-first-option`・`p-first-rental` のフォント/余白、ボタンサイズ、金三角の形状・色、`p-first-type` のタイトル表記＝色打掛×3か白無垢/引振袖か、`p-first-option` の◆色＝金6色のどれか・2ブロック目の見出し「飾り小物」表記ゆれ）
-- [ ] first パンくず連結の余白を実値で確定（`p-first-rental` の上下padding・パンくず下余白 6rem・全幅化に伴う文字左位置）
-- [ ] flow ページの仮置き（`// 要確認`）を確定（`p-flow` の `__panel` 余白・`__head` フォント/下線間隔・`__select`/`__trial` 画像幅・`__note`・各ボタン `__btn-black`/`__btn-gold`/`__btn-dark` のサイズ・色＝`__btn-gold` の金は `$color-gold-6` 仮、`__notice` の各余白・ひし形/赤丸サイズ）
-- [ ] report ページの仮置き（`// 要確認`）を確定（`p-report-list` の色hex＝タイトル赤`#a83427`/赤線`$color-pink`/プランのベージュ`$color-bg-beige`・カード上下/ベージュ上下/パンくず下の余白・各フォント、`bg_pattern01` の `repeat` 継ぎ目＝タイル可否、`p-report-intro` の文字上下20/12rem）
-- [ ] blog ページの仮置き（`// 要確認`）を確定（`p-blog-list` の中央幅110rem・カラム間／カード列間3rem・行間4rem、`p-blog-card` のメタ文字色、`p-blog-cat` の花絵`__deco`幅13rem・区切り線色#e3e3e3・ヘッダー余白、`p-blog-pager` のボタン4.6rem角・枠色＝#000・ボタン間1rem・文字16px・左2カラム幅80rem・パンくず間8rem）
 - [ ] blog の記事カード内容（日付・カテゴリ・タイトル）を詳細スクショで確定し、サムネ画像を `img/blog/blog01〜10.jpg` に配置（現状プレースホルダー）。「2×10＝20枚」想定なら残り10枚を追記
 - [ ] report の「ブログで見る」ボタン（`p-report-list__btn`）の遷移先を確定（個別記事 or blog 一覧）
-- [ ] access ページの仮置き（`// 要確認`）を確定（`p-access-intro` の見出し→本文余白、`p-access-info` の見出し2.4rem・表の行高(左カラム380)・注記1.3rem・GoogleMap枠余白、`p-access-route`/`p-access-car` の見出し・アイコン高さ・本文/ラベル余白、◆色＝`$color-gold-2` 仮）
-- [ ] access の罫線色の統一を確定（`p-access-info` の表＝`$color-black`#171716／`p-access-route`・`p-access-car`＝`#000000`。純黒へ統一するか）
 - [ ] access ストリートビュー（`p-access-car__sv`）の表示確認。キー無し `svembed` は住所だけだとパノラマに確実にスナップしないため、灰色/地図表示なら `cbll=lat,lng` 指定 or 正規の埋め込みコードに差し替え
-- [ ] access の「※注記」背景＝白で実装（指示の `#F7F8FA` の対象が曖昧だったため）。注記エリアもグレーにする場合は `p-access-info__notes` に `background-color` 追加
-- [ ] privacy ページの仮置き（`// 要確認`）を確定（`p-privacy-list` の `__title` 24px〔23px→丸め〕・項目の `padding-block` 4rem・タイトル→本文 2rem・白箱の上余白 8rem）。URL「kyo-hanamusubi.com/wp2019/」のリンク化要否も確認
+
+> 注: 各ページの仮置き（`// 要確認`）の実値化タスクは、2026-06-30 に現行値を確定版として採用し要確認コメントを除去したため Done へ集約クローズ。Figma 実値の入手時に再検証する。
 
 ## Next
 
@@ -25,12 +15,16 @@
 - [ ] Googleマップ（`p-map`）の住所を実店舗に差し替え
 - [ ] object/component・utility の追加
 - [ ] 金系カラーの用途確定後に変数名をリネーム
-- [ ] 残りの子ページの作成（初めての方へ・ご利用の流れ・幸せレポート・よくある質問・ブログ・アクセス・個人情報保護方針＝完了）
+- [ ] 行末尾コメントの整理（2026-06-30 に残したラベル系コメント＝「カラム間」「見出し→本文」等、セレクタ＋プロパティから自明なものの精査・削減。設計理由・計算根拠・セクション見出しは残す）
 - [ ] ブログの右カテゴリの各リンク先・ページ送り（2・3ページ）を作成後に接続（現状 `href="#"` 仮置き）
 - [ ] 各子ページのナビ/フッターで未作成ページ向け `href="#"` を、ページ作成後に順次接続
 
 ## Done
 
+- [x] フォルダ階層の見直し（共通画像を `img/common` へ分離＋未参照デッド3ファイル削除／`scss/object/project` を common＋ページ別サブフォルダに再編し `@forward` 出力順は維持／HTML・SCSS・CSS の参照を一括更新／img/top・layout 等はフラット維持と確認）
+- [x] コメント整理（「要確認」マーカー・仮置き宣言を除去〔設計意図・事実メモは保持〕／figma・px の値メモ・装飾区切り線・説明なし hex メモを除去。計約500件。コードの値は不変）
+- [x] 全ページの仮置き（`// 要確認`）を現行値で確定版として採用し要確認コメントを除去（Figma 実値入手時に再検証）。旧 Now の各ページ実値化タスクをこの確定で集約クローズ
+- [x] 残りの子ページの作成（初めての方へ・ご利用の流れ・幸せレポート・よくある質問・ブログ・アクセス・個人情報保護方針）＝全10子ページ完了
 - [x] 個人情報保護方針ページ（`privacy.html`）作成・全10項目まで実装（access.html を雛形に共通部複製／`<body class="privacy-page">`＋地色#F1F4F7を`_privacy.scss`に追加〔タイトル〜パンくず〕／全10ページ＋自ページのフッター「個人情報保護方針」`href="#"`→privacy接続〔index はルート基準 `pages/privacy.html`〕）。`p-privacy`＝リード文（1100px・タイトルから10rem・地の文 Noto Serif JP 400 16px/32px を `__lead`/`__text` 共通定義・URL はプレーンテキスト）／`p-privacy-list`＝白箱1100px・`padding-inline:4.5rem`で項目幅1010px・項目間 #E3E0CE 罫線〔上下4rem〕・`__title`23px→24丸め/行高30px・タイトル→本文2rem・段落間余白なし。4番は箇条書き`__bullets`〔行頭「・」ぶら下げ〕・5番2段落・10番見出しのみ。各寸法は仮置き（要確認）
 - [x] アクセス・店舗案内ページ（`access.html`）作成・完成（faq.html を雛形に共通雛形を複製／`<title>`＝アクセス・店舗案内・`p-page-title__text`＝アクセス・店舗案内・パンくず末尾・`<body class="access-page">`／全9ページ＋自ページのナビ・フッターの「アクセス」`href="#"`→access 接続〔index はルート基準 `pages/access.html`〕）。タイトルセクションのみ地色 #F1F4F7（`$color-bg-rental`）、以降は base の白。固有部＝`p-access-intro`（店舗案内リード・白・中央・上下8rem／30px・17px）／`p-access-shop`（全幅画像 `img_shop01_pc.jpg` 1920×530）／`p-access-info`（1100px・左カラム〔◆見出し＋表＋黒点注記〕＋右地図 `img_map01.jpg` 440×380・上端揃え／表ラベル #F7F8FA＝`$color-bg-gray`・表border #171716・上下pad2rem／GoogleMap iframe 1100×450＝店舗住所）／`p-access-route`（◆電車bus・JR京都/阪急烏丸の2ブロック・`ico_train01.png` 中央見出し・border #000000）／`p-access-car`（`ico_car01.png` 中央見出し・リード・ストリートビュー iframe 1100×600＝同住所 `svembed`）。各寸法・色は仮置き（要確認）
 - [x] ブログページ（`blog.html`）作成・左2カラム＋右カテゴリ＋ページ送りまで実装（faq.html を雛形に共通部複製／`<body class="blog-page">`＋地色#F1F4F7を`_blog.scss`に追加／全8ページ＋自ページのナビ・フッターの「ブログ」`href="#"`→blog接続〔index はルート基準 `pages/blog.html`〕）。`p-blog-list`＝3カラム（左2列カード／右255pxカテゴリ）を`__inner`flex `space-between`で配置／`p-blog-card`＝385×388（写真`__thumb`385×250固定＋白部分`__body`高さ138固定・上30/左右30/下なし・メタ14px/18px・タイトル17px/22px・間14）／`p-blog-cat`＝白地・`align-self:flex-start`で中身高さに留め・◆カテゴリ左寄せ〔◆は#AB7300の文字〕・花絵`bg_category01.png`をabsoluteで右上・`border-bottom`#ab7300・各行min-height53px＋右シェブロン5×5・9カテゴリ／`p-blog-pager`＝1〔現在=白文字赤背景#a50a24〕/2/3/>/≫〔テキスト〕・他はホバーで赤・枠#000・左2カラム(80rem)の中央。記事内容・サムネ画像・各寸法は仮置き（要確認）

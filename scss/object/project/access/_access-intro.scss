@@ -1,0 +1,24 @@
+@use "../../../global" as *;
+
+// アクセス・店舗案内ページ固有
+// タイトルセクションだけ地色 #F1F4F7、以降は白背景
+.access-page .p-page-title {
+  background-color: $color-bg-rental;
+}
+
+// 店舗案内リード（白背景・中央寄せ・上下8rem）
+.p-access-intro {
+  padding-block: 8rem;
+  text-align: center;
+
+  &__title {
+    font-size: 3rem;
+    line-height: 4.2rem;
+  }
+
+  &__lead {
+    margin-top: 3rem;      // タイトル→本文の余白
+    font-size: 1.7rem;
+    line-height: 3.2rem;
+  }
+}

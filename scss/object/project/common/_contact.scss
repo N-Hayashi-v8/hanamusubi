@@ -1,0 +1,78 @@
+@use "../../../global" as *;
+
+// ご予約・お問い合わせ（子ページ共通。灰帯＋中央白カード）
+// カード実高 220px が目標
+.p-contact {
+  padding: 6rem 0;                                 // Figma top 60px。下側は対称と仮定
+  background-color: $color-bg-contact;             // #E6E8E9（全幅）
+
+  &__box {
+    position: relative;                            // 内側罫線の基準
+    width: 94rem;
+    margin-inline: auto;                           // left 490px はセンタリングで成立
+    padding: 4rem 0;                               // カード実高 220px に合うよう調整
+    background-color: $color-white;
+  }
+
+  // 内側の罫線（上下 10px 内側。左右も 10px と仮定）
+  &__box::before {
+    content: "";
+    position: absolute;
+    inset: 1rem;
+    border: 1px solid $color-gold-6;
+    pointer-events: none;                          // 罫線がリンクのクリックを妨げないように
+  }
+
+  &__title {
+    font-size: 2.6rem;
+    line-height: 3.4rem;
+    text-align: center;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;                                     // TEL→ボタン群
+    margin-top: 2.4rem;
+  }
+
+  // 「TEL.」はベースフォント（Noto Serif JP）のまま
+  &__tel {
+    font-size: 2.6rem;
+    line-height: 3.4rem;
+    text-align: center;
+  }
+
+  // 電話番号のみ英字フォントで大きく
+  &__tel-num {
+    font-family: $font-en;
+    font-size: 4rem;
+    line-height: 4rem;
+  }
+
+  &__hours {
+    font-size: 1.6rem;
+    line-height: 2rem;
+    text-align: center;
+  }
+
+  &__btns {
+    display: flex;
+    gap: 1.6rem;                                   // ボタン間
+  }
+
+  &__btn {
+    display: inline-block;
+    width: 23rem;
+    padding: 2rem 0;                               // 上下20px＋行20px＝高さ60px（Figma 60px）
+    background-color: $color-gold-2;               // 画像読込前のフォールバック
+    background-image: url("../img/common/bg_btn01.png");
+    background-size: cover;
+    background-position: center;
+    color: $color-white;
+    font-size: 1.6rem;
+    line-height: 2rem;
+    text-align: center;
+  }
+}

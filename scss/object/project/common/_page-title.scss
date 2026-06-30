@@ -1,0 +1,24 @@
+@use "../../../global" as *;
+
+// 子ページ共通のタイトルセクション（ページ見出し＋下線）
+// 余白: nav→タイトル 100 / タイトル→下線 25 / 下線→次セクション 90（px）
+.p-page-title {
+  padding-top: 10rem;      // 固定ヘッダー直下から見出しまで 100px
+  padding-bottom: 9rem;    // 下線から次セクションまで 90px
+  text-align: center;
+
+  &__text {
+    font-size: 3rem;
+    line-height: 1;
+    letter-spacing: 0.1em;
+  }
+
+  // タイトル下の短い下線（中央）
+  &__line {
+    display: block;
+    width: 7rem;           // 線の長さ
+    height: 1px;
+    margin: 2.5rem auto 0; // タイトル→下線 25px
+    background-color: $color-gold-2;  // 線の色
+  }
+}

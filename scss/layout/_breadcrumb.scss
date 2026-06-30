@@ -6,8 +6,8 @@
   margin-inline: auto;
   margin-block: 6rem;           // 上下に60px（上=固有エリアとの境界 / 下=次の共通sectionとの間）
   padding: 6rem 0 1.2rem 41rem; // 上60 / 右0 / 下12 / 左410（テキスト左余白）
-  color: $color-gold-4;         // #9E8846
-  font-size: 1.2rem;            // 要確認
+  color: $color-gold-4;
+  font-size: 1.2rem;
 
   &__list {
     display: flex;

@@ -1,0 +1,67 @@
+@use "../../../global" as *;
+
+// 初めての方へ section3: 花嫁衣装の種類
+// 1100px 幅に「中央見出し → 3カラム（画像 / タイトル / 本文 / 一覧ボタン）」
+.p-first-type {
+  width: 110rem;                 // コンテンツ幅 1100px（センタリングは margin-inline:auto）
+  max-width: 100%;
+  margin-inline: auto;
+  margin-top: 10rem;             // 上(いろは)との余白
+
+  &__heading {
+    font-size: 3.2rem;           // 見出し
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);   // 3カラム均等
+    column-gap: 5rem;            // カラム間
+    margin-top: 6rem;            // 見出し→カラム
+  }
+
+  &__img {
+    display: block;
+    width: 100%;                 // カラム幅いっぱい
+  }
+
+  &__title {
+    margin-top: 3rem;            // 画像→タイトル
+    font-size: 2.4rem;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  &__text {
+    margin-top: 2.4rem;          // タイトル→本文
+    font-size: 1.6rem;
+    line-height: 3.2rem;
+  }
+
+  // 「一覧を見る」黒ボタン（下の左右コーナーに金アクセント）
+  &__btn {
+    position: relative;          // コーナー(::before/::after)の基準
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;            // 本文→ボタン
+    padding-block: 1.6rem;       // 高さは padding で成立（固定しない）
+    background-color: $color-black;
+    color: $color-white;
+    font-size: 1.6rem;
+    line-height: 1.8rem;
+  }
+
+  // 右下の金コーナー三角（近似）
+  &__btn::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 1.4rem;
+    height: 1.4rem;
+    background-color: $color-gold-2;
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);   // 右下の三角
+  }
+}

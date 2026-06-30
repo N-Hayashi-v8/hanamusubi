@@ -1,0 +1,14 @@
+@use "../../../global" as *;
+
+// 「華結びについて」ページ共通
+// 左右paddingはセクションごとにレイアウトが違う（全幅画像など）ため、各セクション側で持つ
+.p-about-section {
+  max-width: 168rem;       // 1680px。デザイン基準幅
+  margin-inline: auto;     // 中央寄せ
+}
+
+// 7セクション間の余白
+// 隣り合うセクションの間だけ 6rem を空ける（先頭はタイトル側の余白に任せる）
+.p-about-section + .p-about-section {
+  margin-top: 6rem;
+}

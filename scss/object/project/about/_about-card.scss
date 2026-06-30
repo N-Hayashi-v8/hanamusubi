@@ -1,0 +1,44 @@
+@use "../../../global" as *;
+
+// 番号付きブロックの中身（番号→見出し→本文→ボタン）
+// section2以降で共通利用する文章クラスター
+.p-about-card {
+  text-align: center;        // 番号・見出し・ボタンは中央
+
+  &__num {
+    font-family: $font-en;   // Cantata One（数字）
+    font-size: 2rem;
+  }
+
+  &__title {
+    margin-top: 1.2rem;
+    font-size: 2.4rem;
+  }
+
+  &__text {
+    margin-top: 2.4rem;
+    font-size: 1.4rem;
+    line-height: 2;
+    text-align: left;        // 本文だけ左揃え
+  }
+
+  &__btn {
+    position: relative;
+    display: inline-block;
+    margin-top: 3rem;
+    padding: 1.4rem 6rem;
+    border: 1px solid $color-black;
+    font-size: 1.4rem;
+
+    // 右下の金三角（サイト共通のボタン装飾）
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      border-style: solid;
+      border-width: 0 0 0.9rem 0.9rem;
+      border-color: transparent transparent $color-gold-2 transparent;
+    }
+  }
+}

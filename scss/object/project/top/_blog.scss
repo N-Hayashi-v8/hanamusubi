@@ -1,0 +1,105 @@
+@use "../../../global" as *;
+
+// ブログページ（pages/blog.html）の地色（body直付け。l-mainの隙間＝タイトル〜パンくずに出る）
+// 下部の共通エリア（btn-field=黒 / contact=自前グレー / map / footer）が上塗りするため
+// 実際にグレーが見えるのはタイトル〜パンくずの範囲。パンくずも同じ地色が透ける（faq / flow / rental と同方式）
+.blog-page {
+  background-color: $color-bg-rental;   // #F1F4F7（既存変数を再利用）
+}
+
+// ブログ＋Facebook（全幅帯に2カラム）
+.p-blog {
+  padding: 8rem 0;
+  background-image: url("../img/top/bg_blog_wrap02.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &__inner {
+    display: flex;
+    justify-content: center;
+    gap: 6rem;                                     // 左右カラム間
+    width: 104rem;                                 // 中央コンテナ
+    margin: 0 auto;
+  }
+
+  &__col {
+    &--blog {
+      width: 46rem;                                // 左カラム幅
+    }
+
+    &--fb {
+      width: 36rem;                                // 右カラム幅
+    }
+  }
+
+  // 見出し（◆＋テキスト＋金罫線）
+  &__head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid $color-gold-2;        // 金の罫線
+  }
+
+  &__title {
+    font-size: 2rem;
+    line-height: 1;
+
+    // 先頭の金の菱形
+    &::before {
+      content: "◆";
+      margin-right: 1rem;
+      color: $color-gold-2;
+      font-size: 1.6rem;
+    }
+  }
+
+  // 「一覧を見る ›」
+  &__index {
+    color: $color-black;
+    font-size: 1.2rem;
+
+    &::after {
+      content: "›";
+      margin-left: 0.6rem;
+    }
+  }
+
+  // 記事リスト
+  &__item {
+    border-bottom: 1px solid $color-gold-2;        // 記事間の金罫線
+  }
+
+  &__link {
+    display: block;
+    padding: 2rem 0;                               // 記事の上下余白
+  }
+
+  &__meta {
+    color: $color-gray-text;                       // 日付・カテゴリ
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+
+  &__post-title {
+    margin-top: 1rem;                              // meta→タイトル
+    font-size: 1.6rem;
+    line-height: 1.4;
+  }
+
+  // Facebook プレースホルダー枠
+  &__fb {
+    display: flex;
+    align-items: center;
+    margin-top: 2.4rem;                            // 見出し→枠
+    padding: 0 3.2rem;
+    height: 16rem;
+    background-color: $color-white;
+  }
+
+  &__fb-text {
+    font-size: 1.6rem;
+    line-height: 1.8;
+  }
+}

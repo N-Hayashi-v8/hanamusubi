@@ -1,0 +1,29 @@
+@use "../../../global" as *;
+
+// CTAバナー（黒地＋金粒背景にバナー2枚）
+.p-cta {
+  padding: 5rem 0;
+  background-color: $color-black;                 // 黒地＋フォールバック
+  background-image: url("../img/common/bg_pattern03.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;                                     // バナー間
+  }
+
+  &__item {
+    width: 46rem;                                  // バナー実寸 460px（920px@144dpi）
+  }
+
+  &__link {
+    display: block;
+
+    img {
+      width: 100%;
+    }
+  }
+}

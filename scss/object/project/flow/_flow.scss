@@ -1,0 +1,298 @@
+@use "../../../global" as *;
+
+// ご利用の流れページの地色（body直付け。l-mainの隙間＝タイトル〜パンくずに出る）
+// 下部の共通エリア（btn-field=黒 / contact=自前グレー / map / footer）が上塗りするため
+// 実際にグレーが見えるのはタイトル〜パンくずの範囲になる
+.flow-page {
+  background-color: $color-bg-rental;   // #F1F4F7（既存変数を再利用）
+}
+
+// 大section: ご利用の流れ（白カードを地色の上に積む反復テンプレート）
+// 共有の足場（__panel / __head / __line相当のborder / __branch / __arrow）を持たせ、
+// 各ステップ固有の中身だけ要素を足していく
+.p-flow {
+  &__inner {
+    width: 110rem;                       // 1100px インナー（他ページと統一）
+    max-width: 100%;
+    margin-inline: auto;
+  }
+
+  // 白カード（各ステップの土台）
+  &__panel {
+    background-color: $color-white;
+    padding: 6rem;                       // カード内余白
+    scroll-margin-top: calc($header-h + 2rem); // アンカー着地が固定ヘッダーに隠れない
+  }
+
+  // section2 の半カード（2枚横並び・1:1等幅）
+  &__panel--half {
+    flex: 1;                             // 中身の量に依らず半々に揃える
+    min-width: 0;                        // 中身が長くても比率を崩さない
+    padding: 4.8rem 4rem;                // 半カードは少し詰める
+  }
+
+  // 番号＋タイトル＋金下線（全ステップ共通の見出し）
+  &__head {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;                           // 番号→タイトルの間
+    padding-bottom: 1.6rem;              // 文字→下線の余白
+    border-bottom: 1px solid $color-gold-2; // 金下線（page-title と同色）
+  }
+
+  &__num {
+    font-size: 2.2rem;
+    line-height: 1;
+  }
+
+  &__title {
+    font-size: 2.2rem;
+    line-height: 1;
+    letter-spacing: 0.04em;
+  }
+
+  // 本文（select-body・section2 両方で共有）
+  &__lead {
+    font-size: 1.6rem;
+    line-height: 1.9;
+  }
+
+  // --- STEP1: 衣装を選ぶ ---
+  // 画像（固定幅）＋本文（残り）の2カラム
+  &__select {
+    display: flex;
+    gap: 4rem;                           // 画像→本文の間
+    margin-top: 4rem;                    // 見出し→本文
+  }
+
+  &__select-img {
+    flex-shrink: 0;                      // 画像幅を保護
+    width: 25rem;                        // img_flow01 の表示幅
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  &__select-body {
+    flex: 1;
+  }
+
+  // ※試着されない方（金枠の注記ボックス。本文カラム内に置いて自然に右寄せ整列）
+  &__note {
+    margin-top: 3rem;                    // 本文→注記
+    padding: 2.4rem 3rem;
+    border: 1px solid $color-gold-2;
+  }
+
+  &__note-title {
+    color: $color-gold-2;
+    font-size: 1.6rem;
+    line-height: 1.4;
+  }
+
+  &__note-text {
+    margin-top: 1.6rem;
+    font-size: 1.4rem;
+    line-height: 1.8;
+  }
+
+  &__note-link {
+    display: inline-block;
+    margin-top: 0.4rem;
+    font-size: 1.4rem;
+    text-decoration: underline;
+    text-underline-offset: 0.3rem;
+  }
+
+  // 黒ボタン「レンタル衣装一覧」（カード中央）
+  &__btn-wrap {
+    margin-top: 4rem;                    // 本文→ボタン
+    text-align: center;
+  }
+
+  &__btn-black {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 25rem;
+    max-width: 100%;
+    padding-block: 1.8rem;               // 高さは padding 成立（固定しない）
+    background-color: $color-black;
+    color: $color-white;
+    font-size: 1.5rem;
+    line-height: 1.4;
+  }
+
+  // --- 分岐ラベル（来店試着できる / できない）---
+  // 各ピル画像を section2 の各カラム中央に揃える
+  &__branch {
+    display: flex;
+    margin-block: 1rem;                  // セクション間の余白は上下1rem固定
+  }
+
+  &__branch-item {
+    flex: 1;
+    text-align: center;
+
+    img {
+      display: block;
+      margin-inline: auto;
+    }
+  }
+
+  // --- STEP2: 2カード横並び ---
+  &__cols {
+    display: flex;
+    gap: 2rem;                           // カード間
+    align-items: stretch;                // 高さを揃える（固定しない）
+    margin-top: 1rem;                    // 分岐→カードも1rem固定（branchの下余白と対称）
+  }
+
+  // 来店予約カードの TEL画像＋金ボタンの行
+  &__contact {
+    display: flex;
+    justify-content: center;             // フル幅パネルでTEL＋ボタンを中央寄せ
+    align-items: center;
+    gap: 2rem;
+    margin-top: 3rem;                    // 本文→行
+  }
+
+  // STEP4: TEL画像・ボタン画像をそれぞれ幅300固定（STEP2の同型行には非干渉）
+  &__contact--fixed {
+    .p-flow__tel,
+    .p-flow__btn-inquiry {
+      width: 30rem;
+    }
+  }
+
+  &__tel img {
+    display: block;
+    width: 100%;
+  }
+
+  // STEP4の画像ボタン（btn_inquery02_pc.png）
+  &__btn-inquiry img {
+    display: block;
+    width: 100%;
+  }
+
+  &__btn-gold {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;                           // アイコン→文字
+    flex-shrink: 0;
+    padding: 1.8rem 2.4rem;              // 高さは padding 成立
+    background-color: $color-gold-6;     // マスタード調の金
+    color: $color-white;
+    font-size: 1.5rem;
+    line-height: 1.4;
+  }
+
+  // 宅配カードの黒ボタン2つ
+  &__btn-row {
+    display: flex;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  &__btn-dark {
+    flex: 1;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.8rem 1rem;                // 高さは padding 成立
+    background-color: $color-black;
+    color: $color-white;
+    font-size: 1.5rem;
+    line-height: 1.4;
+  }
+
+  // --- STEP3: 試着風景の3枚組（写真＋キャプション縦積み） ---
+  &__trial {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;                           // 列間
+    margin-top: 4rem;                    // 本文→写真
+  }
+
+  &__trial-item img {
+    display: block;
+    width: 100%;
+  }
+
+  &__trial-cap {
+    margin-top: 1.6rem;                  // 写真→キャプション
+    font-size: 1.4rem;
+    line-height: 1.8;
+  }
+
+  // --- 次セクションへの下矢印 ---
+  &__arrow {
+    margin-block: 1rem;                  // セクション間の余白は上下1rem固定
+    text-align: center;
+
+    img {
+      display: block;
+      margin-inline: auto;
+    }
+  }
+
+  // STEP2→3の矢印だけ左カラム下に寄せる（__cols 左カラムと同幅・gap2remの半分を差し引く）
+  &__arrow--left {
+    width: calc(50% - 1rem);
+  }
+
+  // --- 末尾: お衣装ご利用に関するご注意 ---
+  &__notice {
+    margin-top: 8rem;                    // 上のSTEP群とは8rem離す
+  }
+
+  &__notice-head {
+    padding-bottom: 2rem;                // 見出し→区切り線
+    border-bottom: 1px solid #bbd0db;    // 区切り線色
+  }
+
+  &__notice-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;                           // ひし形→文字
+    font-size: 2.2rem;
+    line-height: 1.4;
+
+    // ひし形アイコン（bg_ico01.png）
+    &::before {
+      content: "";
+      flex-shrink: 0;
+      width: 1.8rem;
+      height: 1.8rem;
+      background: url("../img/flow/bg_ico01.png") center / contain no-repeat;
+    }
+  }
+
+  &__notice-list {
+    display: grid;
+    gap: 1.6rem;                         // 項目間
+    margin-top: 2.4rem;                  // 区切り線→リスト
+  }
+
+  // 各注意項目（行頭に赤丸＝CSSで描画。本文はぶら下げ整列）
+  &__notice-item {
+    display: flex;
+    gap: 1.2rem;                         // 赤丸→本文
+    font-size: 1.6rem;
+    line-height: 1.9;
+
+    &::before {
+      content: "";
+      flex-shrink: 0;
+      width: 1rem;                       // 丸サイズ
+      height: 1rem;
+      margin-top: 0.8rem;                // 文頭の行に丸を合わせる
+      border-radius: 50%;
+      background-color: #a83627;         // 指定の赤丸
+    }
+  }
+}

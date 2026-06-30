@@ -1,0 +1,134 @@
+@use "../../../global" as *;
+
+// 幸せレポート（3枚表示・5枚ループのカルーセル）
+.p-report {
+  position: relative;                             // 鶴の装飾の基準
+  padding: 10rem 0;
+  background-image: url("../img/top/bg_report02.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+
+  // 左上の鶴の装飾
+  &__deco {
+    position: absolute;
+    top: 0;                                        // 縦位置（未指定）
+    left: 26.8rem;
+    width: 38.4rem;                                // Figma 383px → 384（高さは比率で自動）
+  }
+
+  // 見出し
+  &__head {
+    margin-bottom: 4rem;                          // 見出し→カルーセル
+  }
+
+  &__title img {
+    width: 44rem;                                 // tit_report_pc 440px
+  }
+
+  &__lead {
+    margin-top: 2rem;
+    font-size: 1.6rem;
+  }
+
+  // カルーセル
+  &__slider {
+    display: flex;
+    align-items: flex-start;                       // 上端そろえ（矢印は margin で下げる）
+    justify-content: center;
+    gap: 2.2rem;                                   // 矢印↔ビューポート 22px
+  }
+
+  // 3枚分だけ見せる窓（4枚目以降は隠す）
+  &__viewport {
+    overflow: hidden;
+    width: 110.4rem;                              // 3カード(36)＋gap(1.2)×2
+  }
+
+  &__track {
+    display: flex;
+    column-gap: 1.2rem;                           // カード間 12px（JSの移動量と一致）
+  }
+
+  &__item {
+    flex: 0 0 auto;
+    width: 36rem;                                 // 写真360px基準
+  }
+
+  &__card {
+    display: block;
+    background-color: $color-white;
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+  }
+
+  &__body {
+    padding: 1.2rem 0 2.4rem;                     // 写真→名前12 / 下端24（左右は各テキストで）
+    text-align: left;
+  }
+
+  &__place {
+    padding: 0 1.6rem;                            // 左右余白
+    color: $color-black;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+  }
+
+  &__plan {
+    padding: 0 1.6rem 1.2rem;                     // プラン→border 12px / 左右
+    border-bottom: 1px solid $color-gold-2;       // 金の下線 全幅
+    color: $color-pink;                           // 幸せレポートの赤文字
+    font-size: 2rem;
+    line-height: 2.6rem;
+  }
+
+  &__detail {
+    margin-top: 1.2rem;                           // border→下部テキスト 12px
+    padding: 0 1.6rem;                            // 左右
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+  }
+
+  // 左右の矢印
+  &__arrow {
+    flex-shrink: 0;
+    margin-top: 12.8rem;                           // カード上端→矢印上端 128px
+    cursor: pointer;
+
+    img {
+      height: 4.8rem;                             // 48px（幅27は比率で自動）
+    }
+  }
+
+  // 下部の黒い大ボタン
+  &__more {
+    margin-top: 4rem;
+  }
+
+  &__more-btn {
+    position: relative;                           // 三角の基準
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30rem;
+    height: 6rem;
+    background-color: $color-black;
+    color: $color-white;
+    font-size: 1.6rem;
+  }
+
+  // ボタン右下の三角
+  &__more-btn::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border-style: solid;
+    border-width: 0 0 0.9rem 0.9rem;
+    border-color: transparent transparent $color-gold-6 transparent;
+  }
+}

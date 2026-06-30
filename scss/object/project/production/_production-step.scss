@@ -1,0 +1,47 @@
+@use "../../../global" as *;
+
+// 衣装制作ページ 工程ブロック（図案 …）。同型が計8個続く
+// inner=1100px に揃え「番号＋中央タイトルのグレー帯 → 本文 → 工程写真(1枚画像)」を縦積み
+.p-production-step {
+  width: 110rem;                 // inner=1100px（センタリング: left410 は自動成立のため書かない）
+  max-width: 100%;
+  margin-inline: auto;
+  margin-top: 5rem;              // 直前ブロックとの余白
+
+  // ヘッダー帯（左=番号 / 中央=タイトル）
+  &__head {
+    position: relative;          // 番号の絶対配置基準
+    padding: 1.4rem 0;           // 帯の高さ
+    background-color: $color-bg-rental;   // #F1F4F7（共通グレー・後でリネーム予定）
+    text-align: center;
+  }
+
+  &__num {
+    position: absolute;
+    left: 2.4rem;                // 左インセット
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+  }
+
+  &__title {
+    font-size: 2.4rem;
+    line-height: 1.4;
+  }
+
+  &__text {
+    margin-top: 2.4rem;          // 帯→本文
+    font-size: 1.6rem;
+    line-height: 3.2rem;
+  }
+
+  // 工程写真（3枚組を1枚にした画像。inner全幅）
+  &__photos {
+    margin-top: 2.4rem;          // 本文→写真
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+  }
+}

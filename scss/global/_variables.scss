@@ -12,16 +12,12 @@ $breakpoints: (
 // レイアウト
 $header-h: 8rem;   // ヘッダー帯の高さ（固定時の本文オフセットと共有）
 
-// -----------------------------
 // フォント（どちらも weight 400 固定）
-// -----------------------------
 $font-base: "Noto Serif JP", serif;   // 全体の標準フォント
 $font-en: "Cantata One", serif;       // 電話番号・料金など
 $font-weight-normal: 400;
 
-// -----------------------------
 // 色
-// -----------------------------
 // 無彩色
 $color-black: #171716;     // 黒文字 / 黒背景
 $color-white: #ffffff;     // 白文字 / 白背景
@@ -33,7 +29,7 @@ $color-bg-tab: #f6f3e9;    // 右端固定タブ背景
 $color-bg-rental: #f1f4f7; // レンタル衣装背景
 $color-bg-contact: #e6e8e9; // ご予約・お問い合わせ背景
 $color-bg-beige: #e3e0ce;
-$color-bg-pink: #f4d8c6;    // belief カード（偶数）背景。実hex未確認のため仮 要確認
+$color-bg-pink: #f4d8c6;    // belief カード（偶数）背景
 
 // 赤系
 $color-red: #a50a24;       // 右端固定タブ背景

@@ -40,9 +40,9 @@ $header-side-w: 14rem;
   // 初期状態でナビ帯に被る大ロゴ
   &__logo-lg {
     position: absolute;
-    left: 21.6rem;          // Figma left 218px → 216px に丸め
+    left: 21.6rem;
     bottom: 6rem;           // 仮: ナビ上端に少し重なる位置（コンプで微調整）
-    width: 21rem;           // Figma width 210px
+    width: 21rem;
     line-height: 0;
 
     img {

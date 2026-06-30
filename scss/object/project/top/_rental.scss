@@ -1,0 +1,174 @@
+@use "../../../global" as *;
+
+// レンタル衣装セクション
+.p-rental {
+  padding: 8rem 0 12rem;
+  background-image: url("../img/top/bg_rental02.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  // 大きい横帯 ×3（縦積み）
+  &__bands {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;                                  // 帯どうしの間隔
+    width: 168rem;                                // Figma 1680px（高さ590は画像比率で自動）
+    max-width: 100%;                              // ビューポートが狭い時のはみ出し防止
+    margin-inline: auto;
+  }
+
+  &__band {
+    position: relative;
+  }
+
+  &__band-inner {
+    display: block;
+    position: relative;                           // カードの基準
+  }
+
+  &__band-img {
+    display: block;
+    width: 100%;
+  }
+
+  // 白いカード（既定は右寄せ）
+  &__card {
+    position: absolute;
+    top: 10rem;                                    // 画像上端から 100px（色打掛/白無垢/引振袖 共通）
+    right: 41rem;                                  // 画像右端から 410px（既定＝右寄せ：色打掛/引振袖）
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 28rem;
+    height: 38rem;                                 // Figma 380px（ボタンの固定サイズ）
+    background-color: $color-white;                // 外枠まで白
+    text-align: center;
+  }
+
+  // 内側の金の枠線（外枠の白い余白は残す）
+  &__card::before {
+    content: "";
+    position: absolute;
+    inset: 1rem;                                   // 外枠の白余白
+    border: 1px solid $color-gold-2;              // 枠線色
+    pointer-events: none;
+  }
+
+  // --left のときカードを左寄せ
+  &__band--left &__card {
+    right: auto;
+    left: 41rem;                                  // 画像左端から 410px（白無垢）
+  }
+
+  &__en {
+    font-size: 1.6rem;
+    line-height: 2.1rem;
+    color: $color-gray-text;
+  }
+
+  &__title {
+    margin-top: 0.8rem;                           // 要素間の余白
+    font-size: 4.2rem;
+    line-height: 5.5rem;
+  }
+
+  &__more {
+    margin-top: 1.6rem;                           // 要素間の余白
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+  }
+
+  // 「一覧を見る」の後ろの › （上＋右ボーダーを45度回転）
+  &__more::after {
+    content: "";
+    display: inline-block;
+    width: 0.6rem;                                // 矢印サイズ
+    height: 0.6rem;
+    margin-left: 0.8rem;                          // 文字との間隔
+    border-top: 1px solid $color-gold-2;
+    border-right: 1px solid $color-gold-2;
+    transform: rotate(45deg);
+    vertical-align: middle;
+  }
+
+  // 金枠の右下角に置く赤い三角
+  &__card::after {
+    content: "";
+    position: absolute;
+    right: 1rem;                                   // 内枠の右下に合わせる（inset と同値）
+    bottom: 1rem;
+    border-style: solid;
+    border-width: 0 0 1.2rem 1.2rem;
+    border-color: transparent transparent $color-red transparent;
+  }
+
+  // 小カード ×3（横並び）
+  &__subs {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;                                    // 写真どうしの間隔
+    margin: 6rem auto 0;                          // 帯→小カードの間隔
+  }
+
+  &__sub {
+    flex-shrink: 0;
+    width: 36rem;                                 // Figma 写真 360px
+  }
+
+  &__sub-inner {
+    display: block;
+    position: relative;                           // ラベルの基準
+  }
+
+  &__sub-img {
+    display: block;
+    width: 100%;
+  }
+
+  // 白い縦長ラベル（箱）。写真に重ねる
+  &__sub-label {
+    position: absolute;
+    top: 0;                                        // 写真と上端そろえ（Figma top 同値）
+    right: 5.4rem;                                 // 写真右端から 54px 内側
+    width: 10rem;
+    height: 23rem;
+    background-color: $color-white;
+  }
+
+  // 縦書きテキスト（留袖など）
+  &__sub-text {
+    position: absolute;
+    top: 3rem;                                    // 箱内の上からの位置
+    left: 50%;
+    transform: translateX(-50%);
+    writing-mode: vertical-rl;
+    font-size: 3rem;
+    line-height: 3.9rem;
+  }
+
+  // › 型の矢印（テキストの下）
+  &__sub-label::before {
+    content: "";
+    position: absolute;
+    bottom: 4rem;
+    left: 50%;
+    width: 0.6rem;                                // 矢印サイズ
+    height: 0.6rem;
+    border-top: 1px solid $color-gold-2;
+    border-right: 1px solid $color-gold-2;
+    transform: translateX(-50%) rotate(45deg);
+  }
+
+  // 30px幅の下線（矢印の下）
+  &__sub-label::after {
+    content: "";
+    position: absolute;
+    bottom: 2.4rem;                               // 矢印の下
+    left: 50%;
+    width: 3rem;                                  // Figma 下線 30px
+    transform: translateX(-50%);
+    border-top: 1px solid $color-gold-2;
+  }
+}

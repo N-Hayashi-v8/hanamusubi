@@ -1,0 +1,156 @@
+@use "../../../global" as *;
+
+// よくある質問ページの地色（body直付け。l-mainの隙間＝タイトル〜パンくずに出る）
+// 下部の共通エリア（btn-field=黒 / contact=自前グレー / map / footer）が上塗りするため
+// 実際にグレーが見えるのはタイトル〜パンくずの範囲になる（flow / rental と同方式）
+.faq-page {
+  background-color: $color-bg-rental;   // #F1F4F7（既存変数を再利用）
+}
+
+// section1: カテゴリーナビ（各Q&Aセクションへのアンカー・スムーススクロール）
+// 300×60 の枠ボタンを 3列×2行のGridで中央寄せ。箱同士の縦横余白は 40px
+.p-faq-nav {
+  padding-block: 8rem;               // セクション上下余白 8rem
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 30rem); // 各列 300px 固定
+    justify-content: center;         // 列まとめて中央寄せ（左右の余白は自動成立）
+    gap: 4rem;                        // 箱同士の縦横余白 40px
+  }
+
+  &__btn {
+    position: relative;              // シェブロン(::after)の基準
+    display: flex;
+    justify-content: center;         // ラベル中央
+    align-items: center;
+    width: 30rem;
+    min-height: 6rem;                // Figma 60px（中身で伸びる場合に備え min）
+    background-color: $color-white;  // 地色グレーに対し箱は白
+    border: 1px solid $color-black;  // 枠線 1px（色）
+    font-size: 1.6rem;
+    line-height: 1.8rem;
+  }
+
+  // 右端の下向きシェブロン（⌄）
+  &__btn::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 2rem;                     // 右端からの距離
+    width: 0.7rem;
+    height: 0.7rem;
+    border-bottom: 1px solid $color-black;
+    border-right: 1px solid $color-black;
+    transform: translateY(-70%) rotate(45deg);  // 下向きに回転
+  }
+}
+
+// section2: Q&A本体（カテゴリーごと。アコーディオン式 details/summary）
+// 地色グレーの上に白カードを積む。1100px インナーの上辺に黒線、中央タイトル
+.p-faq {
+  margin-top: 8rem;                  // 上のナビセクションと 8rem 空ける
+  scroll-margin-top: calc($header-h + 2rem);  // アンカー着地が固定ヘッダーに隠れないように
+
+  &__inner {
+    width: 110rem;
+    margin-inline: auto;
+    border-top: 1px solid #171716;   // 上辺の罫線（指定色 #171716＝$color-black）
+  }
+
+  &__title {
+    margin-block: 8rem;              // タイトル上下余白 8rem
+    font-family: $font-base;         // Noto Serif JP
+    font-weight: 400;
+    font-size: 3.6rem;
+    line-height: 3.6rem;
+    text-align: center;
+  }
+
+  // --- Q&Aリスト（白カードを薄いグレー隙間で区切る） ---
+  &__item {
+    background-color: $color-white;
+
+    & + & {
+      margin-top: 0.2rem;            // カード間の薄いグレー隙間
+    }
+  }
+
+  // 質問行（クリックで開閉するボタン） ---
+  &__q {
+    position: relative;              // +アイコン(疑似要素)の基準
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;                     // Q とテキストの間
+    width: 100%;
+    padding: 2rem 6rem 2rem 3rem;    // 右は+アイコン分を空ける
+    background-color: transparent;   // li側の白を見せる
+    border: 0;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  &__q-mark {
+    font-family: $font-en;           // Cantata One
+    font-weight: 400;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+  }
+
+  &__q-text {
+    font-size: 2rem;
+    line-height: 1.6;
+  }
+
+  // +アイコン（疑似要素で描く・線の太さ2px・色#000） ---
+  // ::before=横棒（固定）/ ::after=同じ横棒を90度回した縦棒。2本で「＋」
+  // 開くと ::after を時計回り(90→180deg)に倒して横棒へ重ね「−」にする
+  &__q::before,
+  &__q::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 3rem;
+    width: 1.6rem;
+    height: 0.2rem;
+    background-color: #000;
+    transform: translateY(-50%);     // ::before＝横棒
+  }
+  &__q::after {
+    transform: translateY(-50%) rotate(90deg);   // ::after＝縦棒（＋の縦線）
+    transition: transform 0.3s ease;
+  }
+  // 開: 縦棒を時計回りに倒して横棒へ重ね「−」に
+  &__item.is-open &__q::after {
+    transform: translateY(-50%) rotate(180deg);
+  }
+
+  // --- 回答エリア（開くと下へスライド展開。grid-rows 0fr→1fr） ---
+  &__a {
+    display: grid;
+    grid-template-rows: 0fr;         // 閉: 高さ0
+    transition: grid-template-rows 0.3s ease;
+  }
+  &__item.is-open &__a {
+    grid-template-rows: 1fr;         // 開: 中身の高さまで展開
+  }
+  &__a-inner {
+    overflow: hidden;                // 0fr のとき中身をクリップ（スライドのため必須）
+  }
+  &__a-text {
+    padding: 0 6rem 2rem 3rem;       // Q行と左右を揃える
+    font-size: 1.6rem;
+    line-height: 3rem;
+  }
+
+  // 回答内の本文リンク（金色＋下線。ホバーで下線を消す）
+  &__a-link {
+    color: $color-gold-2;
+    text-decoration: underline;
+    text-underline-offset: 0.3rem;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
