@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -v '/.git$')",
+      "Bash(mkdir -p img/common)",
+      "Bash(git mv *)",
+      "Bash(git rm *)",
+      "Bash(sed -i 's#img/top/logo#img/common/logo#g' index.html pages/*.html)",
+      "Bash(sed -i 's#img/top/bg_pattern03#img/common/bg_pattern03#g; s#img/top/bg_btn01#img/common/bg_btn01#g' scss/object/project/_btn-field.scss scss/object/project/_cta.scss scss/object/project/_contact.scss scss/object/project/_side.scss)",
+      "Bash(sed -i 's#img/top/bg_pattern03#img/common/bg_pattern03#g; s#img/top/bg_btn01#img/common/bg_btn01#g' css/style.css)",
+      "Bash(grep -rhoE '//.*要確認.*$' .)",
+      "Bash(xargs echo \"リネーム:\")",
+      "Bash(xargs echo \"削除:\")",
+      "Bash(xargs echo \"変更:\")",
+      "Bash(xargs echo \"新規:\")",
+      "Bash(git restore *)",
+      "Bash(git commit *)"
+    ]
+  }
+}
