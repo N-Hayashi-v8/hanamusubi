@@ -15,6 +15,9 @@
       "Bash(xargs echo \"新規:\")",
       "Bash(git restore *)",
       "Bash(git commit *)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\林\\.claude\\projects\\c--Users---Desktop-htdocs-hanamusubi\\memory"
     ]
   }
 }
