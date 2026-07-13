@@ -1,70 +1,18 @@
+<?php
+$pageTitle = 'よくあるご質問';
+$breadcrumbLabel = 'よくあるご質問＜京都・華結び＞';
+?>
 <!DOCTYPE html>
 <html lang="ja">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>よくあるご質問 | 華結び-模写</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cantata+One&family=Noto+Serif+JP:wght@400&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="../css/destyle.css">
-  <link rel="stylesheet" href="../css/style.css">
-</head>
+<?php include __DIR__ . '/../includes/head.php'; ?>
 
 <body class="faq-page">
-  <!-- 共通ヘッダー（子ページ用 --page: 最初から上端固定・小ロゴ表示） -->
-  <!-- 子ページではロゴは見出しにせず、ページ見出し(h1)は本文側に置く -->
-  <header class="l-header l-header--page">
-    <div class="l-header__inner">
-      <p class="l-header__logo">
-        <a href="../index.html">
-          <img src="../img/common/logo_nav01.png" alt="華結び">
-        </a>
-      </p>
-      <nav class="l-header__nav">
-        <ul class="l-header__list">
-          <li class="l-header__item"><a href="about.html">華結びについて</a></li>
-          <li class="l-header__item"><a href="rental.html">レンタル衣装</a></li>
-          <li class="l-header__item"><a href="production.html">衣装制作</a></li>
-          <li class="l-header__item"><a href="first.html">初めての方へ</a></li>
-          <li class="l-header__item"><a href="flow.html">ご利用の流れ</a></li>
-          <li class="l-header__item"><a href="report.html">幸せレポート</a></li>
-          <li class="l-header__item"><a href="faq.html">よくある質問</a></li>
-          <li class="l-header__item"><a href="blog.html">ブログ</a></li>
-          <li class="l-header__item"><a href="access.html">アクセス</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<?php include __DIR__ . '/../includes/header-page.php'; ?>
 
-  <!-- サイドバー: ビューポート固定。全ページ共通でスクロール中も右端に残す -->
-  <div class="p-side">
-    <div class="p-side__item p-side__item--contact">
-      <div class="p-side__tab">ご相談・来店予約</div>
-      <div class="p-side__panel">
-        <p class="p-side__lead">お急ぎの方はお電話で</p>
-        <p class="p-side__tel">TEL 075-491-2010</p>
-        <p class="p-side__hours">受付時間 9:00-18:00</p>
-        <a href="#" class="p-side__btn">ご相談・来店予約</a>
-      </div>
-    </div>
-    <div class="p-side__item p-side__item--mail">
-      <div class="p-side__tab">ご来店出来ない方へ</div>
-      <div class="p-side__panel">
-        <p class="p-side__lead">ご遠方に行けなくても大丈夫。<br>ご自宅に試着を郵送します。</p>
-        <a href="#" class="p-side__btn">宅配試着サービス</a>
-      </div>
-    </div>
-  </div>
+<?php include __DIR__ . '/../includes/sidebar.php'; ?>
 
   <main class="l-main">
-    <!-- 共通タイトルセクション（ページ見出し＋下線） -->
-    <section class="p-page-title">
-      <h1 class="p-page-title__text">よくあるご質問</h1>
-      <span class="p-page-title__line"></span>
-    </section>
+<?php include __DIR__ . '/../includes/page-title.php'; ?>
 
     <!-- ===== ここからよくある質問ページ固有コンテンツ ===== -->
     <!-- section1: カテゴリーナビ（各Q&Aセクションへのアンカー・スムーススクロール） -->
@@ -213,7 +161,7 @@
             </button>
             <div class="p-faq__a">
               <div class="p-faq__a-inner">
-                <p class="p-faq__a-text">詳細は<a class="p-faq__a-link" href="flow.html">「ご利用の流れ」</a>のページをご覧ください。</p>
+                <p class="p-faq__a-text">詳細は<a class="p-faq__a-link" href="/pages/flow.php">「ご利用の流れ」</a>のページをご覧ください。</p>
               </div>
             </div>
           </li>
@@ -389,135 +337,19 @@
       </div>
     </section>
     <!-- ===== よくある質問ページ固有コンテンツここまで ===== -->
-
     <!-- ===== ここから各子ページ共通の下部エリア ===== -->
-    <!-- 共通パンくず（下部エリアの先頭） -->
-    <nav class="l-breadcrumb" aria-label="パンくずリスト">
-      <ol class="l-breadcrumb__list">
-        <li class="l-breadcrumb__item"><a href="../index.html">打掛レンタルの華結びHOME</a></li>
-        <li class="l-breadcrumb__item">よくあるご質問＜京都・華結び＞</li>
-      </ol>
-    </nav>
+<?php include __DIR__ . '/../includes/breadcrumb.php'; ?>
 
-    <!-- 共通btn-field（子ページは4ボタン・小さめ） -->
-    <section class="p-btn-field p-btn-field--page">
-      <ul class="p-btn-field__list">
-        <li class="p-btn-field__item">
-          <a class="p-btn-field__btn" href="about.html">
-            <span class="p-btn-field__title">華結びについて</span>
-            <span class="p-btn-field__sub">華結びのこだわり</span>
-          </a>
-        </li>
-        <li class="p-btn-field__item">
-          <a class="p-btn-field__btn" href="first.html">
-            <span class="p-btn-field__title">初めての方へ</span>
-            <span class="p-btn-field__sub">和装レンタルのいろは</span>
-          </a>
-        </li>
-        <li class="p-btn-field__item">
-          <a class="p-btn-field__btn" href="flow.html">
-            <span class="p-btn-field__title">ご利用の流れ</span>
-            <span class="p-btn-field__sub">簡単5ステップ</span>
-          </a>
-        </li>
-        <li class="p-btn-field__item">
-          <a class="p-btn-field__btn" href="faq.html">
-            <span class="p-btn-field__title">よくあるご質問</span>
-            <span class="p-btn-field__sub">わかりやすくご説明</span>
-          </a>
-        </li>
-      </ul>
-    </section>
+<?php include __DIR__ . '/../includes/btn-field-page.php'; ?>
 
-    <!-- 共通お問い合わせ（灰帯＋中央白カード） -->
-    <section class="p-contact">
-      <div class="p-contact__box">
-        <h2 class="p-contact__title">ご予約・お問い合わせ</h2>
-        <div class="p-contact__row">
-          <div class="p-contact__tel-block">
-            <p class="p-contact__tel">TEL.<span class="p-contact__tel-num">075-491-2010</span></p>
-            <p class="p-contact__hours">営業時間　10:00〜18:00</p>
-          </div>
-          <ul class="p-contact__btns">
-            <li class="p-contact__btns-item">
-              <a class="p-contact__btn" href="#">ご相談・来店予約</a>
-            </li>
-            <li class="p-contact__btns-item">
-              <a class="p-contact__btn" href="#">宅配試着サービス</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
+<?php include __DIR__ . '/../includes/contact.php'; ?>
 
-    <!-- 共通Googleマップ（トップと同一） -->
-    <section class="p-map">
-      <iframe
-        class="p-map__frame"
-        src="https://maps.google.com/maps?q=%E4%B8%8A%E8%B3%80%E8%8C%82%E7%A5%9E%E7%A4%BE&output=embed"
-        title="アクセスマップ"
-        loading="lazy"
-        allowfullscreen></iframe>
-    </section>
+<?php include __DIR__ . '/../includes/map.php'; ?>
   </main>
 
-  <footer class="l-footer">
-    <nav class="l-footer__nav">
-      <a class="l-footer__pagetop" href="#" aria-label="ページトップへ戻る">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M5 15l7-7 7 7" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </a>
-      <ul class="l-footer__list">
-        <li class="l-footer__item"><a href="about.html">華結びについて</a></li>
-        <li class="l-footer__item"><a href="rental.html">レンタル衣装</a></li>
-        <li class="l-footer__item"><a href="production.html">衣装制作</a></li>
-        <li class="l-footer__item"><a href="first.html">初めての方へ</a></li>
-        <li class="l-footer__item"><a href="flow.html">ご利用の流れ</a></li>
-        <li class="l-footer__item"><a href="report.html">幸せレポート</a></li>
-        <li class="l-footer__item"><a href="faq.html">よくある質問</a></li>
-        <li class="l-footer__item"><a href="blog.html">ブログ</a></li>
-        <li class="l-footer__item"><a href="access.html">アクセス</a></li>
-        <li class="l-footer__item"><a href="privacy.html">個人情報保護方針</a></li>
-      </ul>
-    </nav>
+<?php include __DIR__ . '/../includes/footer.php'; ?>
 
-    <div class="l-footer__body">
-      <div class="l-footer__info">
-        <p class="l-footer__logo">
-          <img src="../img/common/logo02.png" alt="京 和装 WEDDING 華結び">
-        </p>
-        <address class="l-footer__address">
-          〒603-8217 京都府京都市北区紫野上門前町23<br>
-          TEL 075-491-2010 / 営業時間 10:00〜18:00
-        </address>
-      </div>
-
-      <div class="l-footer__side">
-        <ul class="l-footer__sns">
-          <li class="l-footer__sns-item">
-            <a class="l-footer__sns-link" href="#" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-                <rect x="3" y="3" width="18" height="18" rx="5" />
-                <circle cx="12" cy="12" r="4.2" />
-                <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none" />
-              </svg>
-            </a>
-          </li>
-          <li class="l-footer__sns-item">
-            <a class="l-footer__sns-link" href="#" aria-label="Facebook">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
-                <path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.5-1.5h1.6V3.6c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.4H7.7V13h2.7v8h3.1z" />
-              </svg>
-            </a>
-          </li>
-        </ul>
-        <p class="l-footer__copy">© 2018 華結び</p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="../js/main.js"></script>
+  <script src="/js/main.js"></script>
 </body>
 
 </html>

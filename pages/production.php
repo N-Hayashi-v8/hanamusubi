@@ -1,70 +1,18 @@
+<?php
+$pageTitle = '衣装制作';
+$breadcrumbLabel = '衣装制作 | 色打掛・白無垢の衣装制作＜京都・華結び＞';
+?>
 <!DOCTYPE html>
 <html lang="ja">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>衣装制作 | 華結び-模写</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cantata+One&family=Noto+Serif+JP:wght@400&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="../css/destyle.css">
-  <link rel="stylesheet" href="../css/style.css">
-</head>
+<?php include __DIR__ . '/../includes/head.php'; ?>
 
 <body>
-  <!-- 共通ヘッダー（子ページ用 --page: 最初から上端固定・小ロゴ表示） -->
-  <!-- 子ページではロゴは見出しにせず、ページ見出し(h1)は本文側に置く -->
-  <header class="l-header l-header--page">
-    <div class="l-header__inner">
-      <p class="l-header__logo">
-        <a href="../index.html">
-          <img src="../img/common/logo_nav01.png" alt="華結び">
-        </a>
-      </p>
-      <nav class="l-header__nav">
-        <ul class="l-header__list">
-          <li class="l-header__item"><a href="about.html">華結びについて</a></li>
-          <li class="l-header__item"><a href="rental.html">レンタル衣装</a></li>
-          <li class="l-header__item"><a href="production.html">衣装制作</a></li>
-          <li class="l-header__item"><a href="first.html">初めての方へ</a></li>
-          <li class="l-header__item"><a href="flow.html">ご利用の流れ</a></li>
-          <li class="l-header__item"><a href="report.html">幸せレポート</a></li>
-          <li class="l-header__item"><a href="faq.html">よくある質問</a></li>
-          <li class="l-header__item"><a href="blog.html">ブログ</a></li>
-          <li class="l-header__item"><a href="access.html">アクセス</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<?php include __DIR__ . '/../includes/header-page.php'; ?>
 
-  <!-- サイドバー: ビューポート固定。全ページ共通でスクロール中も右端に残す -->
-  <div class="p-side">
-    <div class="p-side__item p-side__item--contact">
-      <div class="p-side__tab">ご相談・来店予約</div>
-      <div class="p-side__panel">
-        <p class="p-side__lead">お急ぎの方はお電話で</p>
-        <p class="p-side__tel">TEL 075-491-2010</p>
-        <p class="p-side__hours">受付時間 9:00-18:00</p>
-        <a href="#" class="p-side__btn">ご相談・来店予約</a>
-      </div>
-    </div>
-    <div class="p-side__item p-side__item--mail">
-      <div class="p-side__tab">ご来店出来ない方へ</div>
-      <div class="p-side__panel">
-        <p class="p-side__lead">ご遠方に行けなくても大丈夫。<br>ご自宅に試着を郵送します。</p>
-        <a href="#" class="p-side__btn">宅配試着サービス</a>
-      </div>
-    </div>
-  </div>
+<?php include __DIR__ . '/../includes/sidebar.php'; ?>
 
   <main class="l-main">
-    <!-- 共通タイトルセクション（ページ見出し＋下線） -->
-    <section class="p-page-title">
-      <h1 class="p-page-title__text">衣装制作</h1>
-      <span class="p-page-title__line"></span>
-    </section>
+<?php include __DIR__ . '/../includes/page-title.php'; ?>
 
     <!-- ===== ここから衣装制作ページ固有コンテンツ ===== -->
     <!-- section1: ページ内ナビ（2ボタン横並び） -->
@@ -100,7 +48,7 @@
       </div>
       <p class="p-production-step__text">一枚の用紙をくりかえし繋げていくようにするなど、緻密な計算を行いながら一枚の用紙に下絵を描いていきます。デザインの決まった下絵を墨でなぞっていく際には、線の強弱がそのまま着物の仕上がりに反映されるため、仕上がりを計算に入れた熟練の技が必要です。</p>
       <div class="p-production-step__photos">
-        <img class="p-production-step__img" src="../img/production/img_flow01.png" alt="図案の工程">
+        <img class="p-production-step__img" src="/img/production/img_flow01.png" alt="図案の工程">
       </div>
     </div>
 
@@ -111,7 +59,7 @@
       </div>
       <p class="p-production-step__text">モチ米を原料とした「糸目糊」で下絵の輪郭を描き、その内側を彩色していく染織技術です。糸目という名前の通り、細く均一な縁取りを自由自在に描くには大変な技術が必要となり、当然その細やかな防染の内側を染め分けていく工程にも職人の手作業が光ります。染め分ける技術は勿論、配色や暈しなど繊細な技術でもって友禅の柄が描かれていて、柄の染め分けが終わると今度は柄部分全体に防染糊を施し、引き染めで地色を染めてひとつの反物が出来上がります。</p>
       <div class="p-production-step__photos">
-        <img class="p-production-step__img" src="../img/production/img_flow02.png" alt="手描き友禅の工程">
+        <img class="p-production-step__img" src="/img/production/img_flow02.png" alt="手描き友禅の工程">
       </div>
     </div>
 
@@ -122,7 +70,7 @@
       </div>
       <p class="p-production-step__text">引染とは刷毛を使い、生地を染めていく方法です。一枚の反物を刷毛で染めていくため、「ムラ」ができないよう全体を均一に染め上げるには熟練の技術が必要となります。また「引染」は「ぼかし染め」がやり易いため「ぼかし染」は引染で行われることが多く、この染め方は手描き友禅だけでなく、ろうけつ染め、小紋染め、型友禅染めの地染めなど幅広く使われています。</p>
       <div class="p-production-step__photos">
-        <img class="p-production-step__img" src="../img/production/img_flow03.png" alt="引染の工程">
+        <img class="p-production-step__img" src="/img/production/img_flow03.png" alt="引染の工程">
       </div>
     </div>
 
@@ -133,7 +81,7 @@
       </div>
       <p class="p-production-step__text">全ての工程が終了した布地の、金で柄を置きたい箇所に糊を置き、その上から金箔・金粉を置いて柄を描き、全体のデザインを仕上げます。最終的な着物の華やかさを決定づける重要な役割を担っており、その技術は桃山・江戸初期から連綿と受け継がれてきました。また、金彩加工は仕立て上がった着物を解くことなく加工することができるので、シミができてしまった着物を上手くリフォームする知恵の一つでもあります。</p>
       <div class="p-production-step__photos">
-        <img class="p-production-step__img" src="../img/production/img_flow04.png" alt="金彩加工の工程">
+        <img class="p-production-step__img" src="/img/production/img_flow04.png" alt="金彩加工の工程">
       </div>
     </div>
 
@@ -144,7 +92,7 @@
       </div>
       <p class="p-production-step__text">織物に使用する糸は、生糸に下処理をおこない指定された色に調合された染料の鍋で炊く、「先染め」が施されています。色ムラの出ないきれいな糸に染め上げるには、気温や湿度により温度や時間調整が必要で、そのさじ加減には長年の経験が必要となりそうして出来あがった糸は鮮やかな発色と美しい艶に仕上がります。</p>
       <div class="p-production-step__photos">
-        <img class="p-production-step__img" src="../img/production/img_flow05.png" alt="糸染めの工程">
+        <img class="p-production-step__img" src="/img/production/img_flow05.png" alt="糸染めの工程">
       </div>
     </div>
 
@@ -155,7 +103,7 @@
       </div>
       <p class="p-production-step__text">織物の歴史は非常に古く、紀元前8000年前にはすでに手織りの布があったと考えられており応仁の乱を経て、「高機」と呼ばれる大陸からの技術を取り入れた西陣織は高級織物の代表として京都に根付いていきます。そして文明開化を迎える頃には西洋の「ジャガード織」などを取り入れ近代化に努める一方、伝統技術の更なる高度化や図案の洗練により今に続く織物産業の代表としてその地位を確立していきました。</p>
       <div class="p-production-step__photos">
-        <img class="p-production-step__img" src="../img/production/img_flow06.png" alt="西陣織の工程">
+        <img class="p-production-step__img" src="/img/production/img_flow06.png" alt="西陣織の工程">
       </div>
     </div>
 
@@ -166,7 +114,7 @@
       </div>
       <p class="p-production-step__text">金糸を柄に這わせて縫い止めていく金駒刺繍や、玉結びを連ねて柄を描いていく相良刺繍など、機械ではできない繊細な技術によって柄ゆきに立体感が生まれ、より一層の豪華なお着物へと仕上がります。</p>
       <div class="p-production-step__photos">
-        <img class="p-production-step__img" src="../img/production/img_flow07.png" alt="刺繍の工程">
+        <img class="p-production-step__img" src="/img/production/img_flow07.png" alt="刺繍の工程">
       </div>
     </div>
 
@@ -186,197 +134,81 @@
     <div class="p-production-technic">
       <ul class="p-production-technic__list">
         <li class="p-production-technic__item">
-          <img class="p-production-technic__img" src="../img/production/img_technic01.jpg" alt="相良刺繍">
+          <img class="p-production-technic__img" src="/img/production/img_technic01.jpg" alt="相良刺繍">
           <h3 class="p-production-technic__title">相良刺繍</h3>
           <p class="p-production-technic__text">中国三大刺繍の一つ。歴史が古く、中国では漢の時代（紀元前206年〜）から、日本では奈良時代（710年〜）には使用されています。最大の特徴は柄に沿って色糸を縫っていく刺繍とは違い、生地の裏から糸を抜き出して結び玉を作りそれを連ねる事で模様が出来上がっていくところ。普通の刺繍より立体感があり、色彩も豊かで色の強弱によるグラデーションも豪華。たいへんな技術と労力を要するため刺繍職人が減ってきており、さらに機械では出来ない技法のため今では貴重品となってきています。</p>
         </li>
         <li class="p-production-technic__item">
-          <img class="p-production-technic__img" src="../img/production/img_technic02.png" alt="汕頭（スワトウ）刺繍">
+          <img class="p-production-technic__img" src="/img/production/img_technic02.png" alt="汕頭（スワトウ）刺繍">
           <h3 class="p-production-technic__title">汕頭（スワトウ）刺繍</h3>
           <p class="p-production-technic__text">中国三大刺繍の一つ。生地の一部に穴を開けてその糸を使い繊細な文様を表現する技法。熟練された高度な技を必要とし、非常に高価であるためハンカチなどにはよく使用されますが、打掛に使われるのは大変貴重です。</p>
         </li>
         <li class="p-production-technic__item">
-          <img class="p-production-technic__img" src="../img/production/img_technic03.png" alt="刺繍">
+          <img class="p-production-technic__img" src="/img/production/img_technic03.png" alt="刺繍">
           <h3 class="p-production-technic__title">刺繍</h3>
           <p class="p-production-technic__text">何百とある色に染め上げた絹糸で柄を埋めていく非常に繊細な技法。織物とは違い、ふっくらと立体的に仕上がるのが特徴でグラデーションも美しい技法です。</p>
         </li>
         <li class="p-production-technic__item">
-          <img class="p-production-technic__img" src="../img/production/img_technic04.png" alt="金駒・銀駒刺繍">
+          <img class="p-production-technic__img" src="/img/production/img_technic04.png" alt="金駒・銀駒刺繍">
           <h3 class="p-production-technic__title">金駒・銀駒刺繍</h3>
           <p class="p-production-technic__text">刺繍針に通せないほどの太い糸や、金糸などを木製の駒（糸巻きの一種）に巻いて、その糸自体を生地に縫い込むのではなく、糸巻きを転がしながら刺繍糸を下絵に沿って這わせ、綴じ糸（とじいと）で留めていく技法。綴じ糸の間隔が揃っているのはまさに職人の技。中でもこよりに金箔を巻き付けた「金糸」を使ったものを「金駒刺繍」と呼びます。</p>
         </li>
         <li class="p-production-technic__item">
-          <img class="p-production-technic__img" src="../img/production/img_technic05.png" alt="手描き金彩友禅">
+          <img class="p-production-technic__img" src="/img/production/img_technic05.png" alt="手描き金彩友禅">
           <h3 class="p-production-technic__title">手描き金彩友禅</h3>
           <p class="p-production-technic__text">手描き友禅はその名の通り、柄の下書きから色付けまで全てを職人の手による染めの技法。金彩（きんさい）は金加工とも言われ、染め上がった生地に金箔や金彩等を接着する加工です。友禅染めをより華やかに表現するために行いますが、必要以上に手を加えると品格が損なわれるため友禅の色と金彩加工により、織物や刺繍では表現できない色鮮やかで華美な着物に仕上がっています。</p>
         </li>
         <li class="p-production-technic__item">
-          <img class="p-production-technic__img" src="../img/production/img_technic06.png" alt="明綴れ">
+          <img class="p-production-technic__img" src="/img/production/img_technic06.png" alt="明綴れ">
           <h3 class="p-production-technic__title">明綴れ</h3>
           <p class="p-production-technic__text">綴れ織りは横糸に多彩な色の糸を使用し、つづら折りのように織り進めて模様を織り出す手織物で、地となる組織の横糸も折り返しながら織っていくため色の境目に縦方向の隙間が出来ます。明綴れは一寸あたりの縦糸の数が多いため、綴れの中でも細かい色のグラデーションを表現する事が可能な技術。</p>
         </li>
         <li class="p-production-technic__item">
-          <img class="p-production-technic__img" src="../img/production/img_technic07.png" alt="唐織">
+          <img class="p-production-technic__img" src="/img/production/img_technic07.png" alt="唐織">
           <h3 class="p-production-technic__title">唐織</h3>
           <p class="p-production-technic__text">中国から伝わった織物で、西陣を代表する織物の技法の中のひとつ。日本が世界に誇る伝統芸能「能」の衣装にも使われており、薄く織られた生地に糸を表面に浮かせて織り上げるので、柄が立体的に見えるところが大きな特徴です。柄の立体感、色彩豊かで重厚感・高級感のある唐織は、現代の錦地の中で最も高級とされる織物です。</p>
         </li>
         <li class="p-production-technic__item">
-          <img class="p-production-technic__img" src="../img/production/img_technic08.png" alt="金通し・銀通し">
+          <img class="p-production-technic__img" src="/img/production/img_technic08.png" alt="金通し・銀通し">
           <h3 class="p-production-technic__title">金通し・銀通し</h3>
           <p class="p-production-technic__text">織物全体の緯糸に「金糸・銀糸」を織り込む事により、無地場に立体感が増します。見る角度によって生地が光り、派手すぎない華やかさを演出。</p>
         </li>
         <li class="p-production-technic__item">
-          <img class="p-production-technic__img" src="../img/production/img_technic09.png" alt="縮緬">
+          <img class="p-production-technic__img" src="/img/production/img_technic09.png" alt="縮緬">
           <h3 class="p-production-technic__title">縮緬</h3>
           <p class="p-production-technic__text">表面に細かいしぼ（シワ模様）のある絹織物で、生地が立体的に見えます。織物等とは違い、重量感が無く軽い着心地が特徴。</p>
         </li>
         <li class="p-production-technic__item">
-          <img class="p-production-technic__img" src="../img/production/img_technic10.png" alt="オーガンジー">
+          <img class="p-production-technic__img" src="/img/production/img_technic10.png" alt="オーガンジー">
           <h3 class="p-production-technic__title">オーガンジー</h3>
           <p class="p-production-technic__text">薄くて軽く、下の生地が透けて見える織物。婚礼衣装としては主にドレスに使われているものですが、レストランウェディングやホテルでの披露宴に洋装のテイストを含んだ和装として近年様々な種類が作られています。</p>
         </li>
         <li class="p-production-technic__item">
-          <img class="p-production-technic__img" src="../img/production/img_technic11.png" alt="エンボス">
+          <img class="p-production-technic__img" src="/img/production/img_technic11.png" alt="エンボス">
           <h3 class="p-production-technic__title">エンボス</h3>
           <p class="p-production-technic__text">裏面を押し上げて表面に凸を付ける事で生地全体を立体化する加工。モダンデザインの婚礼衣装に良く使用される技法です。</p>
         </li>
         <li class="p-production-technic__item">
-          <img class="p-production-technic__img" src="../img/production/img_technic12.png" alt="スパンコール">
+          <img class="p-production-technic__img" src="/img/production/img_technic12.png" alt="スパンコール">
           <h3 class="p-production-technic__title">スパンコール</h3>
           <p class="p-production-technic__text">光を反射させるために婚礼衣装としては主にドレスに使用されますが、ホテル等の披露宴会場でライト映えがするため和装にも用いられる事があります。</p>
         </li>
       </ul>
     </div>
     <!-- ===== 衣装制作ページ固有コンテンツここまで ===== -->
-
     <!-- ===== ここから各子ページ共通の下部エリア ===== -->
-    <!-- 共通パンくず（下部エリアの先頭） -->
-    <nav class="l-breadcrumb" aria-label="パンくずリスト">
-      <ol class="l-breadcrumb__list">
-        <li class="l-breadcrumb__item"><a href="../index.html">打掛レンタルの華結びHOME</a></li>
-        <li class="l-breadcrumb__item">衣装制作 | 色打掛・白無垢の衣装制作＜京都・華結び＞</li>
-      </ol>
-    </nav>
+<?php include __DIR__ . '/../includes/breadcrumb.php'; ?>
 
-    <!-- 共通btn-field（子ページは4ボタン・小さめ） -->
-    <section class="p-btn-field p-btn-field--page">
-      <ul class="p-btn-field__list">
-        <li class="p-btn-field__item">
-          <a class="p-btn-field__btn" href="about.html">
-            <span class="p-btn-field__title">華結びについて</span>
-            <span class="p-btn-field__sub">華結びのこだわり</span>
-          </a>
-        </li>
-        <li class="p-btn-field__item">
-          <a class="p-btn-field__btn" href="first.html">
-            <span class="p-btn-field__title">初めての方へ</span>
-            <span class="p-btn-field__sub">和装レンタルのいろは</span>
-          </a>
-        </li>
-        <li class="p-btn-field__item">
-          <a class="p-btn-field__btn" href="flow.html">
-            <span class="p-btn-field__title">ご利用の流れ</span>
-            <span class="p-btn-field__sub">簡単5ステップ</span>
-          </a>
-        </li>
-        <li class="p-btn-field__item">
-          <a class="p-btn-field__btn" href="faq.html">
-            <span class="p-btn-field__title">よくあるご質問</span>
-            <span class="p-btn-field__sub">わかりやすくご説明</span>
-          </a>
-        </li>
-      </ul>
-    </section>
+<?php include __DIR__ . '/../includes/btn-field-page.php'; ?>
 
-    <!-- 共通お問い合わせ（灰帯＋中央白カード） -->
-    <section class="p-contact">
-      <div class="p-contact__box">
-        <h2 class="p-contact__title">ご予約・お問い合わせ</h2>
-        <div class="p-contact__row">
-          <div class="p-contact__tel-block">
-            <p class="p-contact__tel">TEL.<span class="p-contact__tel-num">075-491-2010</span></p>
-            <p class="p-contact__hours">営業時間　10:00〜18:00</p>
-          </div>
-          <ul class="p-contact__btns">
-            <li class="p-contact__btns-item">
-              <a class="p-contact__btn" href="#">ご相談・来店予約</a>
-            </li>
-            <li class="p-contact__btns-item">
-              <a class="p-contact__btn" href="#">宅配試着サービス</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
+<?php include __DIR__ . '/../includes/contact.php'; ?>
 
-    <!-- 共通Googleマップ（トップと同一） -->
-    <section class="p-map">
-      <iframe
-        class="p-map__frame"
-        src="https://maps.google.com/maps?q=%E4%B8%8A%E8%B3%80%E8%8C%82%E7%A5%9E%E7%A4%BE&output=embed"
-        title="アクセスマップ"
-        loading="lazy"
-        allowfullscreen></iframe>
-    </section>
+<?php include __DIR__ . '/../includes/map.php'; ?>
   </main>
 
-  <footer class="l-footer">
-    <nav class="l-footer__nav">
-      <a class="l-footer__pagetop" href="#" aria-label="ページトップへ戻る">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M5 15l7-7 7 7" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </a>
-      <ul class="l-footer__list">
-        <li class="l-footer__item"><a href="about.html">華結びについて</a></li>
-        <li class="l-footer__item"><a href="rental.html">レンタル衣装</a></li>
-        <li class="l-footer__item"><a href="production.html">衣装制作</a></li>
-        <li class="l-footer__item"><a href="first.html">初めての方へ</a></li>
-        <li class="l-footer__item"><a href="flow.html">ご利用の流れ</a></li>
-        <li class="l-footer__item"><a href="report.html">幸せレポート</a></li>
-        <li class="l-footer__item"><a href="faq.html">よくある質問</a></li>
-        <li class="l-footer__item"><a href="blog.html">ブログ</a></li>
-        <li class="l-footer__item"><a href="access.html">アクセス</a></li>
-        <li class="l-footer__item"><a href="privacy.html">個人情報保護方針</a></li>
-      </ul>
-    </nav>
+<?php include __DIR__ . '/../includes/footer.php'; ?>
 
-    <div class="l-footer__body">
-      <div class="l-footer__info">
-        <p class="l-footer__logo">
-          <img src="../img/common/logo02.png" alt="京 和装 WEDDING 華結び">
-        </p>
-        <address class="l-footer__address">
-          〒603-8217 京都府京都市北区紫野上門前町23<br>
-          TEL 075-491-2010 / 営業時間 10:00〜18:00
-        </address>
-      </div>
-
-      <div class="l-footer__side">
-        <ul class="l-footer__sns">
-          <li class="l-footer__sns-item">
-            <a class="l-footer__sns-link" href="#" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-                <rect x="3" y="3" width="18" height="18" rx="5" />
-                <circle cx="12" cy="12" r="4.2" />
-                <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none" />
-              </svg>
-            </a>
-          </li>
-          <li class="l-footer__sns-item">
-            <a class="l-footer__sns-link" href="#" aria-label="Facebook">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
-                <path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.5-1.5h1.6V3.6c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.4H7.7V13h2.7v8h3.1z" />
-              </svg>
-            </a>
-          </li>
-        </ul>
-        <p class="l-footer__copy">© 2018 華結び</p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="../js/main.js"></script>
+  <script src="/js/main.js"></script>
 </body>
 
 </html>

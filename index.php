@@ -1,17 +1,10 @@
+<?php
+$pageTitle = '';
+$fontWeights = '400';
+?>
 <!DOCTYPE html>
 <html lang="ja">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>華結び-模写</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cantata+One&family=Noto+Serif+JP:wght@400&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="css/destyle.css">
-  <link rel="stylesheet" href="css/style.css">
-</head>
+<?php include __DIR__ . '/includes/head.php'; ?>
 
 <body>
   <div class="p-mv">
@@ -20,36 +13,12 @@
     </div>
 
     <div class="p-mv__slider">
-      <img class="p-mv__slide is-active" src="img/top/img_pc_main01.png" alt="">
-      <img class="p-mv__slide" src="img/top/img_pc_main02.png" alt="">
-      <img class="p-mv__slide" src="img/top/img_pc_main03.png" alt="">
+      <img class="p-mv__slide is-active" src="/img/top/img_pc_main01.png" alt="">
+      <img class="p-mv__slide" src="/img/top/img_pc_main02.png" alt="">
+      <img class="p-mv__slide" src="/img/top/img_pc_main03.png" alt="">
     </div>
 
-    <header class="l-header">
-      <a class="l-header__logo-lg" href="/">
-        <img src="img/common/logo_nav01.png" alt="華結び">
-      </a>
-      <div class="l-header__inner">
-        <h1 class="l-header__logo">
-          <a href="/">
-            <img src="img/common/logo_nav01.png" alt="華結び">
-          </a>
-        </h1>
-        <nav class="l-header__nav">
-          <ul class="l-header__list">
-            <li class="l-header__item"><a href="pages/about.html">華結びについて</a></li>
-            <li class="l-header__item"><a href="pages/rental.html">レンタル衣装</a></li>
-            <li class="l-header__item"><a href="pages/production.html">衣装制作</a></li>
-            <li class="l-header__item"><a href="pages/first.html">初めての方へ</a></li>
-            <li class="l-header__item"><a href="pages/flow.html">ご利用の流れ</a></li>
-            <li class="l-header__item"><a href="pages/report.html">幸せレポート</a></li>
-            <li class="l-header__item"><a href="pages/faq.html">よくある質問</a></li>
-            <li class="l-header__item"><a href="pages/blog.html">ブログ</a></li>
-            <li class="l-header__item"><a href="pages/access.html">アクセス</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+<?php include __DIR__ . '/includes/header.php'; ?>
 
     <div class="p-price">
       <p class="p-price__label">特別価格</p>
@@ -69,30 +38,12 @@
 
   </div>
 
-  <!-- サイドバー: ビューポート固定。全ページ共通でスクロール中も右端に残す -->
-  <div class="p-side">
-    <div class="p-side__item p-side__item--contact">
-      <div class="p-side__tab">ご相談・来店予約</div>
-      <div class="p-side__panel">
-        <p class="p-side__lead">お急ぎの方はお電話で</p>
-        <p class="p-side__tel">TEL 075-491-2010</p>
-        <p class="p-side__hours">受付時間 9:00-18:00</p>
-        <a href="#" class="p-side__btn">ご相談・来店予約</a>
-      </div>
-    </div>
-    <div class="p-side__item p-side__item--mail">
-      <div class="p-side__tab">ご来店出来ない方へ</div>
-      <div class="p-side__panel">
-        <p class="p-side__lead">ご遠方に行けなくても大丈夫。<br>ご自宅に試着を郵送します。</p>
-        <a href="#" class="p-side__btn">宅配試着サービス</a>
-      </div>
-    </div>
-  </div>
+<?php include __DIR__ . '/includes/sidebar.php'; ?>
 
   <section class="p-intro">
     <div class="p-intro__inner">
       <p class="p-intro__logo">
-        <img src="img/top/img_intro01.png" alt="華結び">
+        <img src="/img/top/img_intro01.png" alt="華結び">
       </p>
       <h2 class="p-intro__title">身にまとう芸術品を、特別価格で花嫁に</h2>
       <p class="p-intro__text">
@@ -100,7 +51,7 @@
         その中でも、より洗練された技術の精品である婚礼衣装は、<br>
         まさに身にまとう芸術品です。<br>
         和装の本場、京都の製造卸直営「華結び」は、<br>
-        全国のみなさまへ上質なお衣装を特別価格でお届け致します。        
+        全国のみなさまへ上質なお衣装を特別価格でお届け致します。
       </p>
     </div>
   </section>
@@ -111,7 +62,7 @@
       <ul class="p-rental__bands">
         <li class="p-rental__band">
           <a class="p-rental__band-inner" href="#">
-            <img class="p-rental__band-img" src="img/top/bg_list_rental01_pc.jpg" alt="">
+            <img class="p-rental__band-img" src="/img/top/bg_list_rental01_pc.jpg" alt="">
             <div class="p-rental__card">
               <p class="p-rental__en">Irouchikake</p>
               <h3 class="p-rental__title">色打掛</h3>
@@ -121,7 +72,7 @@
         </li>
         <li class="p-rental__band p-rental__band--left">
           <a class="p-rental__band-inner" href="#">
-            <img class="p-rental__band-img" src="img/top/bg_list_rental02_pc.png" alt="">
+            <img class="p-rental__band-img" src="/img/top/bg_list_rental02_pc.png" alt="">
             <div class="p-rental__card">
               <p class="p-rental__en">Shiromuku</p>
               <h3 class="p-rental__title">白無垢</h3>
@@ -131,7 +82,7 @@
         </li>
         <li class="p-rental__band">
           <a class="p-rental__band-inner" href="#">
-            <img class="p-rental__band-img" src="img/top/bg_list_rental03_pc.jpg" alt="">
+            <img class="p-rental__band-img" src="/img/top/bg_list_rental03_pc.jpg" alt="">
             <div class="p-rental__card">
               <p class="p-rental__en">Hikifurisode</p>
               <h3 class="p-rental__title">引振袖</h3>
@@ -144,19 +95,19 @@
       <ul class="p-rental__subs">
         <li class="p-rental__sub">
           <a class="p-rental__sub-inner" href="#">
-            <img class="p-rental__sub-img" src="img/top/img_sub_rental01.jpg" alt="">
+            <img class="p-rental__sub-img" src="/img/top/img_sub_rental01.jpg" alt="">
             <span class="p-rental__sub-label"><span class="p-rental__sub-text">留袖</span></span>
           </a>
         </li>
         <li class="p-rental__sub">
           <a class="p-rental__sub-inner" href="#">
-            <img class="p-rental__sub-img" src="img/top/img_sub_rental02.jpg" alt="">
+            <img class="p-rental__sub-img" src="/img/top/img_sub_rental02.jpg" alt="">
             <span class="p-rental__sub-label"><span class="p-rental__sub-text">訪問着</span></span>
           </a>
         </li>
         <li class="p-rental__sub">
           <a class="p-rental__sub-inner" href="#">
-            <img class="p-rental__sub-img" src="img/top/img_sub_rental03.jpg" alt="">
+            <img class="p-rental__sub-img" src="/img/top/img_sub_rental03.jpg" alt="">
             <span class="p-rental__sub-label"><span class="p-rental__sub-text">振袖</span></span>
           </a>
         </li>
@@ -175,42 +126,42 @@
       <li class="p-belief__item">
         <p class="p-belief__num">01</p>
         <h3 class="p-belief__item-title">最高級の衣装を格安で</h3>
-        <img class="p-belief__img" src="img/top/img_belief01.jpg" alt="">
+        <img class="p-belief__img" src="/img/top/img_belief01.jpg" alt="">
         <p class="p-belief__text">全ての衣装の品質にこだわった商品ラインナップ。低価格で上質な婚礼衣装をご提供致します。</p>
         <a class="p-belief__btn" href="#">詳しく見る</a>
       </li>
       <li class="p-belief__item">
         <p class="p-belief__num">02</p>
         <h3 class="p-belief__item-title">京都最大級の衣装200点</h3>
-        <img class="p-belief__img" src="img/top/img_belief02.jpg" alt="">
+        <img class="p-belief__img" src="/img/top/img_belief02.jpg" alt="">
         <p class="p-belief__text">織物はもちろん染めや刺繍など、様々なタイプの衣装をご用意。色も豊富に取り扱っています。</p>
         <a class="p-belief__btn" href="#">レンタル衣装一覧</a>
       </li>
       <li class="p-belief__item">
         <p class="p-belief__num">03</p>
         <h3 class="p-belief__item-title">往復送料無料・持込み料一部負担</h3>
-        <img class="p-belief__img" src="img/top/img_belief03.jpg" alt="">
+        <img class="p-belief__img" src="/img/top/img_belief03.jpg" alt="">
         <p class="p-belief__text">全国の挙式会場へ大切なお衣装を送料無料でお送り致します。持ち込み料も華結びにお任せください。</p>
         <a class="p-belief__btn" href="#">詳しく見る</a>
       </li>
       <li class="p-belief__item">
         <p class="p-belief__num">04</p>
         <h3 class="p-belief__item-title">京町屋でゆっくりご試着</h3>
-        <img class="p-belief__img" src="img/top/img_belief04.jpg" alt="">
+        <img class="p-belief__img" src="/img/top/img_belief04.jpg" alt="">
         <p class="p-belief__text">華結びの店舗は大正末期に建てられた伝統的な京町家造り。庭を望む和室でお衣装選びをお楽しみください。</p>
         <a class="p-belief__btn" href="#">詳しく見る</a>
       </li>
       <li class="p-belief__item">
         <p class="p-belief__num">05</p>
         <h3 class="p-belief__item-title">着付け必要品全てセット</h3>
-        <img class="p-belief__img" src="img/top/img_belief05.jpg" alt="">
+        <img class="p-belief__img" src="/img/top/img_belief05.jpg" alt="">
         <p class="p-belief__text">婚礼衣装には着付けに必要なものがたくさん。華結びでは衣装と一緒に着付けセットも送り致します。</p>
         <a class="p-belief__btn" href="#">詳しく見る</a>
       </li>
       <li class="p-belief__item">
         <p class="p-belief__num">06</p>
         <h3 class="p-belief__item-title">宅配試着サービス</h3>
-        <img class="p-belief__img" src="img/top/img_belief06.jpg" alt="">
+        <img class="p-belief__img" src="/img/top/img_belief06.jpg" alt="">
         <p class="p-belief__text">遠方にお住まいでご来店が難しい方にも安心のサービス。ご希望のお衣装をご自宅でご試着いただけます。</p>
         <a class="p-belief__btn" href="#">ご来店できない方へ</a>
       </li>
@@ -224,19 +175,19 @@
   <section class="p-btn-field">
     <ul class="p-btn-field__list">
       <li class="p-btn-field__item">
-        <a class="p-btn-field__btn" href="pages/first.html">
+        <a class="p-btn-field__btn" href="/pages/first.php">
           <span class="p-btn-field__title">初めての方へ</span>
           <span class="p-btn-field__sub">和装レンタルのいろは</span>
         </a>
       </li>
       <li class="p-btn-field__item">
-        <a class="p-btn-field__btn" href="pages/flow.html">
+        <a class="p-btn-field__btn" href="/pages/flow.php">
           <span class="p-btn-field__title">ご利用の流れ</span>
           <span class="p-btn-field__sub">簡単5ステップ</span>
         </a>
       </li>
       <li class="p-btn-field__item">
-        <a class="p-btn-field__btn" href="pages/faq.html">
+        <a class="p-btn-field__btn" href="/pages/faq.php">
           <span class="p-btn-field__title">よくあるご質問</span>
           <span class="p-btn-field__sub">わかりやすくご説明</span>
         </a>
@@ -245,24 +196,24 @@
   </section>
 
   <section class="p-report">
-    <img class="p-report__deco" src="img/top/img_report01.png" alt="">
+    <img class="p-report__deco" src="/img/top/img_report01.png" alt="">
     <div class="p-report__head">
       <h2 class="p-report__title">
-        <img src="img/top/tit_report_pc.png" alt="最新の幸せレポート">
+        <img src="/img/top/tit_report_pc.png" alt="最新の幸せレポート">
       </h2>
       <p class="p-report__lead">華結びをご利用になったお二人からいただいたお写真です。</p>
     </div>
 
     <div class="p-report__slider">
       <button class="p-report__arrow p-report__arrow--prev" type="button" aria-label="前へ">
-        <img src="img/top/ico_prev01.png" alt="">
+        <img src="/img/top/ico_prev01.png" alt="">
       </button>
 
       <div class="p-report__viewport">
         <ul class="p-report__track">
           <li class="p-report__item">
             <a class="p-report__card" href="#">
-              <img class="p-report__img" src="img/top/report01.png" alt="">
+              <img class="p-report__img" src="/img/top/report01.png" alt="">
               <div class="p-report__body">
                 <p class="p-report__place">京都府　N様</p>
                 <p class="p-report__plan">和婚プラン</p>
@@ -272,7 +223,7 @@
           </li>
           <li class="p-report__item">
             <a class="p-report__card" href="#">
-              <img class="p-report__img" src="img/top/report02.png" alt="">
+              <img class="p-report__img" src="/img/top/report02.png" alt="">
               <div class="p-report__body">
                 <p class="p-report__place">大阪府　O様</p>
                 <p class="p-report__plan">京都前撮りプラン</p>
@@ -282,7 +233,7 @@
           </li>
           <li class="p-report__item">
             <a class="p-report__card" href="#">
-              <img class="p-report__img" src="img/top/report03.jpg" alt="">
+              <img class="p-report__img" src="/img/top/report03.jpg" alt="">
               <div class="p-report__body">
                 <p class="p-report__place">埼玉県　S様</p>
                 <p class="p-report__plan">和婚プラン</p>
@@ -292,7 +243,7 @@
           </li>
           <li class="p-report__item">
             <a class="p-report__card" href="#">
-              <img class="p-report__img" src="img/top/report04.jpg" alt="">
+              <img class="p-report__img" src="/img/top/report04.jpg" alt="">
               <div class="p-report__body">
                 <p class="p-report__place">福岡県　O様</p>
                 <p class="p-report__plan">和婚プラン</p>
@@ -302,7 +253,7 @@
           </li>
           <li class="p-report__item">
             <a class="p-report__card" href="#">
-              <img class="p-report__img" src="img/top/report05.jpg" alt="">
+              <img class="p-report__img" src="/img/top/report05.jpg" alt="">
               <div class="p-report__body">
                 <p class="p-report__place">兵庫県　S様</p>
                 <p class="p-report__plan">京都前撮りプラン</p>
@@ -314,12 +265,12 @@
       </div>
 
       <button class="p-report__arrow p-report__arrow--next" type="button" aria-label="次へ">
-        <img src="img/top/ico_next01.png" alt="">
+        <img src="/img/top/ico_next01.png" alt="">
       </button>
     </div>
 
     <div class="p-report__more">
-      <a class="p-report__more-btn" href="pages/report.html">最新の幸せレポートを見る</a>
+      <a class="p-report__more-btn" href="/pages/report.php">最新の幸せレポートを見る</a>
     </div>
   </section>
 
@@ -369,83 +320,22 @@
     <ul class="p-cta__list">
       <li class="p-cta__item">
         <a class="p-cta__link" href="#">
-          <img src="img/top/bnr_footer01.jpg" alt="京都 和装前撮り">
+          <img src="/img/top/bnr_footer01.jpg" alt="京都 和装前撮り">
         </a>
       </li>
       <li class="p-cta__item">
         <a class="p-cta__link" href="#">
-          <img src="img/top/bnr_footer02.jpg" alt="京都 神社結婚式">
+          <img src="/img/top/bnr_footer02.jpg" alt="京都 神社結婚式">
         </a>
       </li>
     </ul>
   </section>
 
-  <section class="p-map">
-    <iframe
-      class="p-map__frame"
-      src="https://maps.google.com/maps?q=%E4%B8%8A%E8%B3%80%E8%8C%82%E7%A5%9E%E7%A4%BE&output=embed"
-      title="アクセスマップ"
-      loading="lazy"
-      allowfullscreen></iframe>
-  </section>
+<?php include __DIR__ . '/includes/map.php'; ?>
 
-  <footer class="l-footer">
-    <nav class="l-footer__nav">
-      <a class="l-footer__pagetop" href="#" aria-label="ページトップへ戻る">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M5 15l7-7 7 7" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </a>
-      <ul class="l-footer__list">
-        <li class="l-footer__item"><a href="pages/about.html">華結びについて</a></li>
-        <li class="l-footer__item"><a href="pages/rental.html">レンタル衣装</a></li>
-        <li class="l-footer__item"><a href="pages/production.html">衣装制作</a></li>
-        <li class="l-footer__item"><a href="pages/first.html">初めての方へ</a></li>
-        <li class="l-footer__item"><a href="pages/flow.html">ご利用の流れ</a></li>
-        <li class="l-footer__item"><a href="pages/report.html">幸せレポート</a></li>
-        <li class="l-footer__item"><a href="pages/faq.html">よくある質問</a></li>
-        <li class="l-footer__item"><a href="pages/blog.html">ブログ</a></li>
-        <li class="l-footer__item"><a href="pages/access.html">アクセス</a></li>
-        <li class="l-footer__item"><a href="pages/privacy.html">個人情報保護方針</a></li>
-      </ul>
-    </nav>
+<?php include __DIR__ . '/includes/footer.php'; ?>
 
-    <div class="l-footer__body">
-      <div class="l-footer__info">
-        <p class="l-footer__logo">
-          <img src="img/common/logo02.png" alt="京 和装 WEDDING 華結び">
-        </p>
-        <address class="l-footer__address">
-          〒603-8217 京都府京都市北区紫野上門前町23<br>
-          TEL 075-491-2010 / 営業時間 10:00〜18:00
-        </address>
-      </div>
-
-      <div class="l-footer__side">
-        <ul class="l-footer__sns">
-          <li class="l-footer__sns-item">
-            <a class="l-footer__sns-link" href="#" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-                <rect x="3" y="3" width="18" height="18" rx="5" />
-                <circle cx="12" cy="12" r="4.2" />
-                <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none" />
-              </svg>
-            </a>
-          </li>
-          <li class="l-footer__sns-item">
-            <a class="l-footer__sns-link" href="#" aria-label="Facebook">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
-                <path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.5-1.5h1.6V3.6c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.4H7.7V13h2.7v8h3.1z" />
-              </svg>
-            </a>
-          </li>
-        </ul>
-        <p class="l-footer__copy">© 2018 華結び</p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/main.js"></script>
+  <script src="/js/main.js"></script>
 </body>
 
 </html>

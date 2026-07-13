@@ -1,5 +1,21 @@
 # WORKLOG
 
+## 2026-07-13
+
+- 静的HTML11ページ（`index.html` + `pages/*.html`）をPHP化
+  - 全ページの共通部分（ヘッダー・サイドバー・フッター・お問い合わせ・Googleマップ・子ページ共通4ボタン帯・パンくず・ページタイトル見出し）を突き合わせ、構造が完全一致することを確認（差分は `<body class>`・`<title>`・パンくず末尾・report.htmlのみフォントweight追加、の4点のみ）
+  - `includes/` を新設: `head.php`（`$pageTitle`/`$fontWeights`）・`header.php`（index専用大ロゴ）・`header-page.php`（子ページ共通）・`sidebar.php`・`page-title.php`（`$pageTitle`）・`breadcrumb.php`（`$breadcrumbLabel`）・`btn-field-page.php`・`contact.php`・`map.php`・`footer.php`。将来のWordPressテーマ化を見据え、ファイル名はWPのテンプレートパーツ規約に寄せた
+  - パスをルート相対（`/css/...` `/img/...` `/js/...` `/pages/xxx.php` `/index.php`）に統一。これにより index と子ページで include の中身を完全に同一にできた（`../` の有無で分岐させる`$base`変数等が不要に）
+  - `index.html`→`index.php`、`pages/*.html`→`pages/*.php` に変換。固有セクションの中身は無変更、パスのみ機械的に置換（sed抽出＋差分検証で転記ミスを防止）。report.htmlのみ `p-page-title` を使わず独自の `p-report-mv` のため page-title include は不使用
+  - 副産物: `pages/blog.html` の既存バグ（`<h2 class="p-contact__title">` 直後に余分な `</div>` があり `.p-contact__box` が途中で閉じてDOM構造が壊れていた。一括置換事故の取りこぼしと推測）を、共通 `contact.php` 化により自動解消
+  - 検証: 全PHPファイルをHerd付属PHP 8.4で構文チェック（`php -l`）、レンダリング結果を元HTMLと正規化diffして内容差分が空白・コメントのみであることを確認。旧`.html`11ファイルは削除（git管理下のため復元可能）
+  - `herd link` で `hanamusubi.test` として動作確認（全ページ200 OK）
+- WordPress環境を新規構築（`hanamusubi-wp/`。今回のPHP化とは別フォルダ、既存の模写サイトはそのまま維持）
+  - Herd無料版は`services`（MySQL等）がPro限定と判明。DBnginを導入しMySQL 9.7.1をローカルに用意（Windows版のMySQLは既知の不具合報告があるが、今回は問題なく動作）。データベース `hanamusubi_wp` を作成
+  - WP-CLI（`wp-cli.phar`、Herd付属PHPで実行）を導入。`core download --locale=ja`（初回はPHPのデフォルトmemory_limit 128MBで展開時にメモリ不足→`-d memory_limit=512M`で解消）→`config create`（DBngin接続情報）→`core install`（サイトタイトル・管理者アカウント）を実行し、日本語版WordPress 7.0.1のインストールが完了
+  - `herd link hanamusubi-wp` で `hanamusubi-wp.test` として公開。フロント200・管理画面302（ログイン画面へのリダイレクトで正常）を確認
+  - 次段階（未着手）: `includes/` のheader/footer/sidebarをテーマとして移植、about等をページテンプレート化、ブログ/幸せレポート/FAQを投稿タイプとして再設計
+
 ## 2026-06-30
 
 - フォルダ階層の見直し（可読性向上のリファクタ。CSS 出力結果は不変）

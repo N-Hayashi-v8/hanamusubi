@@ -11,6 +11,9 @@
 
 ## Next
 
+- [ ] `hanamusubi-wp`（WordPress環境）に `includes/` の header/footer/sidebar をテーマとして移植（`wp_head()`/`wp_footer()`・`wp_nav_menu()`対応）
+- [ ] about/rental/production/first/flow/access/privacy を固定ページ＋ページテンプレートに移植
+- [ ] ブログ・幸せレポート・FAQ の投稿タイプ設計（カスタム投稿タイプ＋ACF案）を確定
 - [ ] SNSアイコン（`l-footer`）を正式アイコン画像/SVGに差し替え
 - [ ] Googleマップ（`p-map`）の住所を実店舗に差し替え
 - [ ] object/component・utility の追加
@@ -21,6 +24,8 @@
 
 ## Done
 
+- [x] WordPress環境を新規構築（`hanamusubi-wp/`）: DBngin(MySQL)にデータベース`hanamusubi_wp`を作成、WP-CLIでWordPress本体（日本語版7.0.1）をダウンロード・`wp-config.php`生成・インストール実行、Herdで`hanamusubi-wp.test`としてlink。管理画面ログイン確認済み（テーマ移植は次タスク）
+- [x] 静的HTML11ページ（index + pages/配下10枚）をPHP化: 共通のヘッダー/サイドバー/フッター/お問い合わせ/Googleマップ/子ページ共通ボタン帯を `includes/*.php` に切り出し、各ページから include。パスをルート相対（`/css/` `/img/` `/js/` `/pages/*.php`）に統一。Herdで`hanamusubi.test`としてlinkし全ページ200 OKを確認。副産物として blog.html にあった既存バグ（`p-contact__box`内の余分な`</div>`によるDOM破損）を解消
 - [x] フォルダ階層の見直し（共通画像を `img/common` へ分離＋未参照デッド3ファイル削除／`scss/object/project` を common＋ページ別サブフォルダに再編し `@forward` 出力順は維持／HTML・SCSS・CSS の参照を一括更新／img/top・layout 等はフラット維持と確認）
 - [x] コメント整理（「要確認」マーカー・仮置き宣言を除去〔設計意図・事実メモは保持〕／figma・px の値メモ・装飾区切り線・説明なし hex メモを除去。計約500件。コードの値は不変）
 - [x] 全ページの仮置き（`// 要確認`）を現行値で確定版として採用し要確認コメントを除去（Figma 実値入手時に再検証）。旧 Now の各ページ実値化タスクをこの確定で集約クローズ
