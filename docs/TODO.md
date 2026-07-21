@@ -11,9 +11,8 @@
 
 ## Next
 
-- [ ] `hanamusubi-wp`（WordPress環境）に `includes/` の header/footer/sidebar をテーマとして移植（`wp_head()`/`wp_footer()`・`wp_nav_menu()`対応）
-- [ ] about/rental/production/first/flow/access/privacy を固定ページ＋ページテンプレートに移植
-- [ ] ブログ・幸せレポート・FAQ の投稿タイプ設計（カスタム投稿タイプ＋ACF案）を確定
+- [ ] パーマリンク設定を整備（現状 `?page_id=`/`?p=` のデフォルトのまま。全ページ・投稿タイプが揃ったので着手可能）
+- [ ] ブログ詳細ページ（`single.php`）のデザインをFigma確定後に反映（現状は共通chrome+本文のみの暫定実装）
 - [ ] SNSアイコン（`l-footer`）を正式アイコン画像/SVGに差し替え
 - [ ] Googleマップ（`p-map`）の住所を実店舗に差し替え
 - [ ] object/component・utility の追加
@@ -24,6 +23,10 @@
 
 ## Done
 
+- [x] ブログ・幸せレポート・FAQ の投稿タイプを実装: ブログ＝標準投稿(post)＋標準カテゴリー（`page-blog.php`＝2カラムカード一覧＋カテゴリ絞り込み＋ページング、`single.php`は暫定デザイン）／FAQ＝カスタム投稿タイプ`faq`＋カスタムタクソノミー`faq_category`（`page-faq.php`＝6カテゴリ×アコーディオン、22問）／幸せレポート＝カスタム投稿タイプ`report`＋ACF（`page-report.php`＝地域・プラン・サムネGallery・お客様/スタッフコメント）。ACFプラグイン（無料版）導入、フィールド定義は管理画面UIでなく`functions.php`にコードで登録。テストデータ投入済み（ブログ10件・FAQ22件・レポート3件）。ヘッダー/フッターメニューを実ページへ接続
+- [x] about/rental/production/first/flow/access/privacy の7ページを固定ページ＋ページテンプレート（`page-*.php`）として移植。`functions.php`にテンプレート名からのbody class自動付与を追加（`page-rental.php`→`rental-page`）しSCSS側の地色指定（`.rental-page`等）と対応
+- [x] `hanamusubi-wp`にテーマ`hanamusubi`を新規作成し `includes/` の header/footer/sidebar を移植: `header.php`は共通`<head>`のみ、大ロゴ(トップ)/小ロゴ(子ページ)の`<header>`は`template-parts/site-header(-front).php`に分離。`wp_head()`/`wp_footer()`/`wp_nav_menu()`対応。ヘッダー9項目・フッター10項目（個人情報保護方針を含む）で異なるため`primary`/`footer`の2ロケーションを登録し、`nav_menu_css_class`フィルターでWP既定classを静的サイトのBEM class（`l-header__item`等）に置換
+- [x] WordPress環境を再構築（社用PCへの移行に伴い `hanamusubi-wp/` 一式が引き継がれていなかったため作り直し）: WP-CLI導入・DB`hanamusubi_wp`作成・WordPress 7.0.2(ja)インストール・`herd link`で`hanamusubi-wp.test`公開。管理者アカウントは仮値（admin / 要変更）
 - [x] WordPress環境を新規構築（`hanamusubi-wp/`）: DBngin(MySQL)にデータベース`hanamusubi_wp`を作成、WP-CLIでWordPress本体（日本語版7.0.1）をダウンロード・`wp-config.php`生成・インストール実行、Herdで`hanamusubi-wp.test`としてlink。管理画面ログイン確認済み（テーマ移植は次タスク）
 - [x] 静的HTML11ページ（index + pages/配下10枚）をPHP化: 共通のヘッダー/サイドバー/フッター/お問い合わせ/Googleマップ/子ページ共通ボタン帯を `includes/*.php` に切り出し、各ページから include。パスをルート相対（`/css/` `/img/` `/js/` `/pages/*.php`）に統一。Herdで`hanamusubi.test`としてlinkし全ページ200 OKを確認。副産物として blog.html にあった既存バグ（`p-contact__box`内の余分な`</div>`によるDOM破損）を解消
 - [x] フォルダ階層の見直し（共通画像を `img/common` へ分離＋未参照デッド3ファイル削除／`scss/object/project` を common＋ページ別サブフォルダに再編し `@forward` 出力順は維持／HTML・SCSS・CSS の参照を一括更新／img/top・layout 等はフラット維持と確認）

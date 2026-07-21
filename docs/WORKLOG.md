@@ -1,5 +1,42 @@
 # WORKLOG
 
+## 2026-07-21
+
+- 社用PCでの作業開始にあたり環境を確認・整備
+  - Herd・PHPが未検出（`php`/`herd`コマンドがPATH無し）。ユーザーがHerd/DBnginを起動後に再確認したところ、Herd自体は`C:\Users\hayashi\.config\herd`に導入済み（PHP 8.4.23）でPATH未通過のみと判明。`hanamusubi`サイトはHerdのvalet Sitesに既にリンク済みで動作確認
+  - `hanamusubi-wp/`（WordPress環境）はこのPCの`htdocs`配下に存在せず、DBnginのMySQLも`hanamusubi_wp`データベースが無い空インスタンスと判明。前回PC（2026-07-13作業）の環境がGit管理外のため引き継がれていなかった
+  - Pythonが未導入（`WindowsApps`のストア誘導スタブのみ実体無し）だったため、winget で Python 3.13.14 を導入（本プロジェクトはPHP/SCSSでPython非依存だが、社用PC全般のツールとして）
+  - VSCode組み込みPHP機能の「PHPのインストールが見つからない」通知に対応: ユーザー設定`settings.json`に`php.validate.executablePath`を追加（Herdの`php84/php.exe`を指定）。Intelephenseとは別の組み込み機能である点を確認
+- WordPress環境（`hanamusubi-wp/`）を再構築
+  - `wp-cli.phar`を配置、DBnginのMySQLに`hanamusubi_wp`データベースを作成（PHPの`mysqli`で直接作成。root/パス無し接続を確認）
+  - `wp core download --locale=ja`（WordPress 7.0.2）→`wp config create`→`wp core install`（サイトタイトル「華結び-模写」、管理者は仮アカウント admin/hanamusubi-dev・要変更）
+  - `herd link hanamusubi-wp`で`hanamusubi-wp.test`として公開。フロント・管理画面とも200を確認（Windows PowerShell 5.1は`-SkipCertificateCheck`未対応のためHTTPで確認）
+- テーマ`hanamusubi`を新規作成し`includes/`のheader/footer/sidebarを移植（`docs/TODO.md` Next 1件目）
+  - `css/`・`img/`・`js/`を静的サイトからテーマ配下へ丸ごとコピー（robocopy。終了コード1は「コピー成功」を意味し異常ではない）
+  - `header.php`は共通の`<!DOCTYPE>`〜`wp_head()`〜`<body>`のみとし、大ロゴ(トップ)/小ロゴ(子ページ)の`<header>`タグ自体は`template-parts/site-header.php`・`site-header-front.php`に分離（重複を持たせない設計）。`sidebar.php`・`footer.php`（`wp_footer()`込み）も移植
+  - `template-parts/page-title.php`・`breadcrumb.php`は`get_template_part()`の`$args`でタイトル・パンくずラベルを受け取る可変パーツに。`btn-field-page.php`・`contact.php`・`map.php`は静的パーツをそのまま移植
+  - `front-page.php`に`index.php`のトップページ内容を移植。`page.php`・`index.php`（フォールバック用、WordPressテーマ必須ファイル）も作成
+  - `functions.php`: `wp_enqueue_style/script`でdestyle/style.css・Google Fonts・main.js読込、`register_nav_menus`
+  - `wp theme activate`は初回「独立したテーマには`index.php`が必要」エラー→追加して解消。有効化後、トップページ・検証用固定ページで全セクション200・PHP警告なしを確認（検証用ページは確認後削除）
+- about/rental/production/first/flow/access/privacyの7ページを固定ページ化（`docs/TODO.md` Next 2件目）
+  - 各`pages/xxx.php`の固有セクションをそのまま`page-xxx.php`（`Template Name`コメント付き）に移植。画像パスは`get_template_directory_uri()`基準、`href="/pages/xxx.php"`は`home_url()`基準に変更
+  - rental/blog/faq/flow/report/access/privacyは静的サイトで`<body class="xxx-page">`により地色を出していたため、`functions.php`に`hanamusubi_body_classes()`を追加: ページテンプレート名（`page-rental.php`）から自動で`rental-page`等のbody classを付与するフィルターとし、ページごとの個別対応を不要にした
+  - 7ページとも固定ページを作成しテンプレートを割り当て、200・PHP警告なし・セクション数/画像パスを確認
+- ヘッダー/フッターのナビメニューを構築
+  - 静的サイトはヘッダー9項目・フッター10項目（個人情報保護方針はフッターのみ）と項目数が異なるため、`register_nav_menus`に`primary`（ヘッダー）と`footer`の2ロケーションを用意し、`footer.php`の参照を`footer`ロケーションに変更
+  - WP-CLIで「ヘッダーメニュー」「フッターメニュー」の2メニューを作成しそれぞれ割り当て。当初`wp menu location assign header-menu primary`のようにスラッグを推測したが日本語名はURLエンコードされたスラッグになるため失敗→`term_id`（3, 4）で指定し解決
+  - `wp_nav_menu()`の`items_wrap`は`<ul>`の class しか制御できず、各`<li>`はWP既定の`menu-item-xx`系classになり静的サイトのSCSSが想定する`l-header__item`/`l-footer__item`が付かない問題が発覚→`nav_menu_css_class`フィルターを追加し、ロケーションに応じてclassを完全に置換
+- ブログ・幸せレポート・FAQ の投稿タイプを設計・実装（`docs/TODO.md` Next 3件目）
+  - 型は用途に応じて使い分け: ブログ＝標準投稿(post)＋標準カテゴリー（新規CPT不要と判断）／FAQ＝カスタム投稿タイプ`faq`＋カスタムタクソノミー`faq_category`（質問=タイトル・回答=本文で足りるためACF不要）／幸せレポート＝カスタム投稿タイプ`report`＋ACF（地域・プラン・サムネ4枚・コメント2種という定型の繰り返し項目があるため）
+  - ACF（Advanced Custom Fields 無料版）をWP-CLIで導入・有効化。フィールド定義は管理画面UIで作らず`functions.php`内で`acf_add_local_field_group()`によりコード定義（Git管理下に残り環境間で再現できるようにするため）。メイン写真はACFフィールドを増やさずアイキャッチ（thumbnail）を流用
+  - `page-blog.php`: `WP_Query`＋`paged`/`cat`クエリ引数で2カラムカード一覧・カテゴリ絞り込み・ページングを実装（静的サイトでは`href="#"`仮置きだった部分が、動的化により追加コストなしで実際に機能するようになった）。`single.php`はデザイン未確定のため共通chrome+本文のみの暫定実装
+  - `page-faq.php`: カテゴリ用配列のslugをアンカー用id（`q-costume`等）と一致させ、静的サイトのページ内ナビをそのまま流用。アコーディオンJS（`js/main.js`の`.p-faq__q`セレクタ）は無変更で動作
+  - `page-report.php`: ACFのgalleryフィールド・textareaフィールドから出力。コメントは`nl2br()`で改行を保持
+  - テストデータ投入は個別のWP-CLI呼び出しではなく、`wp-load.php`を読み込む使い捨てPHPスクリプト（scratchpad）で一括実行（日本語テキストを含む大量データをシェル引数で渡す際の引用符崩れを回避するため）。画像は`wp_insert_attachment`+`wp_generate_attachment_metadata`でメディアライブラリに取り込み。ブログ10件・FAQ22件・レポート3件（サムネ計12枚）を投入し、レンダリング結果を確認
+  - ブログ1件目のカテゴリ表記が元データで「衣装ご来店のお客様」となっており、サイドバーの9カテゴリ名（「衣装ご利用のお客様」）と不一致だったため、サイドバー側の名称に正規化して登録
+  - ヘッダー/フッターメニューの「幸せレポート」「よくある質問」「ブログ」を`/pages/xxx.php`の仮リンクから実ページへ更新
+- `docs/TODO.md`を更新: Next の3件（テーマ移植／固定ページ化／投稿タイプ設計）をDoneへ移動し集約クローズ。新たに気づいた残作業（パーマリンク整備・ブログ詳細デザイン）をNextへ追記
+
 ## 2026-07-13
 
 - 静的HTML11ページ（`index.html` + `pages/*.html`）をPHP化
